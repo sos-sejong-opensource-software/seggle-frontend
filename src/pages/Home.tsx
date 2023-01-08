@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import Label from "../components/Label";
 import Form from "../components/Form";
+import Modal from "../components/Modal";
 
 const Home = () => {
   return (
@@ -19,6 +20,9 @@ const Home = () => {
 
       <h1 className="text-3xl text-blue-400 px-3 py-3">Form</h1>
       <Form todo="form" setTodo={() => console.log("This is form")}></Form>
+
+      <h1 className="text-3xl text-blue-400 px-3 py-3">Modal</h1>
+      <Modal></Modal>
 
     </>
   );
