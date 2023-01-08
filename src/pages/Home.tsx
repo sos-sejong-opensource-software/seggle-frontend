@@ -1,10 +1,15 @@
+import React from "react";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import Label from "../components/Label";
 import Form from "../components/Form";
 import Modal from "../components/Modal";
+import Pagination from "../components/Pagination";
 
-const Home = () => {
+export default function Home () {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const lastPage = 20;
+
   return (
     <>
      <h1 className="text-3xl text-blue-400 px-3 py-3">Button</h1>
@@ -24,8 +29,13 @@ const Home = () => {
       <h1 className="text-3xl text-blue-400 px-3 py-3">Modal</h1>
       <Modal></Modal>
 
+      <h1 className="text-3xl text-blue-400 px-3 py-3">Pagination</h1>
+      <Pagination
+        currentPage={currentPage}
+        lastPage={lastPage}
+        maxLength={7}
+        setCurrentPage={setCurrentPage}
+      />    
     </>
   );
 };
-
-export default Home;
