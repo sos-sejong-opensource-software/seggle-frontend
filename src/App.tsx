@@ -1,10 +1,16 @@
-import Button from "./components/Button";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Board from './pages/Board';
 
 const App = () => {
   return (
-    <Button additionalProps="Hello World" onClick={() => console.log("Button Clicked")}>
-      저장
-    </Button>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/board" element={<Board/>} />
+      </Routes>
+    </div>
   );
 };
 

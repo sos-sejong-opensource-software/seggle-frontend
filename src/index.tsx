@@ -1,13 +1,12 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'; // * BrowserRouter 불러오기
 import App from './App';
 import './style/index.css';
 
-const root = document.getElementById('root') as HTMLElement;
-
-createRoot(root).render(
-  <StrictMode>
+ReactDOM.render(
+  <BrowserRouter>
     <App />
-  </StrictMode>
+  </BrowserRouter>,
+  document.getElementById('root')
 );
