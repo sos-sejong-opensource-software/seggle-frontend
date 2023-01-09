@@ -1,11 +1,13 @@
-interface LabelProps {
-  desc: string;
-}
+import { tw } from '@/utils/tailwindMerge';
 
-export default function Label({desc}: LabelProps) {
-    return (
-      <div>
-        <label className="text-gray-500">{desc}</label>
+type LabelProps<T extends React.ElementType> = Component<T>;
+
+export function Label({ className, children, ...props }: LabelProps<'label'>) {
+  return (
+    <div>
+      <label className={tw('text-gray-500', className)} {...props}>
+        {children}
+      </label>
     </div>
-    )
-}       
+  );
+}

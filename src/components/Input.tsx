@@ -1,22 +1,16 @@
-import React from "react";
+import { tw } from '@/utils/tailwindMerge';
 
-interface Props {
-  desc: string;
-  setTodo: React.Dispatch<React.SetStateAction<string>>;
-}
+type InputProps<T extends React.ElementType> = Component<T>;
 
-const Input: React.FC<Props> = ({ desc, setTodo }: Props) => {
+export function Input({ className, onChange, ...props }: InputProps<'input'>) {
   return (
-      <input 
-        type="input" placeholder={desc} 
-        onChange={(e) => setTodo(e.target.value)} 
-        className="appearance-none rounded-none relative block
-        px-3 py-2 border border-gray-300
-        placeholder-gray-500 text-gray-900 rounded-b-md
-        focus:outline-none focus:ring-indigo-500
-        focus:border-indigo-500 focus:z-10 sm:text-sm"
-        />
+    <input
+      className={tw(
+        'appearance-none rounded-none relative block px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm',
+        className
+      )}
+      onChange={onChange}
+      {...props}
+    />
   );
-};
-
-export default Input;
+}
