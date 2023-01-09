@@ -1,7 +1,6 @@
-import React from "react";
-import Button from "../components/Button";
-import Input from "../components/Input";
-import Label from "../components/Label";
+import React from 'react';
+
+import { Button, Input, Label } from '@/components';
 
 interface Props {
   todo: string;
@@ -10,10 +9,10 @@ interface Props {
 
 const Form: React.FC<Props> = ({ todo, setTodo }: Props) => {
   return (
-    <form className="input">
-      <Label desc="문제 제목"></Label>
-      <Input desc="문제명을 입력해주세요" setTodo={() => console.log("Input")}></Input>
-      <Button additionalProps="This is button" onClick={() => console.log("Button Clicked")} type="submit">
+    <form>
+      <Label>문제 제목</Label>
+      <Input placeholder="문제명을 입력해주세요onChange={() => console.log('Input')}" />
+      <Button type="submit" onClick={() => console.log('Button Clicked')}>
         문제 등록
       </Button>
     </form>
