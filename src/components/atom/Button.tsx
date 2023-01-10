@@ -6,7 +6,7 @@ export function Button({ className, children, ...props }: ButtonProps<'button'>)
   return (
     <button
       className={tw(
-        'inline-block rounded-lg bg-primary-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-primary-600 hover:bg-primary-700 hover:ring-primary-700',
+        'inline-block rounded-lg bg-primary-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-primary-600 hover:bg-primary-700 hover:ring-primary-700 disabled:bg-disabled-300 disabled:ring-disabled-300',
         className
       )}
       {...props}
