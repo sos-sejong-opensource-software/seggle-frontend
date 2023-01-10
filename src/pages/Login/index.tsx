@@ -1,4 +1,4 @@
-import { Heading } from '@/components/atoms';
+import { ErrorMessage, Heading } from '@/components';
 import { PAGE } from '@/constants';
 
 import { useInput, useLogin } from './hooks';
@@ -36,10 +36,10 @@ export default function Login() {
   };
 
   return (
-    <>
-      <Heading>{PAGE['LOGIN']}</Heading>
+    <div className="container max-w-md mx-auto">
+      <Heading className="text-2xl font-bold">{PAGE['LOGIN']}</Heading>
       <AuthForm mode="login" inputList={inputList} onSubmit={handleFormSubmit} />
-      {isError && <p>{LOGIN_ERROR.LOGIN_FAILED}</p>}
-    </>
+      {isError && <ErrorMessage className="mt-4">{LOGIN_ERROR.LOGIN_FAILED}</ErrorMessage>}
+    </div>
   );
 }
