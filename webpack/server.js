@@ -1,3 +1,7 @@
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
 const devServer = {
   host: 'localhost',
   port: 8000,
@@ -14,6 +18,9 @@ const devServer = {
   },
   watchFiles: {
     paths: ['src/**/*.*', 'public/**/*.*'],
+  },
+  proxy: {
+    '/api': process.env.API_URL,
   },
 };
 
