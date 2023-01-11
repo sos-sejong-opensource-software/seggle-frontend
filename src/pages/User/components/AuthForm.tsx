@@ -1,35 +1,34 @@
 import { Label, Input, Button, ErrorMessage } from '@/components';
 import { PAGE } from '@/constants';
 
-import { LOGIN_ERROR, REGISTER_ERROR } from '../constants';
-import { useInput } from '../hooks';
+import { LOGIN_ERROR, REGISTER_ERROR, INPUT } from '../constants';
+import { useAuthForm } from '../hooks';
 
 type AuthFormProps = {
   mode: 'login' | 'register';
-  inputList: (ReturnType<typeof useInput> & { id: string; label: string; valid(): boolean })[];
-  onSubmit: (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => Promise<void>;
+  inputList: ReturnType<typeof useAuthForm>;
+  onSubmit: (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => void;
 };
 
 export function AuthForm({ mode, inputList, onSubmit }: AuthFormProps) {
   const ERROR_MESSAGE = mode === 'login' ? LOGIN_ERROR : REGISTER_ERROR;
 
-  const isFormValid = inputList.every((input) => input.valid());
+  const isFormValid = Object.values(inputList).every(({ value, error }) => value && !error);
 
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-3">
-      {inputList.map(({ id, label, value, setValue, error, setError, valid }, index) => (
+      {Object.entries(inputList).map(([key, { type, value, error, handleInputChange }]) => (
         <>
-          <Label htmlFor={id}>{label}</Label>
+          <Label htmlFor={key}>{INPUT[key.toUpperCase()]}</Label>
           <Input
-            type={id.includes('password') ? 'password' : undefined}
-            id={id}
+            type={type}
+            id={key}
             value={value}
-            onChange={({ target: { value } }) => {
-              setValue(value);
-              setError(!valid.call(inputList[index]));
+            onChange={(e) => {
+              handleInputChange(e, inputList.password.value);
             }}
           />
-          {error && <ErrorMessage>{ERROR_MESSAGE[id.toUpperCase()]}</ErrorMessage>}
+          {error && <ErrorMessage>{ERROR_MESSAGE[key.toUpperCase()]}</ErrorMessage>}
         </>
       ))}
       <Button disabled={!isFormValid}>{PAGE[mode.toUpperCase()]}</Button>

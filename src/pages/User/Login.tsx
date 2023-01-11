@@ -1,44 +1,26 @@
 import { ErrorMessage, Heading } from '@/components';
 import { PAGE } from '@/constants';
 
-import { useInput, useLogin } from './hooks';
+import { useAuthForm, useLogin } from './hooks';
 import { AuthForm } from './components';
 import { LOGIN_ERROR } from './constants';
 
+const MODE = 'login';
+
 export default function Login() {
-  const username = useInput();
-  const password = useInput();
+  const inputList = useAuthForm(MODE);
   const { mutate, isError } = useLogin();
 
-  const inputList = [
-    {
-      id: 'username',
-      label: '아이디',
-      valid() {
-        return this?.value?.length >= 5;
-      },
-      ...username,
-    },
-    {
-      id: 'password',
-      label: '비밀번호',
-      valid() {
-        return this.value.length >= 8;
-      },
-      ...password,
-    },
-  ];
-
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    mutate({ username: username.value, password: password.value });
+    const [username, password] = Object.values(inputList).map(({ value }) => value);
+    mutate({ username, password });
   };
 
   return (
     <div className="container max-w-md mx-auto">
       <Heading className="text-2xl font-bold">{PAGE['LOGIN']}</Heading>
-      <AuthForm mode="login" inputList={inputList} onSubmit={handleFormSubmit} />
+      <AuthForm mode={MODE} inputList={inputList} onSubmit={handleFormSubmit} />
       {isError && <ErrorMessage className="mt-4">{LOGIN_ERROR.LOGIN_FAILED}</ErrorMessage>}
     </div>
   );
