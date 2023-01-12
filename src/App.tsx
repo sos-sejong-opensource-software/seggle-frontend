@@ -1,16 +1,15 @@
-//import { FC } from 'react';
-import Header from './components/molecules/Header';
-
-import Contest from './components/pages/Contest';
-import Class from './components/pages/Class';
-import Board from './components/pages/Board';
-import Announcements from './components/pages/Announcements';
-import Faq from './components/pages/Faq';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Header from './components/molecules/Header';
+import Contest from './pages/Contest';
+import Class from './pages/Class';
+import Board from './pages/Board';
+import Announcements from './pages/Announcements';
+import Faq from './pages/Faq';
+
 function App() {
   return (
-    <>
-      {/* Routes : 각각의 페이지를 스위치하는 역할 */}
+    <div>
       <Header />
       <Routes>
         <Route path="/contest" element={<Contest />} />
@@ -19,7 +18,7 @@ function App() {
         <Route path="/announcements" element={<Announcements />} />
         <Route path="/faq" element={<Faq />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
