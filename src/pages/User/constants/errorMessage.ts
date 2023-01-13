@@ -1,6 +1,6 @@
 export const LOGIN_ERROR: { [key: string]: string } = {
   USERNAME: '아이디는 4자 이상 20자 이하입니다.',
-  PASSWORD: '비밀번호는 8자 이상입니다.',
+  PASSWORD: '비밀번호는 영문자, 숫자 포함 8자 이상입니다.',
   LOGIN_FAILED: '아이디 또는 비밀번호를 잘못 입력하였습니다.',
 };
 
