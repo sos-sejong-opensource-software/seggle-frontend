@@ -12,3 +12,9 @@ type LoginResponse = {
   access: string;
   refresh: string;
 };
+
+type RegisterRequest = {
+  name: string;
+  email: string;
+  password2: string;
+} & User;
