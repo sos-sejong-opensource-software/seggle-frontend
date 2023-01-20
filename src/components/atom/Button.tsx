@@ -1,12 +1,32 @@
 import { tw } from '@/utils/tailwindMerge';
 
-type ButtonProps<T extends React.ElementType> = Component<T>;
+type ButtonColor = 'primary' | 'success' | 'error';
+type ButtonProps<T extends React.ElementType> = Component<T> & {
+  color?: ButtonColor;
+};
 
-export function Button({ className, children, ...props }: ButtonProps<'button'>) {
+export function Button({
+  color = 'primary',
+  className,
+  children,
+  ...props
+}: ButtonProps<'button'>) {
+  const buttonColor = {
+    primary: 'bg-primary-100 text-primary-500 hover:bg-primary-200 hover:ring-primary-200',
+    success: 'bg-success-100 text-success-500 hover:bg-success-200 hover:ring-success-200',
+    error: 'bg-error-100 text-error-500 hover:bg-error-200 hover:ring-error-200',
+  };
   return (
     <button
       className={tw(
-        'inline-block rounded-lg bg-primary-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-primary-600 hover:bg-primary-700 hover:ring-primary-700 disabled:bg-disabled-300 disabled:ring-disabled-300',
+        `inline-block px-4 py-1.5
+          rounded-lg
+          shadow-sm
+          text-base leading-7 font-semibold
+          disabled:bg-disabled-300 disabled:ring-disabled-300
+          ease-linear transition-all duration-150
+        `,
+        buttonColor[color],
         className
       )}
       {...props}

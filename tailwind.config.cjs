@@ -19,6 +19,7 @@ module.exports = {
     extend: {
       colors: {
         primary: colors.indigo,
+        success: colors.emerald,
         error: colors.red,
         disabled: colors.slate,
       },
