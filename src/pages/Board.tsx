@@ -1,7 +1,5 @@
-import React from 'react';
+import { Button } from '@/components';
 
-const Board = () => {
-  return <div>Board</div>;
-};
-
-export default Board;
+export default function Board() {
+  return <Button onClick={() => console.log('Button Clicked')}>글쓰기</Button>;
+}
