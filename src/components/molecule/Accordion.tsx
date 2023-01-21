@@ -2,35 +2,40 @@ import { tw } from '@/utils/tailwindMerge';
 import { Heading } from '@/components';
 
 type AccordionProps<T extends React.ElementType> = Component<T> & {
-  accordions: {
+  details: {
     id: number;
     title: React.ReactNode;
     content: React.ReactNode;
   }[];
 };
+type AccordionItemProps<T extends React.ElementType> = Component<T>;
 
-export function Accordion({ accordions, className, ...props }: AccordionProps<'div'>) {
+export function Accordion({ details, className, ...props }: AccordionProps<'details'>) {
   return (
-    <div
-      className={tw(
-        'p-5 rounded-2xl shadow-[0_12px_20px_6px_rgb(0,0,0,0.1)] cursor-pointer',
-        className
-      )}
-      {...props}
-    >
-      {accordions?.map(({ id, title, content }) => (
-        <details key={id} className="group py-3">
-          <summary className="flex justify-between items-center">
-            <Heading as="h5" className="font-semibold">
-              {title}
-            </Heading>
-            <ArrowIcon />
-          </summary>
-          <div className="pt-4 text-gray-600">{content}</div>
+    <div className="p-5 rounded-2xl shadow-[0_12px_20px_6px_rgb(0,0,0,0.1)] cursor-pointer">
+      {details?.map(({ id, title, content }) => (
+        <details key={id} className={tw('group py-3', className)} {...props}>
+          <AccordionTitle>{title}</AccordionTitle>
+          <AccordionContent>{content}</AccordionContent>
         </details>
       ))}
     </div>
   );
+}
+
+function AccordionTitle({ children }: AccordionItemProps<'summary'>) {
+  return (
+    <summary className="flex justify-between items-center">
+      <Heading as="h5" className="font-semibold">
+        {children}
+      </Heading>
+      <ArrowIcon />
+    </summary>
+  );
+}
+
+function AccordionContent({ children }: AccordionItemProps<'div'>) {
+  return <div className="pt-4 text-gray-600">{children}</div>;
 }
 
 function ArrowIcon() {
