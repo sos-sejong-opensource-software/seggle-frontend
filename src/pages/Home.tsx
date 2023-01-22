@@ -30,11 +30,18 @@ export default function Home() {
     },
   ];
   const column = [
-    { name: '#', key: 'id' },
-    { name: 'ID', key: 'name' },
-    { name: '이메일', key: 'email' },
-    { name: '이름', key: 'username' },
+    { Header: '#', accessor: 'id' },
+    { Header: 'ID', accessor: 'name' },
+    { Header: '이메일', accessor: 'email' },
+    { Header: '이름', accessor: 'username' },
   ];
+
+  const handleRowClick = (
+    e: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
+    id: number | string
+  ) => {
+    console.log(id);
+  };
 
   return (
     <>
@@ -53,6 +60,9 @@ export default function Home() {
       <h1 className="text-3xl text-blue-400 px-3 py-3">Modal</h1>
       <Modal open={false}></Modal>
 
+      <h1 className="text-3xl text-blue-400 px-3 py-3">Table</h1>
+      <Table column={column} data={data} onRowClick={handleRowClick} />
+
       <h1 className="text-3xl text-blue-400 px-3 py-3">Pagination</h1>
       <Pagination
         currentPage={currentPage}
@@ -60,9 +70,6 @@ export default function Home() {
         maxLength={7}
         setCurrentPage={setCurrentPage}
       />
-
-      <h1 className="text-3xl text-blue-400 px-3 py-3">Table</h1>
-      <Table column={column} data={data} />
     </>
   );
 }

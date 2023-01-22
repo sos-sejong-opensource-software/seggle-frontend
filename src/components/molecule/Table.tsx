@@ -1,20 +1,22 @@
 import { tw } from '@/utils/tailwindMerge';
 import React from 'react';
+import './Table.css';
 
 type TableProps<T extends React.ElementType> = Component<T> & {
-  column: Array<{ name: string; key: string }>;
-  data: Array<object>;
+  column: Array<{ Header: string; accessor: string }>;
+  data: Array<{ id: string | number } & object>;
+  onRowClick: (e: React.MouseEvent<HTMLTableRowElement, MouseEvent>, id: number | string) => void;
 };
 
 type TheadProps = {
-  column: Array<{ name: string; key: string }>;
+  column: Array<{ Header: string; accessor: string }>;
 };
 
-export function Table({ column, data, className }: TableProps<'table'>) {
+export function Table({ column, data, onRowClick, className }: TableProps<'table'>) {
   return (
     <table className={tw('table-auto w-full text-m text-center', className)}>
       <Thead column={column}></Thead>
-      <Tbody column={column} data={data}></Tbody>
+      <Tbody column={column} data={data} onRowClick={onRowClick}></Tbody>
     </table>
   );
 }
@@ -23,10 +25,10 @@ function Thead({ column }: TheadProps) {
   return (
     <thead className="text-m uppercase bg-primary-200">
       <tr>
-        {column.map(({ name, key }) => {
+        {column.map(({ Header, accessor }) => {
           return (
-            <th scope="col" className="py-3" key={key}>
-              {name}
+            <th scope="col" className="py-3" key={accessor}>
+              {Header}
             </th>
           );
         })}
@@ -35,15 +37,19 @@ function Thead({ column }: TheadProps) {
   );
 }
 
-function Tbody({ column, data }: TableProps<'table'>) {
+function Tbody({ column, data, onRowClick }: TableProps<'table'>) {
   return (
     <tbody className="bg-white border-b">
       {Object.entries(data).map(([key, value]) => (
-        <tr key={key} className="border-b border-primary-100">
-          {column.map(({ key }) => {
+        <tr
+          key={key}
+          className="border-b border-primary-100 table-row"
+          onClick={(e) => onRowClick(e, value['id'])}
+        >
+          {column.map(({ accessor }) => {
             return (
-              <td className="py-3" key={key}>
-                {value[key as keyof typeof value]}
+              <td className="py-3" key={accessor}>
+                {value[accessor as keyof typeof value]}
               </td>
             );
           })}
