@@ -11,7 +11,7 @@ export function MainHeader() {
   };
 
   const menuList = [
-    { name: '대회', to: PATH.COMPETITON_LIST },
+    { name: '대회', to: PATH.COMPETITION_LIST },
     { name: '수업', to: PATH.CLASS_LIST },
     { name: '건의게시판', to: PATH.BOARD_LIST },
     { name: '공지사항', to: PATH.ANNOUNCEMENT_LIST },
@@ -19,14 +19,14 @@ export function MainHeader() {
   ];
 
   return (
-    <Header className="sticky flex top-0 h-16 w-full z-50 shadow-[0_12px_20px_6px_rgb(0,0,0,0.05)]">
+    <Header className="sticky flex top-0 h-16 w-full z-50 bg-white shadow-[0_12px_20px_6px_rgb(0,0,0,0.05)]">
       <nav className="flex flex-wrap items-center justify-between w-full px-4 sm:px-8">
         <Header.ToggleButton on={showMenu} onClick={handleButtonClick} className="sm:hidden" />
         <Header.Logo>Seggle</Header.Logo>
         <Header.MenuList
           menuList={menuList}
           className={`
-            absolute top-16 left-0 flex flex-col items-center gap-4 w-full p-8 backdrop-blur-md
+            absolute top-16 left-0 flex flex-col gap-4 w-full p-8 backdrop-blur-md
             ${showMenu ? 'flex' : 'hidden'}
             sm:static sm:flex sm:flex-row sm:w-auto sm:p-0
           `}
