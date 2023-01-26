@@ -4,3 +4,4 @@ export * from './Label';
 export * from './Heading';
 export * from './ErrorMessage';
 export * from './Select';
+export * from './LinkButton';

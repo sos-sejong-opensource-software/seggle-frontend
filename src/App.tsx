@@ -1,24 +1,27 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/molecules/Header';
+
 import Home from './pages/Home';
-import Contest from './pages/Contest';
-import Class from './pages/Class';
-import Board from './pages/Board';
-import Announcements from './pages/Announcements';
-import Faq from './pages/Faq';
+
+import { Login, Register, Faq } from '@/pages';
+import { MainHeader } from '@/components';
+import { PATH } from '@/constants';
 
 export default function App() {
   return (
-    <div>
-      <Header />
+    <>
+      <MainHeader />
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/contest" element={<Contest />} />
-        <Route path="/class" element={<Class />} />
-        <Route path="/board" element={<Board />} />
-        <Route path="/announcements" element={<Announcements />} />
-        <Route path="/faq" element={<Faq />} />
+        <Route path={PATH.HOME} element={<Home />} />
+        <Route path={PATH.LOGIN} element={<Login />} />
+        <Route path={PATH.REGISTER} element={<Register />} />
+        <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
+        <Route path={PATH.CLASS_LIST} element={<div>ClassList</div>} />
+        <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
+        <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
+        <Route path={PATH.FAQ} element={<Faq />} />
+
+        <Route path="*" element={<div>Not Found</div>} />
       </Routes>
-    </div>
+    </>
   );
-};
+}
