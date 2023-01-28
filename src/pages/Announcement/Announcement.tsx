@@ -2,11 +2,12 @@ import { useState } from 'react';
 
 import { Heading, Table } from '@/components';
 
-//import { useAnnouncement } from './hooks'
+import { useAnnouncement } from './hooks'
 
 export function Announcement() {
-  //const announcementTableData = useAnnouncement();
-  //console.log(announcementTableData);
+
+  const announcementTableData = useAnnouncement();
+  console.log(announcementTableData);
   const [currentPage, setCurrentPage] = useState(1);
   const lastPage = 20;
   
