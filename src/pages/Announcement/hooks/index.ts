@@ -1,1 +1,1 @@
-export * from './useAnnouncementList';
+export * from './useAnnouncementTable';
