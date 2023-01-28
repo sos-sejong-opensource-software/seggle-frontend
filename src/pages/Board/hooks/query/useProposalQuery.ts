@@ -5,7 +5,7 @@ import { QUERY_KEYS } from '@/constants';
 
 import { getProposal } from '../../api';
 
-export const useAnnouncementQuery = (
+export const useProposalQuery = (
   options?: UseQueryOptions<ProposalResponse, AxiosError, ProposalResponse, string>
 ) => {
   return useQuery(
