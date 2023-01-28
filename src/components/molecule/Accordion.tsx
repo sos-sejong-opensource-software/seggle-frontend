@@ -21,6 +21,7 @@ export function Accordion({ details, className, ...props }: AccordionProps<'deta
           </details>
         ))
       ) : (
+        /** FIXME: 데이터가 없는 경우, 에러가 아니라 다른 용어 사용 */
         <ErrorMessage className="text-disabled-400 text-base">등록된 내용이 없습니다.</ErrorMessage>
       )}
     </div>
