@@ -1,5 +1,5 @@
 import { tw } from '@/utils/tailwindMerge';
-import { Heading } from '@/components';
+import { Heading, ErrorMessage } from '@/components';
 
 type AccordionProps<T extends React.ElementType> = Component<T> & {
   details: {
@@ -13,12 +13,17 @@ type AccordionItemProps<T extends React.ElementType> = Component<T>;
 export function Accordion({ details, className, ...props }: AccordionProps<'details'>) {
   return (
     <div className="p-5 rounded-2xl shadow-[0_12px_20px_6px_rgb(0,0,0,0.1)] cursor-pointer">
-      {details?.map(({ id, title, content }) => (
-        <details key={id} className={tw('group py-3', className)} {...props}>
-          <AccordionTitle>{title}</AccordionTitle>
-          <AccordionContent>{content}</AccordionContent>
-        </details>
-      ))}
+      {details.length ? (
+        details.map(({ id, title, content }) => (
+          <details key={id} className={tw('group py-3', className)} {...props}>
+            <AccordionTitle>{title}</AccordionTitle>
+            <AccordionContent>{content}</AccordionContent>
+          </details>
+        ))
+      ) : (
+        /** FIXME: 데이터가 없는 경우, 에러가 아니라 다른 용어 사용 */
+        <ErrorMessage className="text-disabled-400 text-base">등록된 내용이 없습니다.</ErrorMessage>
+      )}
     </div>
   );
 }
