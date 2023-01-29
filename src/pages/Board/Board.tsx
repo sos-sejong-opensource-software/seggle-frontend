@@ -7,7 +7,10 @@ import { useProposal } from './hooks'
 export function Board() {
 
   const ProposalTableData = useProposal();
-  console.log(ProposalTableData);
+  //console.log(ProposalTableData.);\
+  ProposalTableData?.forEach((element)=>{
+    console.log(element);
+  })
   const [currentPage, setCurrentPage] = useState(1);
   const lastPage = 20;
   
@@ -53,7 +56,7 @@ export function Board() {
   return (
     <>
       <Heading>건의게시판</Heading>
-      <Table column={column} data={data.results} onRowClick={handleRowClick} />
+      <Table column={column} data={ProposalTableData} onRowClick={handleRowClick} />
     </>
   );
 }
