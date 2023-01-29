@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 
 import { Login, Register, Faq } from '@/pages';
+import { Announcement } from "./pages/Announcement/Announcement";
 import { MainHeader } from '@/components';
 import { PATH } from '@/constants';
 
@@ -21,7 +22,6 @@ export default function App() {
           <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
           <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
           <Route path={PATH.FAQ} element={<Faq />} />
-
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>
       </Suspense>
