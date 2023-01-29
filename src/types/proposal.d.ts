@@ -9,5 +9,5 @@ type ProposalResponse = {
     count: number;
     next: string;
     previous: string;    
-    results: ProposalResult | [];
+    results: ProposalResult;
 };

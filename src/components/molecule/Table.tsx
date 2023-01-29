@@ -52,7 +52,7 @@ function Tbody({ column, data, onRowClick }: TableProps<'table'>) {
                 {value[accessor as keyof typeof value]}
               </td>
             );
-          })}
+          })} 
         </tr>
       ))}
     </tbody>

@@ -6,7 +6,7 @@ import { useProposal } from './hooks'
 
 export function Board() {
 
-  const ProposalTableData = useProposal();
+  const ProposalTableData = useProposal() ;
   //console.log(ProposalTableData.);\
   ProposalTableData?.forEach((element)=>{
     console.log(element);
