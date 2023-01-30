@@ -49,7 +49,7 @@ const defaultHeadingStyle = 'font-bold';
 
 function Heading1({ className, children, ...props }: HeadingProps<'h1'>) {
   return (
-    <h1 className={tw('text-4xl', defaultHeadingStyle, className)} {...props}>
+    <h1 className={tw('text-3xl sm:text-4xl', defaultHeadingStyle, className)} {...props}>
       {children}
     </h1>
   );
@@ -57,7 +57,7 @@ function Heading1({ className, children, ...props }: HeadingProps<'h1'>) {
 
 function Heading2({ className, children, ...props }: HeadingProps<'h2'>) {
   return (
-    <h2 className={tw('text-3xl', defaultHeadingStyle, className)} {...props}>
+    <h2 className={tw('text-2xl sm:text-3xl', defaultHeadingStyle, className)} {...props}>
       {children}
     </h2>
   );
@@ -65,7 +65,7 @@ function Heading2({ className, children, ...props }: HeadingProps<'h2'>) {
 
 function Heading3({ className, children, ...props }: HeadingProps<'h3'>) {
   return (
-    <h3 className={tw('text-2xl', defaultHeadingStyle, className)} {...props}>
+    <h3 className={tw('text-xl sm:text-2xl', defaultHeadingStyle, className)} {...props}>
       {children}
     </h3>
   );
@@ -73,7 +73,7 @@ function Heading3({ className, children, ...props }: HeadingProps<'h3'>) {
 
 function Heading4({ className, children, ...props }: HeadingProps<'h4'>) {
   return (
-    <h4 className={tw('text-xl', defaultHeadingStyle, className)} {...props}>
+    <h4 className={tw('text-lg sm:text-xl', defaultHeadingStyle, className)} {...props}>
       {children}
     </h4>
   );
@@ -81,7 +81,7 @@ function Heading4({ className, children, ...props }: HeadingProps<'h4'>) {
 
 function Heading5({ className, children, ...props }: HeadingProps<'h5'>) {
   return (
-    <h5 className={tw('text-lg', defaultHeadingStyle, className)} {...props}>
+    <h5 className={tw('text-base sm:text-lg', defaultHeadingStyle, className)} {...props}>
       {children}
     </h5>
   );
@@ -89,7 +89,7 @@ function Heading5({ className, children, ...props }: HeadingProps<'h5'>) {
 
 function Heading6({ className, children, ...props }: HeadingProps<'h6'>) {
   return (
-    <h6 className={tw('text-base', defaultHeadingStyle, className)} {...props}>
+    <h6 className={tw('text-md sm:text-base', defaultHeadingStyle, className)} {...props}>
       {children}
     </h6>
   );
