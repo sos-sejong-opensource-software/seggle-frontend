@@ -17,7 +17,7 @@ export function Admin() {
       <Header className="py-2 row-span-1 sm:col-span-1">
         <Header.MenuList
           menuList={menuList}
-          className="flex items-center justify-center gap-4 sm:flex-col"
+          className="flex items-center justify-center gap-4 flex-col"
         />
       </Header>
       <section className="sm:col-span-5">
