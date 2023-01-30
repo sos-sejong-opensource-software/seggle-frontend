@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 
 import { Login, Register, Faq } from '@/pages';
+import { Announcement } from './pages/Announcement/Announcement';
 import { MainHeader } from '@/components';
 import { PATH } from '@/constants';
 
