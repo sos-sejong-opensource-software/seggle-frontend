@@ -6,7 +6,7 @@ import { useProposal } from './hooks'
 
 export function Board() {
 
-  const ProposalTableData = useProposal() ;
+  const ProposalTableData = useProposal();
   //console.log(ProposalTableData.);\
   ProposalTableData?.forEach((element)=>{
     console.log(element);
@@ -56,7 +56,6 @@ export function Board() {
   return (
     <>
       <Heading>건의게시판</Heading>
-      <Table column={column} data={ProposalTableData} onRowClick={handleRowClick} />
     </>
   );
 }

@@ -9,7 +9,7 @@ import App from './App';
 import './style/index.css';
 
 const root = document.getElementById('root') as HTMLElement;
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({ defaultOptions: { queries: { suspense: true } } });
 
 createRoot(root).render(
   <StrictMode>
