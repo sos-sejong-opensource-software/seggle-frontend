@@ -56,6 +56,7 @@ export function Board() {
   return (
     <>
       <Heading>건의게시판</Heading>
+      <Table column={column} data={ProposalTableData} onRowClick={handleRowClick} />
     </>
   );
 }
