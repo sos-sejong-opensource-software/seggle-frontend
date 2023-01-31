@@ -16,6 +16,17 @@ module.exports = {
     fontFamily: {
       Pretendard: 'Pretendard',
     },
+    container: {
+      center: true,
+      screens: {
+        xs: '280px',
+        sm: '440px',
+        md: '568px',
+        lg: '824px',
+        xl: '1080px',
+        '2xl': '1336px',
+      },
+    },
     extend: {
       colors: {
         primary: colors.indigo,
