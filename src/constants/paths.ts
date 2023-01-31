@@ -31,6 +31,7 @@ export const PATH: { [key: string]: string } = {
   COMPETITION_FORM: `${BASE_PATH.COMPETITION}/form`,
 
   CLASS_LIST: `${BASE_PATH.CLASS}`,
+  CLASS_LIST_EDIT: `${BASE_PATH.CLASS}/edit-class`,
   CLASS_DETAIL: `${BASE_PATH.CLASS}/:id`,
   CLASS_FORM: `${BASE_PATH.CLASS}/form`,
 };
@@ -38,4 +39,6 @@ export const PATH: { [key: string]: string } = {
 export const PAGE: { [key: string]: string } = {
   LOGIN: '로그인',
   REGISTER: '회원가입',
+
+  CLASS_LIST: '수업 및 시험',
 };
