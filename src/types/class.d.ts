@@ -6,3 +6,7 @@ type ClassListResponse = {
   privilege: PrivilegeNumber;
   is_show: boolean;
 }[];
+
+type ClassListIdRequest = {
+  class_id: number;
+}[];
