@@ -14,6 +14,7 @@ const commonConfig = {
     path: paths.build,
     filename: '[name].bundle.js',
     assetModuleFilename: 'assets/[name].[contenthash][ext][query]',
+    publicPath: '/',
     clean: true,
   },
   module: {
