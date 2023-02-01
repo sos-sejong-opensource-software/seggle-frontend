@@ -9,6 +9,8 @@ export const BASE_PATH: { [key: string]: string } = {
   BOARD: '/board',
   ANNOUNCEMENT: '/announcement',
   FAQ: '/faq',
+
+  ADMIN: '/admin',
 };
 
 const SUB_PATH = {
@@ -16,6 +18,12 @@ const SUB_PATH = {
   DESCRIPTION: 'description',
   LEADERBOARD: 'leaderboard',
   SUBMISSON: 'submission',
+
+  ALL_PROBLEMS: 'all-problems',
+  ALL_CLASSES: 'all-classes',
+  ANNOUNCEMENTS: 'announcements',
+  FAQS: 'faqs',
+  USER_MANAGEMENT: 'user-management',
 };
 
 export const PATH: { [key: string]: string } = {
@@ -34,6 +42,12 @@ export const PATH: { [key: string]: string } = {
   CLASS_LIST_EDIT: `${BASE_PATH.CLASS}/edit-class`,
   CLASS_DETAIL: `${BASE_PATH.CLASS}/:id`,
   CLASS_FORM: `${BASE_PATH.CLASS}/form`,
+
+  ADMIN_ALL_PROBLEMS: `${SUB_PATH.ALL_PROBLEMS}`,
+  ADMIN_ALL_CLASSES: `${SUB_PATH.ALL_CLASSES}`,
+  ADMIN_ANNOUNCEMENTS: `${SUB_PATH.ANNOUNCEMENTS}`,
+  ADMIN_FAQS: `${SUB_PATH.FAQS}`,
+  ADMIN_USER_MANAGEMENT: `${SUB_PATH.USER_MANAGEMENT}`,
 };
 
 export const PAGE: { [key: string]: string } = {
