@@ -4,7 +4,7 @@ import { PAGE } from '@/constants';
 import { useClassListEditTable, useEditClassListMutation } from './hooks';
 
 export function ClassListEdit() {
-  const { column, data, handleRowClick } = useClassListEditTable();
+  const { column, data } = useClassListEditTable();
 
   const { mutate: editClassList } = useEditClassListMutation();
 
@@ -20,7 +20,7 @@ export function ClassListEdit() {
         <Heading>{PAGE.CLASS_LIST}</Heading>
         <Button onClick={handleShowButtonClick}>저장</Button>
       </header>
-      <Table column={column} data={data} onRowClick={handleRowClick} />
+      <Table column={column} data={data} />
     </>
   );
 }

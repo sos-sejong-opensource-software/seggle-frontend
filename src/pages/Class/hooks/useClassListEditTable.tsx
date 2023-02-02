@@ -34,14 +34,8 @@ export const useClassListEditTable = () => {
       delete: <Button>삭제</Button>,
     }));
 
-  const handleRowClick = (
-    e: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
-    id: number | string
-  ) => null;
-
   return {
     column,
     data,
-    handleRowClick,
   };
 };
