@@ -7,7 +7,7 @@ export function Faq() {
 
   return (
     <>
-      <Heading>자주 묻는 질문</Heading>
+      <Heading className="pageTitle">자주 묻는 질문</Heading>
       <Accordion details={details} />
     </>
   );
