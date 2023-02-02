@@ -2,9 +2,10 @@ import { Button, Heading, Table } from '@/components';
 import { PAGE } from '@/constants';
 
 import { useClassListEditTable, useEditClassListMutation } from './hooks';
+import { ClassEditModal } from './components';
 
 export function ClassListEdit() {
-  const { column, data } = useClassListEditTable();
+  const { column, data, modalProps } = useClassListEditTable();
 
   const { mutate: editClassList } = useEditClassListMutation();
 
@@ -21,6 +22,7 @@ export function ClassListEdit() {
         <Button onClick={handleShowButtonClick}>저장</Button>
       </header>
       <Table column={column} data={data} />
+      {modalProps.showModal && <ClassEditModal {...modalProps} />}
     </>
   );
 }
