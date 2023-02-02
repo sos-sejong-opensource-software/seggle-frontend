@@ -5,6 +5,7 @@ import Form from '@/components/Form';
 import { Modal } from '@/components';
 import { Table } from '@/components';
 import Pagination from '@/components/Pagination';
+import { Switch } from '@/components/atom/Switch';
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -62,6 +63,10 @@ export default function Home() {
 
       <h1 className="text-3xl text-blue-400 px-3 py-3">Table</h1>
       <Table column={column} data={data} onRowClick={handleRowClick} />
+
+      <h1 className="text-3xl text-blue-400 px-3 py-3">Switch</h1>
+      <Switch enabled={false} onClick={() => console.log('click')} />
+      <Switch enabled={true} onClick={() => console.log('click')} />
 
       <h1 className="text-3xl text-blue-400 px-3 py-3">Pagination</h1>
       <Pagination
