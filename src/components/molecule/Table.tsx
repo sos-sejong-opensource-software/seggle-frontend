@@ -5,7 +5,7 @@ import './Table.css';
 type TableProps<T extends React.ElementType> = Component<T> & {
   column: Array<{ Header: string; accessor: string }>;
   data: Array<{ id: string | number } & object>;
-  onRowClick: (e: React.MouseEvent<HTMLTableRowElement, MouseEvent>, id: number | string) => void;
+  onRowClick?: (e: React.MouseEvent<HTMLTableRowElement, MouseEvent>, id: number | string) => void;
 };
 
 type TheadProps = {
@@ -44,7 +44,7 @@ function Tbody({ column, data, onRowClick }: TableProps<'table'>) {
         <tr
           key={key}
           className="border-b border-primary-100 table-row"
-          onClick={(e) => onRowClick(e, value['id'])}
+          onClick={(e) => onRowClick && onRowClick(e, value['id'])}
         >
           {column.map(({ accessor }) => {
             return (
