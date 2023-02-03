@@ -13,8 +13,10 @@ export const useClassListTable = () => {
     { Header: '제목', accessor: 'name' },
   ];
 
-  const { data: classList } = useClassListQuery();
-  const data = classList
+  const {
+    data: { results },
+  } = useClassListQuery();
+  const data = results
     .sort(({ year: prev }, { year: next }) => next - prev)
     .filter(({ is_show }) => is_show);
 
