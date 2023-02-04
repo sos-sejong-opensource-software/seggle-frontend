@@ -2,17 +2,25 @@ import { AxiosResponse } from 'axios';
 
 import { api } from '@/api';
 
-const API_URL = `/admin/users`;
+const API_URL = `/admin`;
 
 const getUser = (username: string): Promise<AxiosResponse<AdminUserResponse>> => {
-  return api.get(`${API_URL}/${username}/`);
+  return api.get(`${API_URL}/users/${username}/`);
 };
 
 const editUserPrivilege = ({
   username,
   privilege,
 }: EditUserRequest): Promise<AxiosResponse<AdminUserResponse>> => {
-  return api.put(`${API_URL}/${username}/`, { privilege });
+  return api.put(`${API_URL}/users/${username}/`, { privilege });
 };
 
-export { getUser, editUserPrivilege };
+const getProblems = (): Promise<AxiosResponse<AdminAllProblemsResponse>> => {
+  return api.get(`${API_URL}/problems`);
+};
+
+const deleteProblem = (problemId: string) => {
+  return api.delete(`/problems/${problemId}`);
+};
+
+export { getUser, editUserPrivilege, getProblems, deleteProblem };

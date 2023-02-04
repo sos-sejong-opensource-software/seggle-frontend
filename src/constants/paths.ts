@@ -43,7 +43,7 @@ export const PATH: { [key: string]: string } = {
   CLASS_DETAIL: `${BASE_PATH.CLASS}/:id`,
   CLASS_FORM: `${BASE_PATH.CLASS}/form`,
 
-  ADMIN_ALL_PROBLEMS: `${SUB_PATH.ALL_PROBLEMS}`,
+  ADMIN_ALL_PROBLEMS: `${BASE_PATH.ADMIN}/${SUB_PATH.ALL_PROBLEMS}`,
   ADMIN_ALL_CLASSES: `${SUB_PATH.ALL_CLASSES}`,
   ADMIN_ANNOUNCEMENTS: `${SUB_PATH.ANNOUNCEMENTS}`,
   ADMIN_FAQS: `${SUB_PATH.FAQS}`,
@@ -55,4 +55,5 @@ export const PAGE: { [key: string]: string } = {
   REGISTER: '회원가입',
 
   CLASS_LIST: '수업 및 시험',
+  ALL_PROBLEMS: '전체 문제 목록',
 };
