@@ -12,4 +12,16 @@ const editClassList = (payload: ClassListIdRequest) => {
   return api.patch(`/users${API_URL}/`, payload);
 };
 
-export { getClassList, editClassList };
+const getClass = (classId: string): Promise<AxiosResponse<ClassResponse>> => {
+  return api.get(`${API_URL}/${classId}/`);
+};
+
+const editClass = ({ classId, payload }: { classId: string; payload: ClassRequest }) => {
+  return api.patch(`${API_URL}/${classId}`, payload);
+};
+
+const deleteClass = (classId: string) => {
+  return api.delete(`${API_URL}/${classId}`);
+};
+
+export { getClassList, editClassList, getClass, editClass, deleteClass };
