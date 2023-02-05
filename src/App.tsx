@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import { Login, Register, Faq, Admin, ClassList } from '@/pages';
 import { MainHeader } from '@/components';
 import { PATH } from '@/constants';
+import ResetPassword from './pages/User/ResetPassword';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
             <Route path={PATH.HOME} element={<Home />} />
             <Route path={PATH.LOGIN} element={<Login />} />
             <Route path={PATH.REGISTER} element={<Register />} />
+            <Route path={PATH.RESET_PASSWORD} element={<ResetPassword />} />
             <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
             <Route path={PATH.CLASS_LIST} element={<ClassList />} />
             <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
