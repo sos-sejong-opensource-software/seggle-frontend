@@ -4,9 +4,9 @@ import { AxiosError, AxiosResponse } from 'axios';
 
 import { PATH } from '@/constants';
 
-import { registerUser } from '../api';
+import { registerUser } from '../../api';
 
-export const useRegister = (
+export const useRegisterMutation = (
   options?: UseMutationOptions<AxiosResponse, AxiosError, RegisterRequest>
 ) => {
   const navigate = useNavigate();
