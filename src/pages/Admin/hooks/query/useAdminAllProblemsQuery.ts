@@ -7,12 +7,18 @@ import { useSuspenseQuery } from '@/hooks/useSuspenseQuery';
 import { getProblems } from '../../api';
 
 export const useAdminAllProblemsQuery = (
-  options?: UseQueryOptions<AdminAllProblemsResponse, AxiosError, AdminAllProblemsResponse, string>
+  keyword: string,
+  options?: UseQueryOptions<
+    AdminAllProblemsResponse,
+    AxiosError,
+    AdminAllProblemsResponse,
+    [string, string]
+  >
 ) => {
   return useSuspenseQuery(
-    QUERY_KEYS.ADMIN_ALL_PROBLEMS,
-    async () => {
-      const { data } = await getProblems();
+    [QUERY_KEYS.ADMIN_ALL_PROBLEMS, keyword],
+    async ({ queryKey: [, keyword] }) => {
+      const { data } = await getProblems(keyword);
       return data;
     },
     {

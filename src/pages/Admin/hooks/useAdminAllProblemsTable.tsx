@@ -3,10 +3,10 @@ import { useAdminAllProblemsQuery } from './query/useAdminAllProblemsQuery';
 import { Button } from '@/components';
 import { useDeleteProblemMutation } from './query/useDeleteProblemMutation';
 import { PATH } from '@/constants/paths';
+import React from 'react';
 
-export const useAdminAllProblemsTable = () => {
+export const useAdminAllProblemsTable = (keyword: string) => {
   const navigate = useNavigate();
-
   const { mutate: deleteProblem } = useDeleteProblemMutation();
 
   const handleDeleteButtonClick = ({
@@ -40,7 +40,7 @@ export const useAdminAllProblemsTable = () => {
 
   const {
     data: { results },
-  } = useAdminAllProblemsQuery();
+  } = useAdminAllProblemsQuery(keyword);
 
   const data = results.map((_problem) => {
     const { id, title } = _problem;

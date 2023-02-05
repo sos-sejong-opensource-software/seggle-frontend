@@ -15,8 +15,8 @@ const editUserPrivilege = ({
   return api.put(`${API_URL}/users/${username}/`, { privilege });
 };
 
-const getProblems = (): Promise<AxiosResponse<AdminAllProblemsResponse>> => {
-  return api.get(`${API_URL}/problems`);
+const getProblems = (keyword: string): Promise<AxiosResponse<AdminAllProblemsResponse>> => {
+  return api.get(`${API_URL}/problems?keyword=${keyword}`);
 };
 
 const deleteProblem = (problemId: string) => {
