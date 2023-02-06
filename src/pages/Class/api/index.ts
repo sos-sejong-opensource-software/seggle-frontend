@@ -24,4 +24,8 @@ const deleteClass = (classId: string) => {
   return api.delete(`${API_URL}/${classId}`);
 };
 
-export { getClassList, editClassList, getClass, editClass, deleteClass };
+const getProblemList = ({ keyword }: { keyword: string }) => {
+  return api.get(`/problems?keyword=${keyword}`);
+};
+
+export { getClassList, editClassList, getClass, editClass, deleteClass, getProblemList };
