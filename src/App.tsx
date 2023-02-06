@@ -3,9 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 
-import { Login, Register, Faq, Admin, ClassList } from '@/pages';
+import { Login, Register, Faq, Admin, ClassList, ClassStudentManagement } from '@/pages';
 import { MainHeader } from '@/components';
-import { PATH } from '@/constants';
+import { PATH, SUB_PATH } from '@/constants';
 
 export default function App() {
   return (
@@ -19,6 +19,9 @@ export default function App() {
             <Route path={PATH.REGISTER} element={<Register />} />
             <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
             <Route path={PATH.CLASS_LIST} element={<ClassList />} />
+            <Route path={PATH.CLASS_DETAIL} element={<div></div>}>
+              <Route path={SUB_PATH.STUDENT_MANAGEMENT} element={<ClassStudentManagement />} />
+            </Route>
             <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
             <Route path={PATH.FAQ} element={<Faq />} />

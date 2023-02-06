@@ -13,7 +13,7 @@ export const BASE_PATH: { [key: string]: string } = {
   ADMIN: '/admin',
 };
 
-const SUB_PATH = {
+export const SUB_PATH = {
   DATA: 'data',
   DESCRIPTION: 'description',
   LEADERBOARD: 'leaderboard',
@@ -24,6 +24,7 @@ const SUB_PATH = {
   ANNOUNCEMENTS: 'announcements',
   FAQS: 'faqs',
   USER_MANAGEMENT: 'user-management',
+  STUDENT_MANAGEMENT: 'student-management',
 };
 
 export const PATH: { [key: string]: string } = {
