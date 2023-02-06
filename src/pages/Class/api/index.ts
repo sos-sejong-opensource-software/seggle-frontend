@@ -24,6 +24,10 @@ const deleteClass = (classId: string) => {
   return api.delete(`${API_URL}/${classId}`);
 };
 
+const getProblemList = ({ keyword }: { keyword: string }) => {
+  return api.get(`/problems?keyword=${keyword}`);
+};
+
 const getClassStudentList = (classId: string) => {
   return api.get(`${API_URL}/${classId}/std/`);
 };
@@ -58,6 +62,7 @@ export {
   getClass,
   editClass,
   deleteClass,
+  getProblemList,
   getClassStudentList,
   getClassTaList,
   createClassStudentList,

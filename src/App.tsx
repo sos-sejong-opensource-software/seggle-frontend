@@ -3,7 +3,16 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 
-import { Login, Register, Faq, Admin, ClassList, ClassStudentManagement } from '@/pages';
+import {
+  Login,
+  Register,
+  Faq,
+  Admin,
+  ClassList,
+  Class,
+  ClassProblemList,
+  ClassStudentManagement,
+} from '@/pages';
 import { MainHeader } from '@/components';
 import { PATH, SUB_PATH } from '@/constants';
 
@@ -19,14 +28,15 @@ export default function App() {
             <Route path={PATH.REGISTER} element={<Register />} />
             <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
             <Route path={PATH.CLASS_LIST} element={<ClassList />} />
-            <Route path={PATH.CLASS_DETAIL} element={<div></div>}>
+            <Route path={PATH.CLASS_DETAIL} element={<Class />}>
+              <Route path={SUB_PATH.ALL_PROBLEMS} element={<ClassProblemList />} />
               <Route path={SUB_PATH.STUDENT_MANAGEMENT} element={<ClassStudentManagement />} />
             </Route>
             <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
             <Route path={PATH.FAQ} element={<Faq />} />
             <Route path={PATH.ADMIN} element={<Admin />}>
-              <Route path={PATH.ADMIN_ALL_PROBLEMS} element={<div>AllProblems</div>} />
+              <Route path={PATH.ADMIN_ALL_PROBLEMS} element={<AdminAllProblems />} />
               <Route path={PATH.ADMIN_ALL_CLASSES} element={<div>AllClasses</div>} />
               <Route path={PATH.ADMIN_ANNOUNCEMENTS} element={<div>Announcements</div>} />
               <Route path={PATH.ADMIN_FAQS} element={<div>FAQs</div>} />

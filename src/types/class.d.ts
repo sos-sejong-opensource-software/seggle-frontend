@@ -1,9 +1,4 @@
-type ClassListResponse = {
-  count: number;
-  next: number | null;
-  previous: number | nulle;
-  results: ClassList;
-};
+type ClassListResponse = ApiResponse<ClassList>;
 
 type ClassList = {
   id: number;
@@ -30,6 +25,17 @@ type ClassResponse = {
   semester: number;
   created_user: string;
 };
+
+type ProblemList = {
+  id: number;
+  class_id: number;
+  title: string;
+  public: boolean;
+  created_time: string;
+  created_user: string;
+}[];
+
+type ProblemListResponse = ApiResponse<ProblemList>;
 
 type ClassStudentList = {
   username: string;
