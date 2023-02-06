@@ -60,6 +60,7 @@ export const PAGE: { [key: string]: string } = {
   CLASS_ALL_PROBLEMS: '전체 문제 목록',
   CLASS_STUDENT_MANAGEMENT: '수강생 및 TA 관리',
   CLASS_CONTEST: '과제 및 시험',
-  
+
   ALL_PROBLEMS: '전체 문제 목록',
+  ALL_CLASSES: '전체 수업 목록',
 };
