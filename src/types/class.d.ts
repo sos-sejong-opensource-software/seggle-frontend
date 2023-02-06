@@ -30,3 +30,14 @@ type ClassResponse = {
   semester: number;
   created_user: string;
 };
+
+type ClassStudentList = {
+  username: string;
+  privilege: number;
+}[];
+
+type ClassStudentListResponse = ApiResponse<ClassStudentList>;
+
+type ClassStudentRequest = {
+  username: string[];
+};

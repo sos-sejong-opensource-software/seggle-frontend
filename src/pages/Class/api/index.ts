@@ -24,4 +24,42 @@ const deleteClass = (classId: string) => {
   return api.delete(`${API_URL}/${classId}`);
 };
 
-export { getClassList, editClassList, getClass, editClass, deleteClass };
+const getClassStudentList = (classId: string) => {
+  return api.get(`${API_URL}/${classId}/std/`);
+};
+
+const getClassTaList = (classId: string) => {
+  return api.get(`${API_URL}/${classId}/ta/`);
+};
+
+const createClassStudentList = ({
+  classId,
+  payload,
+}: {
+  classId: string;
+  payload: ClassStudentRequest;
+}) => {
+  return api.post(`${API_URL}/${classId}/std/`, payload);
+};
+
+const createClassTaList = ({
+  classId,
+  payload,
+}: {
+  classId: string;
+  payload: ClassStudentRequest;
+}) => {
+  return api.post(`${API_URL}/${classId}/ta/`, payload);
+};
+
+export {
+  getClassList,
+  editClassList,
+  getClass,
+  editClass,
+  deleteClass,
+  getClassStudentList,
+  getClassTaList,
+  createClassStudentList,
+  createClassTaList,
+};
