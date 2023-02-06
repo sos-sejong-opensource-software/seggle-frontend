@@ -1,7 +1,7 @@
 import { Heading, Input, Table } from '@/components';
 import { PAGE } from '@/constants/paths';
 import { useState } from 'react';
-import { useAdminAllProblemsTable } from './hooks/useAdminAllProblemsTable';
+import { useAdminAllProblemsTable } from './hooks';
 
 export function AdminAllProblems() {
   const [keyword, setKeyword] = useState('');
