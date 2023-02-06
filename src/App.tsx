@@ -5,6 +5,7 @@ import Home from './pages/Home';
 
 import { Login, Register, Faq, Admin, ClassList, Class, ClassProblemList } from '@/pages';
 import { MainHeader } from '@/components';
+import { AdminAllProblems } from './pages/Admin';
 import { PATH, SUB_PATH } from '@/constants';
 
 export default function App() {
@@ -26,7 +27,7 @@ export default function App() {
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
             <Route path={PATH.FAQ} element={<Faq />} />
             <Route path={PATH.ADMIN} element={<Admin />}>
-              <Route path={PATH.ADMIN_ALL_PROBLEMS} element={<div>AllProblems</div>} />
+              <Route path={PATH.ADMIN_ALL_PROBLEMS} element={<AdminAllProblems />} />
               <Route path={PATH.ADMIN_ALL_CLASSES} element={<div>AllClasses</div>} />
               <Route path={PATH.ADMIN_ANNOUNCEMENTS} element={<div>Announcements</div>} />
               <Route path={PATH.ADMIN_FAQS} element={<div>FAQs</div>} />
