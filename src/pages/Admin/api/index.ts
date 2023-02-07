@@ -23,6 +23,10 @@ const deleteProblem = (problemId: string) => {
   return api.delete(`/problems/${problemId}`);
 };
 
+const getClasses = (keyword: string): Promise<AxiosResponse<AdminAllClassesResponse>> => {
+  return api.get(`${API_URL}/class?keyword=${keyword}`);
+};
+
 const getAnnouncements = (
   keyword: string
 ): Promise<AxiosResponse<AdminAnnouncementListResponse>> => {
@@ -51,4 +55,5 @@ export {
   deleteAnnouncement,
   getAnnouncements,
   editAnnouncementSwitch,
+  getClasses
 };
