@@ -72,10 +72,10 @@ export const useAdminAnnouncementsTable = (keyword: string) => {
         visible: (
           <Switch
             enabled={_announcement.visible}
-            onSwitchClick={(visible: boolean) => {
+            onClick={() => {
               handleSwitchButtonClick({
                 id,
-                visible,
+                visible: !_announcement.visible,
               });
             }}
           />
@@ -83,10 +83,10 @@ export const useAdminAnnouncementsTable = (keyword: string) => {
         important: (
           <Switch
             enabled={_announcement.important}
-            onSwitchClick={(important: boolean) => {
+            onClick={() => {
               handleSwitchButtonClick({
                 id,
-                important,
+                important: !_announcement.important,
               });
             }}
           />

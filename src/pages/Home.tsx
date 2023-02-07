@@ -65,8 +65,8 @@ export default function Home() {
       <Table column={column} data={data} onRowClick={handleRowClick} />
 
       <h1 className="text-3xl text-blue-400 px-3 py-3">Switch</h1>
-      <Switch enabled={false} onSwitchClick={() => console.log('click')} />
-      <Switch enabled={true} onSwitchClick={() => console.log('click')} />
+      <Switch enabled={false} onClick={() => console.log('click')} />
+      <Switch enabled={true} onClick={() => console.log('click')} />
 
       <h1 className="text-3xl text-blue-400 px-3 py-3">Pagination</h1>
       <Pagination
