@@ -12,3 +12,6 @@ export * from './useClassStudentListQuery';
 export * from './useClassTaListQuery';
 export * from './useClassStudentListMutation';
 export * from './useClassTaListMutation';
+
+export * from './useClassContestListQuery';
+export * from './useClassContestProblemQuery';

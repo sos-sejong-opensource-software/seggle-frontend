@@ -26,8 +26,10 @@ export const SUB_PATH = {
   ANNOUNCEMENTS: 'announcements',
   FAQS: 'faqs',
   USER_MANAGEMENT: 'user-management',
+
   STUDENT_MANAGEMENT: 'student-management',
   CONTEST: 'contest',
+  CONTEST_DETAIL: ':contestId',
 };
 
 export const PATH: { [key: string]: string } = {
@@ -44,7 +46,7 @@ export const PATH: { [key: string]: string } = {
 
   CLASS_LIST: `${BASE_PATH.CLASS}`,
   CLASS_LIST_EDIT: `${BASE_PATH.CLASS}/edit-class`,
-  CLASS_DETAIL: `${BASE_PATH.CLASS}/:id`,
+  CLASS_DETAIL: `${BASE_PATH.CLASS}/:classId`,
   CLASS_FORM: `${BASE_PATH.CLASS}/form`,
 
   ADMIN_ALL_PROBLEMS: `${BASE_PATH.ADMIN}/${SUB_PATH.ALL_PROBLEMS}`,

@@ -60,6 +60,14 @@ const createClassTaList = ({
   return api.post(`${API_URL}/${classId}/ta/`, payload);
 };
 
+const getContestList = (classId: string) => {
+  return api.get(`${API_URL}/${classId}/contests`);
+};
+
+const getContestProblemList = (classId: string, contestId: string) => {
+  return api.get(`${API_URL}/${classId}/contests/${contestId}`);
+};
+
 export {
   getClassList,
   editClassList,
@@ -68,8 +76,10 @@ export {
   editClass,
   deleteClass,
   getProblemList,
+  getContestList,
   getClassStudentList,
   getClassTaList,
   createClassStudentList,
   createClassTaList,
+  getContestProblemList,
 };
