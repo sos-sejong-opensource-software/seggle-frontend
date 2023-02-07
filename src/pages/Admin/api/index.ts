@@ -23,4 +23,32 @@ const deleteProblem = (problemId: string) => {
   return api.delete(`/problems/${problemId}`);
 };
 
-export { getUser, editUserPrivilege, getProblems, deleteProblem };
+const getAnnouncements = (
+  keyword: string
+): Promise<AxiosResponse<AdminAnnouncementListResponse>> => {
+  return api.get(`${API_URL}/announcements?keyword=${keyword}`);
+};
+
+const deleteAnnouncement = (announcementId: string) => {
+  return api.delete(`${API_URL}/announcements/${announcementId}`);
+};
+
+const editAnnouncementSwitch = ({
+  announcementId,
+  payload,
+}: {
+  announcementId: string;
+  payload: EditAnnouncementSwitchRequest;
+}) => {
+  return api.put(`${API_URL}/announcements/${announcementId}/check/`, payload);
+};
+
+export {
+  getUser,
+  editUserPrivilege,
+  getProblems,
+  deleteProblem,
+  deleteAnnouncement,
+  getAnnouncements,
+  editAnnouncementSwitch,
+};
