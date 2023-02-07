@@ -12,4 +12,9 @@ const registerUser = (payload: RegisterRequest): Promise<AxiosResponse> => {
   return api.post(`${API_URL}`, payload);
 };
 
-export { loginUser, registerUser };
+const resetPassword = (payload: ResetPasswordRequest): Promise<AxiosResponse> => {
+  // Todo: 전역 username 가져오도록 변경하기
+  return api.patch(`${API_URL}/{username}/`, payload);
+};
+
+export { loginUser, registerUser, resetPassword };

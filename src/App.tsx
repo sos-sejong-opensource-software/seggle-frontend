@@ -5,6 +5,7 @@ import Home from './pages/Home';
 
 import { Login, Register, Faq, Admin, ClassList, Class, ClassProblemList } from '@/pages';
 import { MainHeader } from '@/components';
+import ResetPassword from './pages/User/ResetPassword';
 import { AdminAllProblems } from './pages/Admin';
 import { PATH, SUB_PATH } from '@/constants';
 
@@ -18,6 +19,7 @@ export default function App() {
             <Route path={PATH.HOME} element={<Home />} />
             <Route path={PATH.LOGIN} element={<Login />} />
             <Route path={PATH.REGISTER} element={<Register />} />
+            <Route path={PATH.RESET_PASSWORD} element={<ResetPassword />} />
             <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
             <Route path={PATH.CLASS_LIST} element={<ClassList />} />
             <Route path={PATH.CLASS_DETAIL} element={<Class />}>

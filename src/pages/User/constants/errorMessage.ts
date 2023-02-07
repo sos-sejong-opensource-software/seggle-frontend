@@ -11,3 +11,10 @@ export const REGISTER_ERROR: { [key: string]: string } = {
   PASSWORDCHECK: '비밀번호와 일치하지 않습니다.',
   REGISTER_FAILED: '가입에 실패하였습니다.',
 };
+
+export const RESETPASSWORD_ERROR: { [key: string]: string } = {
+  CURRENTPASSWORD: '비밀번호는 영문자, 숫자 포함 8자 이상입니다.',
+  NEWPASSWORD: '비밀번호는 영문자, 숫자 포함 8자 이상입니다.',
+  NEWPASSWORDCHECK: '비밀번호와 일치하지 않습니다.',
+  RESET_PASSWORD_FAILED: '비밀번호 변경에 실패하였습니다.',
+};
