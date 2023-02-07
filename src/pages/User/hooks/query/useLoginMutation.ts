@@ -6,9 +6,9 @@ import { AxiosError, AxiosResponse } from 'axios';
 import { AuthContext } from '@/contexts';
 import { STORAGE, PATH } from '@/constants';
 
-import { loginUser } from '../api';
+import { loginUser } from '../../api';
 
-export const useLogin = (
+export const useLoginMutation = (
   options?: UseMutationOptions<AxiosResponse<LoginResponse>, AxiosError, User>
 ) => {
   const { setIsLogin } = useContext(AuthContext);

@@ -37,3 +37,9 @@ type AdminUserResponse = {
   date_joined: string;
   is_active: boolean;
 };
+
+type ResetPasswordRequest = {
+  current_password: string;
+  new_password: string;
+  new_password2: string;
+};
