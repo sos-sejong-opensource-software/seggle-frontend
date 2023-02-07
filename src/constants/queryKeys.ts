@@ -5,4 +5,5 @@ export const QUERY_KEYS = {
   ANNOUNCEMENT: 'announcement',
   CLASS: 'class',
   CLASS_PROBLEM: 'class-problem',
+  CLASS_CONTEST: 'class-contest',
 };

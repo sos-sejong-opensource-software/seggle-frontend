@@ -28,4 +28,21 @@ const getProblemList = ({ keyword }: { keyword: string }) => {
   return api.get(`/problems?keyword=${keyword}`);
 };
 
-export { getClassList, editClassList, getClass, editClass, deleteClass, getProblemList };
+const getContestList = (classId: string) => {
+  return api.get(`${API_URL}/${classId}/contests`);
+};
+
+const getContestProblemList = (classId: string, contestId: string) => {
+  return api.get(`${API_URL}/${classId}/contests/${contestId}`);
+};
+
+export {
+  getClassList,
+  editClassList,
+  getClass,
+  editClass,
+  deleteClass,
+  getProblemList,
+  getContestList,
+  getContestProblemList,
+};

@@ -6,3 +6,6 @@ export * from './useEditClassMutation';
 export * from './useDeleteClassMutation';
 
 export * from './useProblemListQuery';
+
+export * from './useClassContestListQuery';
+export * from './useClassContestProblemQuery';
