@@ -49,7 +49,7 @@ export const PATH: { [key: string]: string } = {
 
   ADMIN_ALL_PROBLEMS: `${BASE_PATH.ADMIN}/${SUB_PATH.ALL_PROBLEMS}`,
   ADMIN_ALL_CLASSES: `${SUB_PATH.ALL_CLASSES}`,
-  ADMIN_ANNOUNCEMENTS: `${SUB_PATH.ANNOUNCEMENTS}`,
+  ADMIN_ANNOUNCEMENTS: `${BASE_PATH.ADMIN}/${SUB_PATH.ANNOUNCEMENTS}`,
   ADMIN_FAQS: `${SUB_PATH.FAQS}`,
   ADMIN_USER_MANAGEMENT: `${SUB_PATH.USER_MANAGEMENT}`,
 };
@@ -65,5 +65,6 @@ export const PAGE: { [key: string]: string } = {
   CLASS_CONTEST: '과제 및 시험',
 
   ALL_PROBLEMS: '전체 문제 목록',
+  ALL_ANNOUNCEMENTS: '전체 공지사항 목록',
   ALL_CLASSES: '전체 수업 목록',
 };
