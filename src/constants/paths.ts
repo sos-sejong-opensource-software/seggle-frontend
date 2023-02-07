@@ -3,6 +3,7 @@ export const BASE_PATH: { [key: string]: string } = {
 
   LOGIN: '/login',
   REGISTER: '/register',
+  RESET_PASSWORD: '/reset-password',
 
   COMPETITION: '/competition',
   CLASS: '/class',
@@ -11,6 +12,7 @@ export const BASE_PATH: { [key: string]: string } = {
   FAQ: '/faq',
 
   ADMIN: '/admin',
+  USER_HOME: '/users',
 };
 
 export const SUB_PATH = {
@@ -57,6 +59,7 @@ export const PATH: { [key: string]: string } = {
 export const PAGE: { [key: string]: string } = {
   LOGIN: '로그인',
   REGISTER: '회원가입',
+  RESET_PASSWORD: '비밀번호 재설정',
 
   CLASS_LIST: '수업 및 시험',
   CLASS_ALL_PROBLEMS: '전체 문제 목록',
@@ -64,4 +67,5 @@ export const PAGE: { [key: string]: string } = {
   CLASS_CONTEST: '과제 및 시험',
 
   ALL_PROBLEMS: '전체 문제 목록',
+  ALL_CLASSES: '전체 수업 목록',
 };

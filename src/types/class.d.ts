@@ -37,6 +37,17 @@ type ProblemList = {
 
 type ProblemListResponse = ApiResponse<ProblemList>;
 
+type ClassStudentList = {
+  username: string;
+  privilege: number;
+}[];
+
+type ClassStudentListResponse = ApiResponse<ClassStudentList>;
+
+type ClassStudentRequest = {
+  username: string[];
+};
+
 type ContestList = {
   id: number;
   class_id: number;

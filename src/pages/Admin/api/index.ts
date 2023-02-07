@@ -23,4 +23,8 @@ const deleteProblem = (problemId: string) => {
   return api.delete(`/problems/${problemId}`);
 };
 
-export { getUser, editUserPrivilege, getProblems, deleteProblem };
+const getClasses = (keyword: string): Promise<AxiosResponse<AdminAllClassesResponse>> => {
+  return api.get(`${API_URL}/class?keyword=${keyword}`);
+};
+
+export { getUser, editUserPrivilege, getProblems, deleteProblem, getClasses };

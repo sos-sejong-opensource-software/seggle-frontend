@@ -1,11 +1,7 @@
 import { Label, Select, Input } from '@/components';
 
-import { useClassQuery } from './query';
-
-export const useModalBody = (id: string) => {
-  const { data: _class } = useClassQuery(id);
-
-  const { year, semester, name } = _class;
+export const useModalBody = (data?: ClassResponse) => {
+  const { year, semester, name } = data ?? { year: new Date().getFullYear() };
   const contents = [
     {
       id: 'year',
@@ -17,8 +13,9 @@ export const useModalBody = (id: string) => {
       label: '학기',
       element: (
         <Select
+          required
           id="semester"
-          defaultValue={`${semester}`}
+          defaultValue={semester}
           options={[{ value: '1' }, { value: '2' }]}
         />
       ),
@@ -26,7 +23,7 @@ export const useModalBody = (id: string) => {
     {
       id: 'name',
       label: '수업명(학기명)',
-      element: <Input id="name" defaultValue={name} />,
+      element: <Input required id="name" defaultValue={name} />,
     },
   ];
 
