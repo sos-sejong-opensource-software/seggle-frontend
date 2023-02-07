@@ -32,6 +32,34 @@ const getProblemList = ({ keyword }: { keyword: string }) => {
   return api.get(`/problems?keyword=${keyword}`);
 };
 
+const getClassStudentList = (classId: string) => {
+  return api.get(`${API_URL}/${classId}/std/`);
+};
+
+const getClassTaList = (classId: string) => {
+  return api.get(`${API_URL}/${classId}/ta/`);
+};
+
+const createClassStudentList = ({
+  classId,
+  payload,
+}: {
+  classId: string;
+  payload: ClassStudentRequest;
+}) => {
+  return api.post(`${API_URL}/${classId}/std/`, payload);
+};
+
+const createClassTaList = ({
+  classId,
+  payload,
+}: {
+  classId: string;
+  payload: ClassStudentRequest;
+}) => {
+  return api.post(`${API_URL}/${classId}/ta/`, payload);
+};
+
 export {
   getClassList,
   editClassList,
@@ -40,4 +68,8 @@ export {
   editClass,
   deleteClass,
   getProblemList,
+  getClassStudentList,
+  getClassTaList,
+  createClassStudentList,
+  createClassTaList,
 };

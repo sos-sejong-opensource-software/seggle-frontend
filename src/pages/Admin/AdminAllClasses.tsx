@@ -1,18 +1,17 @@
 import { Heading, Input, Table } from '@/components';
 import { PAGE } from '@/constants/paths';
-import { useState } from 'react';
-import { useAdminAllProblemsTable } from './hooks';
 import { useSearch } from '@/hooks/useSearch';
+import { useAdminAllClassesTable } from './hooks';
 
-export function AdminAllProblems() {
+export function AdminAllClasses() {
   const { keyword, onChange } = useSearch();
-  const { column, data, handleRowClick } = useAdminAllProblemsTable(keyword);
+  const { column, data, handleRowClick } = useAdminAllClassesTable(keyword);
 
   return (
     <>
       <div className="flex flex-row justify-between">
         <Heading as="h3" className="pageTitle">
-          {PAGE.ALL_PROBLEMS}
+          {PAGE.ALL_CLASSES}
         </Heading>
         <div className="py-10 w-1/3">
           <Input
