@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { useAdminAllProblemsQuery } from './query/useAdminAllProblemsQuery';
 import { Button } from '@/components';
 import { useDeleteProblemMutation } from './query/useDeleteProblemMutation';
 import { PATH } from '@/constants/paths';
 import React from 'react';
+import { useAdminAllProblemsQuery } from './query';
 
 export const useAdminAllProblemsTable = (keyword: string) => {
   const navigate = useNavigate();
