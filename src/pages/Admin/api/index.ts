@@ -55,5 +55,5 @@ export {
   deleteAnnouncement,
   getAnnouncements,
   editAnnouncementSwitch,
-  getClasses
+  getClasses,
 };

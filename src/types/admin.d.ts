@@ -41,10 +41,11 @@ type AdminAnnouncementListResponse = {
 type EditAnnouncementSwitchRequest = {
   important?: boolean;
   visible?: boolean;
+};
 
 type AdminAllClassesResponse = {
   count: number;
   next: number | null;
   previous: number | nulle;
   results: AdminAllClasses[];
-
+};
