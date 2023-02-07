@@ -8,15 +8,15 @@ import {
   Register,
   Faq,
   Admin,
+  AdminAllClasses,
+  AdminAllProblems,
   ClassList,
   Class,
   ClassProblemList,
-  AdminAllClasses,
-  AdminAllProblems,
+  ClassStudentManagement,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
-import { AdminAllProblems } from './pages/Admin';
 import { PATH, SUB_PATH } from '@/constants';
 
 export default function App() {
@@ -34,6 +34,7 @@ export default function App() {
             <Route path={PATH.CLASS_LIST} element={<ClassList />} />
             <Route path={PATH.CLASS_DETAIL} element={<Class />}>
               <Route path={SUB_PATH.ALL_PROBLEMS} element={<ClassProblemList />} />
+              <Route path={SUB_PATH.STUDENT_MANAGEMENT} element={<ClassStudentManagement />} />
             </Route>
             <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />

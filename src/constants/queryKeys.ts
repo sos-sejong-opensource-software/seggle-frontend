@@ -6,4 +6,6 @@ export const QUERY_KEYS = {
   ANNOUNCEMENT: 'announcement',
   CLASS: 'class',
   CLASS_PROBLEM: 'class-problem',
+  CLASS_STUDENT: 'class-student',
+  CLASS_TA: 'class-ta',
 };
