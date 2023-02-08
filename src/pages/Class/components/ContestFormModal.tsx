@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { Button, Label, Modal, Input, Switch } from '@/components';
+import { Button, Modal } from '@/components';
 import { StateAndAction } from '@/types/state';
 
-import { useCreateContestMutation } from '../hooks';
-import { useParams } from 'react-router-dom';
+import { useContestModalBody, useCreateContestMutation } from '../hooks';
 
 type ContestFormModal<T extends React.ElementType> = Component<T> &
   StateAndAction<boolean, 'showModal'>;
@@ -12,8 +11,7 @@ type ContestFormModal<T extends React.ElementType> = Component<T> &
 export function ContestFormModal({ showModal, setShowModal }: ContestFormModal<'div'>) {
   const { classId } = useParams() as { classId: string };
 
-  const [isExam, setIsExam] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const { renderBody, isExam, visible } = useContestModalBody();
 
   const { mutate: createContest } = useCreateContestMutation();
 
@@ -32,9 +30,7 @@ export function ContestFormModal({ showModal, setShowModal }: ContestFormModal<'
         visible,
       },
     });
-  };
 
-  const handleCloseButtonClick = () => {
     setShowModal(false);
   };
 
@@ -42,23 +38,10 @@ export function ContestFormModal({ showModal, setShowModal }: ContestFormModal<'
     <Modal open={showModal}>
       <Modal.Header>과제 및 시험 목록 생성</Modal.Header>
       <form onSubmit={handleFormSubmit}>
-        <Modal.Body className="w-[300px] flex flex-col gap-2">
-          <Label>과제 및 시험 목록</Label>
-          <Input required placeholder="과제 및 시험명" />
-          <Label>시작 시간</Label>
-          <Input type="datetime-local" required placeholder="시작 시간" />
-          <Label>종료 시간</Label>
-          <Input type="datetime-local" required placeholder="종료 시간" />
-          <div className="flex items-center gap-2">
-            <Label>시험 모드</Label>
-            <Switch enabled={isExam} onClick={() => setIsExam(!isExam)} />
-            <Label>공개</Label>
-            <Switch enabled={visible} onClick={() => setVisible(!visible)} />
-          </div>
-        </Modal.Body>
+        <Modal.Body className="w-[300px] flex flex-col gap-2">{renderBody()}</Modal.Body>
         <Modal.Footer className="gap-2">
           <Button color="success">저장하기</Button>
-          <Button color="error" type="button" onClick={handleCloseButtonClick}>
+          <Button color="error" type="button" onClick={() => setShowModal(false)}>
             닫기
           </Button>
         </Modal.Footer>
