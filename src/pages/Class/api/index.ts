@@ -28,4 +28,21 @@ const getProblemList = ({ keyword }: { keyword: string }) => {
   return api.get(`/problems?keyword=${keyword}`);
 };
 
-export { getClassList, editClassList, getClass, editClass, deleteClass, getProblemList };
+const editProblemPublic = (problemId: string) => {
+  return api.post(`/problems/${problemId}/check/`);
+};
+
+const deleteProblem = (problemId: string) => {
+  return api.delete(`/problems/${problemId}`);
+};
+
+export {
+  getClassList,
+  editClassList,
+  getClass,
+  editClass,
+  deleteClass,
+  getProblemList,
+  editProblemPublic,
+  deleteProblem,
+};
