@@ -3,7 +3,21 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 
-import { Login, Register, Faq, Admin, ClassList, Class, ClassProblemList } from '@/pages';
+import {
+  Login,
+  Register,
+  Faq,
+  Admin,
+  ClassList,
+  Class,
+  ClassProblemList,
+  ProblemDescription,
+  ProblemData,
+  ProblemLeaderBoard,
+  ProblemSubmission,
+  AllProblemDetail,
+  ProblemForm,
+} from '@/pages';
 import { MainHeader } from '@/components';
 import { AdminAllProblems } from './pages/Admin';
 import { PATH, SUB_PATH } from '@/constants';
@@ -20,8 +34,15 @@ export default function App() {
             <Route path={PATH.REGISTER} element={<Register />} />
             <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
             <Route path={PATH.CLASS_LIST} element={<ClassList />} />
-            <Route path={PATH.CLASS_DETAIL} element={<Class />}>
+            <Route path={`${PATH.CLASS_DETAIL}/*`} element={<Class />}>
               <Route path={SUB_PATH.ALL_PROBLEMS} element={<ClassProblemList />} />
+              <Route path={SUB_PATH.PROBLEM} element={<AllProblemDetail />}>
+                <Route path={SUB_PATH.DESCRIPTION} element={<ProblemDescription />} />
+                <Route path={SUB_PATH.DATA} element={<ProblemData />} />
+                <Route path={SUB_PATH.LEADERBOARD} element={<ProblemLeaderBoard />} />
+                <Route path={SUB_PATH.SUBMISSON} element={<ProblemSubmission />} />
+              </Route>
+              <Route path={SUB_PATH.PROBLEM_CREATE} element={<ProblemForm />}></Route>
             </Route>
             <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
