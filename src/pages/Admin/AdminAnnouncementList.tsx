@@ -1,18 +1,18 @@
-import { Heading, Input, Table } from '@/components';
+import { Button, Heading, Input, Table } from '@/components';
 import { PAGE } from '@/constants/paths';
-import { useState } from 'react';
-import { useAdminAllProblemsTable } from './hooks';
 import { useSearch } from '@/hooks/useSearch';
+import { useAdminAnnouncementsTable } from './hooks';
 
-export function AdminAllProblems() {
+export function AdminAnnouncementList() {
   const { keyword, onChange } = useSearch();
-  const { column, data, handleRowClick } = useAdminAllProblemsTable(keyword);
+  const { column, data } = useAdminAnnouncementsTable(keyword);
 
   return (
     <>
       <div className="flex flex-row justify-between">
         <Heading as="h3" className="pageTitle">
-          {PAGE.ALL_PROBLEMS}
+          {PAGE.ALL_ANNOUNCEMENTS}
+          <Button>글쓰기</Button>
         </Heading>
         <div className="py-10 w-1/3">
           <Input
@@ -23,7 +23,7 @@ export function AdminAllProblems() {
           ></Input>
         </div>
       </div>
-      <Table column={column} data={data} onRowClick={handleRowClick} />
+      <Table column={column} data={data} />
     </>
   );
 }

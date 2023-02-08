@@ -16,6 +16,10 @@ const getClass = (classId: string): Promise<AxiosResponse<ClassResponse>> => {
   return api.get(`${API_URL}/${classId}/`);
 };
 
+const createClass = (payload: ClassRequest) => {
+  return api.post(`${API_URL}/`, payload);
+};
+
 const editClass = ({ classId, payload }: { classId: string; payload: ClassRequest }) => {
   return api.patch(`${API_URL}/${classId}`, payload);
 };
@@ -28,4 +32,54 @@ const getProblemList = ({ keyword }: { keyword: string }) => {
   return api.get(`/problems?keyword=${keyword}`);
 };
 
-export { getClassList, editClassList, getClass, editClass, deleteClass, getProblemList };
+const getClassStudentList = (classId: string) => {
+  return api.get(`${API_URL}/${classId}/std/`);
+};
+
+const getClassTaList = (classId: string) => {
+  return api.get(`${API_URL}/${classId}/ta/`);
+};
+
+const createClassStudentList = ({
+  classId,
+  payload,
+}: {
+  classId: string;
+  payload: ClassStudentRequest;
+}) => {
+  return api.post(`${API_URL}/${classId}/std/`, payload);
+};
+
+const createClassTaList = ({
+  classId,
+  payload,
+}: {
+  classId: string;
+  payload: ClassStudentRequest;
+}) => {
+  return api.post(`${API_URL}/${classId}/ta/`, payload);
+};
+
+const getContestList = (classId: string) => {
+  return api.get(`${API_URL}/${classId}/contests`);
+};
+
+const getContestProblemList = (classId: string, contestId: string) => {
+  return api.get(`${API_URL}/${classId}/contests/${contestId}`);
+};
+
+export {
+  getClassList,
+  editClassList,
+  getClass,
+  createClass,
+  editClass,
+  deleteClass,
+  getProblemList,
+  getContestList,
+  getClassStudentList,
+  getClassTaList,
+  createClassStudentList,
+  createClassTaList,
+  getContestProblemList,
+};
