@@ -82,6 +82,10 @@ const createContest = ({ classId, payload }: { classId: string; payload: Contest
   return api.post(`${API_URL}/${classId}/contests/`, payload);
 };
 
+const editContestVisible = (classId: string, contestId: string) => {
+  return api.patch(`${API_URL}/${classId}/contests/${contestId}/check/`);
+};
+
 export {
   getClassList,
   editClassList,
@@ -97,4 +101,5 @@ export {
   getContestList,
   getContestProblemList,
   createContest,
+  editContestVisible,
 };
