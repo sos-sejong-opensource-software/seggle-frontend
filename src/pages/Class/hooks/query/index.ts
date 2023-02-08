@@ -18,3 +18,5 @@ export * from './useClassContestProblemQuery';
 
 export * from './useCreateContestMutation';
 export * from './useEditContestVisibleMutation';
+export * from './useDeleteContestMutation';
+export * from './useEditContestMutation';

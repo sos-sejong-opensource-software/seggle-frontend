@@ -86,6 +86,22 @@ const editContestVisible = (classId: string, contestId: string) => {
   return api.patch(`${API_URL}/${classId}/contests/${contestId}/check/`);
 };
 
+const deleteContest = (classId: string, contestId: string) => {
+  return api.delete(`${API_URL}/${classId}/contests/${contestId}/`);
+};
+
+const editContest = ({
+  classId,
+  contestId,
+  payload,
+}: {
+  classId: string;
+  contestId: string;
+  payload: ContestRequest;
+}) => {
+  return api.patch(`${API_URL}/${classId}/contests/${contestId}/`, payload);
+};
+
 export {
   getClassList,
   editClassList,
@@ -102,4 +118,6 @@ export {
   getContestProblemList,
   createContest,
   editContestVisible,
+  deleteContest,
+  editContest,
 };
