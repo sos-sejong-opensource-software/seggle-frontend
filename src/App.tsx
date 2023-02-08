@@ -12,12 +12,11 @@ import {
   Class,
   ClassProblemList,
   ClassContest,
-  ClassStudentManagement,
   ClassContestProblemList,
   AdminAnnouncementList,
   ClassStudentManagement,
   AdminAllClasses,
-  AdminAllProblems
+  AdminAllProblems,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
