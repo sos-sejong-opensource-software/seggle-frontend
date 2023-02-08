@@ -15,3 +15,5 @@ export * from './useClassTaListMutation';
 
 export * from './useClassContestListQuery';
 export * from './useClassContestProblemQuery';
+
+export * from './useCreateContestMutation';
