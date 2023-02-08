@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, useNavigate } from 'react-router-dom';
 
 import { Header, Heading, Button } from '@/components';
+import { SUB_PATH } from '@/constants';
 
 import { ContestFormModal } from './components';
 import { useClassContestListQuery } from './hooks';
 
 export function ClassContest() {
+  const navigate = useNavigate();
   const [showCreateModal, setShowCreateModal] = useState(false);
 
   const { classId } = useParams() as { classId: string };
@@ -21,7 +23,7 @@ export function ClassContest() {
         <div className="flex items-center mb-4">
           <Heading as="h5">목록</Heading>
           <Button onClick={() => setShowCreateModal(true)}>추가</Button>
-          <Button>편집</Button>
+          <Button onClick={() => navigate(`${SUB_PATH.CONTEST_LIST_EDIT}`)}>편집</Button>
           <ContestFormModal showModal={showCreateModal} setShowModal={setShowCreateModal} />
         </div>
         <Header.MenuList
