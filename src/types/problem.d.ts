@@ -15,11 +15,11 @@ type ProblemRequest = {
   title: string;
   class_id: number;
   description: string;
-  data: 파일;
+  data: Blob;
   data_description: string;
   evaluation: string;
   public: boolean;
-  solution: 파일;
+  solution: Blob;
 };
 
 type ContestProblem = {
@@ -36,3 +36,19 @@ type ContestProblem = {
 };
 
 type ContestProblemRequest = { classId: string; contestId: string; contestProblemId: string };
+
+type ContestProblemSubmission = {
+  id: nubmer;
+  username: string;
+  score: number;
+  status: number;
+  on_leaderboard: boolean;
+  created_time: string;
+}[];
+
+type ContestProblemSubmissionResponse = ApiResponse<ContestProblemSubmission>;
+
+type ContestProblemSubmissionRequest = {
+  csv: Blob;
+  ipynb: Blob;
+};
