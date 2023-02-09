@@ -8,16 +8,21 @@ import {
   Register,
   Faq,
   Admin,
+  AdminAnnouncementList,
+  AdminAllClasses,
+  AdminAllProblems,
   ClassList,
   Class,
   ClassProblemList,
   ClassContest,
-  ClassStudentManagement,
   ClassContestProblemList,
-  AdminAnnouncementList,
   ClassStudentManagement,
-  AdminAllClasses,
-  AdminAllProblems
+  AllProblemDetail,
+  ProblemDescription,
+  ProblemData,
+  ProblemLeaderBoard,
+  ProblemSubmission,
+  ProblemForm,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
@@ -41,6 +46,13 @@ export default function App() {
               <Route path={SUB_PATH.CONTEST} element={<ClassContest />}>
                 <Route path={SUB_PATH.CONTEST_DETAIL} element={<ClassContestProblemList />} />
               </Route>
+              <Route path={SUB_PATH.PROBLEM} element={<AllProblemDetail />}>
+                <Route path={SUB_PATH.DESCRIPTION} element={<ProblemDescription />} />
+                <Route path={SUB_PATH.DATA} element={<ProblemData />} />
+                <Route path={SUB_PATH.LEADERBOARD} element={<ProblemLeaderBoard />} />
+                <Route path={SUB_PATH.SUBMISSON} element={<ProblemSubmission />} />
+              </Route>
+              <Route path={SUB_PATH.PROBLEM_CREATE} element={<ProblemForm />}></Route>
             </Route>
             <Route path={PATH.CLASS_LIST} element={<ClassList />}></Route>
             <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />

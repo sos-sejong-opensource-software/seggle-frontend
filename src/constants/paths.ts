@@ -21,6 +21,8 @@ export const SUB_PATH = {
   LEADERBOARD: 'leaderboard',
   SUBMISSON: 'submission',
 
+  PROBLEM: ':problemId',
+  PROBLEM_CREATE: 'create',
   ALL_PROBLEMS: 'all-problems',
   ALL_CLASSES: 'all-classes',
   ANNOUNCEMENTS: 'announcements',
