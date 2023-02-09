@@ -68,6 +68,14 @@ const getContestProblemList = (classId: string, contestId: string) => {
   return api.get(`${API_URL}/${classId}/contests/${contestId}`);
 };
 
+const editProblemPublic = (problemId: string) => {
+  return api.post(`/problems/${problemId}/check/`);
+};
+
+const deleteProblem = (problemId: string) => {
+  return api.delete(`/problems/${problemId}`);
+};
+
 export {
   getClassList,
   editClassList,
@@ -76,10 +84,12 @@ export {
   editClass,
   deleteClass,
   getProblemList,
+  editProblemPublic,
   getContestList,
   getClassStudentList,
   getClassTaList,
   createClassStudentList,
   createClassTaList,
   getContestProblemList,
+  deleteProblem,
 };
