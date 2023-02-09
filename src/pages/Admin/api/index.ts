@@ -47,6 +47,10 @@ const editAnnouncementSwitch = ({
   return api.put(`${API_URL}/announcements/${announcementId}/check/`, payload);
 };
 
+const createAnnouncement = (payload: CreateAnnouncementRequest) => {
+  return api.post(`${API_URL}/announcements/`, payload);
+};
+
 export {
   getUser,
   editUserPrivilege,
@@ -56,4 +60,5 @@ export {
   getAnnouncements,
   editAnnouncementSwitch,
   getClasses,
+  createAnnouncement,
 };

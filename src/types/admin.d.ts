@@ -49,3 +49,10 @@ type AdminAllClassesResponse = {
   previous: number | nulle;
   results: AdminAllClasses[];
 };
+
+type CreateAnnouncementRequest = {
+  title: string;
+  context: string;
+  important: boolean;
+  visible: boolean;
+};
