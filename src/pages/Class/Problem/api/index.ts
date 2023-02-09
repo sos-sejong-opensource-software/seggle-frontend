@@ -10,4 +10,8 @@ const createProblem = (payload: FormData) => {
   return fileApi.post(`${API_URL}/`, payload);
 };
 
-export { getProblem, createProblem };
+const getContestProblem = ({ classId, contestId, contestProblemId }: ContestProblemRequest) => {
+  return api.get(`/class/${classId}/contests/${contestId}/${contestProblemId}`);
+};
+
+export { getProblem, createProblem, getContestProblem };
