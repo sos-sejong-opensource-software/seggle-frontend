@@ -14,7 +14,8 @@ import {
   AdminAnnouncementList,
   ClassStudentManagement,
   AdminAllClasses,
-  AdminAllProblems
+  AdminAllProblems,
+  AdminNewAnnouncement,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
@@ -44,6 +45,7 @@ export default function App() {
               <Route path={PATH.ADMIN_ALL_PROBLEMS} element={<AdminAllProblems />} />
               <Route path={PATH.ADMIN_ALL_CLASSES} element={<AdminAllClasses />} />
               <Route path={PATH.ADMIN_ANNOUNCEMENTS} element={<AdminAnnouncementList />} />
+              <Route path={PATH.ADMIN_ANNOUNCEMENTS_NEW} element={<AdminNewAnnouncement />} />
               <Route path={PATH.ADMIN_FAQS} element={<div>FAQs</div>} />
               <Route path={PATH.ADMIN_USER_MANAGEMENT} element={<div>UserManagement</div>} />
             </Route>
