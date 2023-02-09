@@ -1,15 +1,16 @@
 import { ErrorMessage, Heading } from '@/components';
 import { PAGE } from '@/constants';
 
-import { useAuthForm, useLogin } from './hooks';
+import { useAuthForm } from './hooks';
 import { AuthForm } from './components';
 import { LOGIN_ERROR } from './constants';
+import { useLoginMutation } from './hooks/query';
 
 const MODE = 'login';
 
 export default function Login() {
   const inputList = useAuthForm(MODE);
-  const { mutate, isError } = useLogin();
+  const { mutate, isError } = useLoginMutation();
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

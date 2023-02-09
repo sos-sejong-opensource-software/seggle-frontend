@@ -1,15 +1,16 @@
 import { ErrorMessage, Heading } from '@/components';
 import { PAGE } from '@/constants';
 
-import { useAuthForm, useRegister } from './hooks';
+import { useAuthForm } from './hooks';
 import { AuthForm } from './components';
 import { REGISTER_ERROR } from './constants';
+import { useRegisterMutation } from './hooks/query';
 
 const MODE = 'register';
 
 export default function Register() {
   const inputList = useAuthForm(MODE);
-  const { mutate, isError } = useRegister();
+  const { mutate, isError } = useRegisterMutation();
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

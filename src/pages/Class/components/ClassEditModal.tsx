@@ -2,7 +2,7 @@ import { Button, Modal } from '@/components';
 import { StateAndAction } from '@/types/state';
 
 import { useModalBody } from '../hooks';
-import { useEditClassMutation } from '../hooks/query';
+import { useEditClassMutation, useClassQuery } from '../hooks/query';
 
 type ClassListEditModalProps<T extends React.ElementType> = Component<T> & {
   classId: string;
@@ -13,7 +13,8 @@ export function ClassEditModal({
   showModal,
   setShowModal,
 }: ClassListEditModalProps<'div'>) {
-  const { renderBody } = useModalBody(classId);
+  const { data } = useClassQuery(classId);
+  const { renderBody } = useModalBody(data);
   const { mutate: editClass } = useEditClassMutation();
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
