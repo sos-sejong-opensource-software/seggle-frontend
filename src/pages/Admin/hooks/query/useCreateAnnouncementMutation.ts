@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { createAnnouncement } from '../../api';
 
 export const useCreateAnnouncementMutation = (
-  options?: UseMutationOptions<AxiosResponse, AxiosError, CreateAnnouncementRequest>
+  options?: UseMutationOptions<AxiosResponse, AxiosError, CreateEditAnnouncementRequest>
 ) => {
   const navigate = useNavigate();
 

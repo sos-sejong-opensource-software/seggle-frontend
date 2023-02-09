@@ -47,8 +47,18 @@ const editAnnouncementSwitch = ({
   return api.put(`${API_URL}/announcements/${announcementId}/check/`, payload);
 };
 
-const createAnnouncement = (payload: CreateAnnouncementRequest) => {
+const createAnnouncement = (payload: CreateEditAnnouncementRequest) => {
   return api.post(`${API_URL}/announcements/`, payload);
+};
+
+const editAnnouncement = (announcementId: string, payload: CreateEditAnnouncementRequest) => {
+  return api.put(`${API_URL}/announcements/${announcementId}/`, payload);
+};
+
+const getAnnouncementById = (
+  announcementId: string
+): Promise<AxiosResponse<AdminAnnouncementResponse>> => {
+  return api.get(`${API_URL}/announcements/${announcementId}/`);
 };
 
 export {
@@ -61,4 +71,6 @@ export {
   editAnnouncementSwitch,
   getClasses,
   createAnnouncement,
+  editAnnouncement,
+  getAnnouncementById,
 };

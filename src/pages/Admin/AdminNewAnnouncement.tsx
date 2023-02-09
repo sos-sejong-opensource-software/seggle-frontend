@@ -6,7 +6,7 @@ import { useCreateAnnouncementMutation } from './hooks/query';
 export function AdminNewAnnouncement() {
   const { mutate: createAnnouncement } = useCreateAnnouncementMutation();
 
-  const onMutate = (data: CreateAnnouncementRequest) => {
+  const onMutate = (data: CreateEditAnnouncementRequest) => {
     createAnnouncement(data);
   };
 

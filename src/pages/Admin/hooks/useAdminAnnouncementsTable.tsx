@@ -72,6 +72,7 @@ export const useAdminAnnouncementsTable = (keyword: string) => {
         last_modified,
         visible: (
           <Switch
+            key={`${id}_visible_${String(visible)}`}
             enabled={visible}
             onClick={() => {
               handleSwitchButtonClick({
@@ -83,6 +84,7 @@ export const useAdminAnnouncementsTable = (keyword: string) => {
         ),
         important: (
           <Switch
+            key={`${id}_important_${String(important)}`}
             enabled={important}
             onClick={() => {
               handleSwitchButtonClick({
@@ -93,7 +95,13 @@ export const useAdminAnnouncementsTable = (keyword: string) => {
           />
         ),
         edit: (
-          <Button onClick={() => navigate(`${PATH.ADMIN_ANNOUNCEMENTS}/${id}/edit`)}>편집</Button>
+          <Button
+            onClick={() => {
+              navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENTS}/${id}/edit`);
+            }}
+          >
+            편집
+          </Button>
         ),
         delete: <Button onClick={(e) => handleDeleteButtonClick({ id, title, e })}>삭제</Button>,
       };

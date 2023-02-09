@@ -13,7 +13,7 @@ type AdminCreateEditFormProps = {
     visible: boolean;
     important?: boolean;
   };
-  onMutate: (data: CreateAnnouncementRequest) => void;
+  onMutate: (data: CreateEditAnnouncementRequest) => void;
 };
 
 export function AdminCreateEditForm({ mode, data, onMutate }: AdminCreateEditFormProps) {
