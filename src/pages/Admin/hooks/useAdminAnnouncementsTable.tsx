@@ -62,31 +62,32 @@ export const useAdminAnnouncementsTable = (keyword: string) => {
   const data = results
     .sort(({ id: prev }, { id: next }) => next - prev)
     .map((_announcement) => {
-      const { id, title } = _announcement;
+      const { id, title, visible, important } = _announcement;
       const created_time = formatTime(_announcement.created_time);
       const last_modified = formatTime(_announcement.last_modified);
+
       return {
         ..._announcement,
         created_time,
         last_modified,
         visible: (
           <Switch
-            enabled={_announcement.visible}
+            enabled={visible}
             onClick={() => {
               handleSwitchButtonClick({
                 id,
-                visible: !_announcement.visible,
+                visible: !visible,
               });
             }}
           />
         ),
         important: (
           <Switch
-            enabled={_announcement.important}
+            enabled={important}
             onClick={() => {
               handleSwitchButtonClick({
                 id,
-                important: !_announcement.important,
+                important: !important,
               });
             }}
           />
