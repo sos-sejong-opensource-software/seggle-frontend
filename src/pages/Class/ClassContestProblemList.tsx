@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { Button, Heading, Table } from '@/components';
 import { useContestProblemListTable, useClassContestListQuery } from './hooks';
 
 export function ClassContestProblemList() {
+  const navigate = useNavigate();
   const { classId, contestId } = useParams() as { classId: string; contestId: string };
   const {
     data: { results },
@@ -12,11 +13,15 @@ export function ClassContestProblemList() {
 
   const tableProps = useContestProblemListTable(classId, contestId);
 
+  const handleCreateButtonClick = () => {
+    navigate('create');
+  };
+
   return (
     <>
       <header className="flex justify-between items-center">
         <Heading as="h3">{title}</Heading>
-        <Button>문제 생성</Button>
+        <Button onClick={handleCreateButtonClick}>문제 생성</Button>
       </header>
       <Table {...tableProps} />
     </>

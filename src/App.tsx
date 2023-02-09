@@ -18,6 +18,7 @@ import {
   ClassContestProblemList,
   ClassStudentManagement,
   AllProblemDetail,
+  ContestProblemDetail,
   ProblemDescription,
   ProblemData,
   ProblemLeaderBoard,
@@ -45,6 +46,13 @@ export default function App() {
               <Route path={SUB_PATH.STUDENT_MANAGEMENT} element={<ClassStudentManagement />} />
               <Route path={SUB_PATH.CONTEST} element={<ClassContest />}>
                 <Route path={SUB_PATH.CONTEST_DETAIL} element={<ClassContestProblemList />} />
+                <Route path={SUB_PATH.CONTEST_PROBLEM} element={<ContestProblemDetail />}>
+                  <Route path={SUB_PATH.DESCRIPTION} element={<ProblemDescription />} />
+                  <Route path={SUB_PATH.DATA} element={<ProblemData />} />
+                  <Route path={SUB_PATH.LEADERBOARD} element={<ProblemLeaderBoard />} />
+                  <Route path={SUB_PATH.SUBMISSON} element={<ProblemSubmission />} />
+                </Route>
+                <Route path={SUB_PATH.PROBLEM_CREATE} element={<ProblemForm />}></Route>
               </Route>
               <Route path={SUB_PATH.PROBLEM} element={<AllProblemDetail />}>
                 <Route path={SUB_PATH.DESCRIPTION} element={<ProblemDescription />} />
@@ -52,7 +60,6 @@ export default function App() {
                 <Route path={SUB_PATH.LEADERBOARD} element={<ProblemLeaderBoard />} />
                 <Route path={SUB_PATH.SUBMISSON} element={<ProblemSubmission />} />
               </Route>
-              <Route path={SUB_PATH.PROBLEM_CREATE} element={<ProblemForm />}></Route>
             </Route>
             <Route path={PATH.CLASS_LIST} element={<ClassList />}></Route>
             <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />

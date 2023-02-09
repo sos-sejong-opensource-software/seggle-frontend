@@ -22,7 +22,7 @@ export const SUB_PATH = {
   SUBMISSON: 'submission',
 
   PROBLEM: ':problemId',
-  PROBLEM_CREATE: 'create',
+  PROBLEM_CREATE: ':contestId/create',
   ALL_PROBLEMS: 'all-problems',
   ALL_CLASSES: 'all-classes',
   ANNOUNCEMENTS: 'announcements',
@@ -32,6 +32,7 @@ export const SUB_PATH = {
   STUDENT_MANAGEMENT: 'student-management',
   CONTEST: 'contest',
   CONTEST_DETAIL: ':contestId',
+  CONTEST_PROBLEM: ':contestId/:contestProblemId',
 };
 
 export const PATH: { [key: string]: string } = {
