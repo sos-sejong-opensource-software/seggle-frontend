@@ -2,8 +2,8 @@ import { Label, Input } from '@/components';
 
 import { useUserQuery } from './query';
 
-export const useModalBody = () => {
-  const { data: user } = useUserQuery();
+export const useModalBody = (_username: string) => {
+  const { data: user } = useUserQuery(_username);
 
   const { username, name, email, privilege } = user ?? {};
   const inputList = [
@@ -25,12 +25,14 @@ export const useModalBody = () => {
   ];
 
   const renderBody = () => {
-    return inputList.map(({ id, label, value }) => (
-      <>
-        <Label htmlFor={id}>{label}</Label>
-        <Input disabled id={id} value={value} />
-      </>
-    ));
+    return inputList.map(({ id, label, value }) => {
+      return (
+        <div key={id}>
+          <Label htmlFor={id}>{label}</Label>
+          <Input disabled id={id} value={value} />
+        </div>
+      );
+    });
   };
 
   return {

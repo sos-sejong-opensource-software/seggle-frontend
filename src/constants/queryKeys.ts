@@ -6,6 +6,7 @@ export const QUERY_KEYS = {
   ADMIN_ALL_CLASSES: 'admin-all-classes',
   ADMIN_ALL_FAQS: 'admin-all-faqs',
   ADMIN_FAQ: 'admin-faq',
+  ADMIN_ALL_USERS: 'admin-all-users',
   FAQ: 'faq',
   ANNOUNCEMENT: 'announcement',
   CLASS: 'class',

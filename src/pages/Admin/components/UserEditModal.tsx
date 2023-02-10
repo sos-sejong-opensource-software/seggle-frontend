@@ -5,18 +5,20 @@ import { useModalBody, useSelectUserPrivilege } from '../hooks';
 import { useEditUserPrivilegeMutation } from '../hooks/query';
 
 type UserEditModalProps<T extends React.ElementType> = Component<T> &
-  StateAndAction<boolean, 'showModal'>;
+  StateAndAction<boolean, 'showModal'> & {
+    username: string;
+  };
 
-export function UserEditModal({ showModal, setShowModal }: UserEditModalProps<'div'>) {
-  const { privilege, renderBody } = useModalBody();
+export function UserEditModal({ showModal, setShowModal, username }: UserEditModalProps<'div'>) {
+  const { privilege, renderBody } = useModalBody(username);
   const { selectedPrivilege, ...selectProps } = useSelectUserPrivilege(
     privilege as PrivilegeNumber
   );
   const { mutate: editUserPrivilege } = useEditUserPrivilegeMutation();
 
-  const handleFormSubmit = () => {
-    /** FIXME: username 수정 필요 */
-    editUserPrivilege({ username: 'test230119', privilege: selectedPrivilege });
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    editUserPrivilege({ username, privilege: selectedPrivilege });
     /** TODO: 성공, 에러 처리 추가 필요 */
     setShowModal(false);
   };

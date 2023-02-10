@@ -85,6 +85,14 @@ const getFaqById = (faqId: string): Promise<AxiosResponse<AdminFaqResponse>> => 
   return api.get(`${API_URL}/faqs/${faqId}/`);
 };
 
+const deleteUser = (username: string) => {
+  return api.delete(`${API_URL}/users/${username}`);
+};
+
+const getUsers = (keyword: string): Promise<AxiosResponse<AdminUserListResponse>> => {
+  return api.get(`${API_URL}/users?keyword=${keyword}`);
+};
+
 export {
   getUser,
   editUserPrivilege,
@@ -103,4 +111,6 @@ export {
   createFaq,
   editFaq,
   getFaqById,
+  deleteUser,
+  getUsers,
 };

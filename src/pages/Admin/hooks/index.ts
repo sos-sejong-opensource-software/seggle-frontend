@@ -4,3 +4,4 @@ export * from './useAdminAnnouncementsTable';
 export * from './useAdminAllClassesTable';
 export * from './useAdminAllProblemsTable';
 export * from './useAdminFaqsTable';
+export * from './useAdminUserTable';

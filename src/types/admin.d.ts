@@ -98,3 +98,20 @@ type AdminFaqResponse = {
   created_time: string;
   last_modified: string;
 };
+
+type AdminUsers = {
+  id: number;
+  email: string;
+  username: string;
+  name: string;
+  privilege: number;
+  date_joined: string;
+  is_active: boolean;
+};
+
+type AdminUserListResponse = {
+  count: number;
+  next: number | null;
+  previous: number | nulle;
+  results: AdminUsers[];
+};
