@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import {
   Login,
   Register,
+  UserHome,
   Faq,
   Admin,
   AdminAnnouncementList,
@@ -46,6 +47,7 @@ export default function App() {
             <Route path={PATH.HOME} element={<Home />} />
             <Route path={PATH.LOGIN} element={<Login />} />
             <Route path={PATH.REGISTER} element={<Register />} />
+            <Route path={PATH.USER_HOME} element={<UserHome />} />
             <Route path={PATH.RESET_PASSWORD} element={<ResetPassword />} />
             <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
             <Route path={`${PATH.CLASS_DETAIL}/*`} element={<Class />}>
