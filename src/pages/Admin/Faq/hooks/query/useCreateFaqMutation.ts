@@ -13,7 +13,7 @@ export const useCreateFaqMutation = (
     ...options,
     onSuccess: () => {
       alert('생성되었습니다.');
-      navigate(`${PATH.ADMIN}/${PATH.ADMIN_FAQS}`);
+      navigate(`${PATH.ADMIN}/${PATH.ADMIN_FAQ_LIST}`);
     },
   });
 };

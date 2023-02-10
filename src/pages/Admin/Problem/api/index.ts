@@ -2,10 +2,10 @@ import { AxiosResponse } from 'axios';
 
 import { api } from '@/api';
 
-const API_URL = `/admin`;
+const API_URL = `/admin/problems`;
 
 const getProblems = (keyword: string): Promise<AxiosResponse<AdminAllProblemsResponse>> => {
-  return api.get(`${API_URL}/problems?keyword=${keyword}`);
+  return api.get(`${API_URL}?keyword=${keyword}`);
 };
 
 const deleteProblem = (problemId: string) => {

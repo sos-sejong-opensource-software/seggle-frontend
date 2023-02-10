@@ -15,7 +15,7 @@ export const useAdminAllProblemsQuery = (
   >
 ) => {
   return useSuspenseQuery(
-    [QUERY_KEYS.ADMIN_ALL_PROBLEMS, keyword],
+    [QUERY_KEYS.ADMIN_PROBLEM_LIST, keyword],
     async ({ queryKey: [, keyword] }) => {
       const { data } = await getProblems(keyword);
       return data;

@@ -15,7 +15,7 @@ export const useAdminAnnouncementListQuery = (
   >
 ) => {
   return useSuspenseQuery(
-    [QUERY_KEYS.ADMIN_ALL_ANNOUNCEMENTS, keyword],
+    [QUERY_KEYS.ADMIN_ANNOUNCEMENT_LIST, keyword],
     async ({ queryKey: [, keyword] }) => {
       const { data } = await getAnnouncements(keyword);
       return data;

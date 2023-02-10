@@ -13,7 +13,7 @@ export const useCreateAnnouncementMutation = (
     ...options,
     onSuccess: () => {
       alert('생성되었습니다.');
-      navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENTS}`);
+      navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENT_LIST}`);
     },
   });
 };

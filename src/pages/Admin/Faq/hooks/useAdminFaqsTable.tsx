@@ -71,7 +71,7 @@ export const useAdminFaqsTable = () => {
         edit: (
           <Button
             onClick={() => {
-              navigate(`${PATH.ADMIN}/${PATH.ADMIN_FAQS}/${id}/edit`);
+              navigate(`${PATH.ADMIN}/${PATH.ADMIN_FAQ_LIST}/${id}/edit`);
             }}
           >
             편집

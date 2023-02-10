@@ -18,7 +18,7 @@ export const useEditAnnouncementSwitchMutation = (
     {
       ...options,
       onSuccess: async () => {
-        await queryClient.invalidateQueries(QUERY_KEYS.ADMIN_ALL_ANNOUNCEMENTS);
+        await queryClient.invalidateQueries(QUERY_KEYS.ADMIN_ANNOUNCEMENT_LIST);
       },
     }
   );

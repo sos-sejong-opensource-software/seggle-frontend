@@ -1,9 +1,9 @@
 export const QUERY_KEYS = {
   ADMIN_USER_EDIT: 'admin-user-edit',
-  ADMIN_ALL_PROBLEMS: 'admin-all-problems',
-  ADMIN_ALL_ANNOUNCEMENTS: 'admin-all-announcements',
+  ADMIN_PROBLEM_LIST: 'admin-problem-list',
+  ADMIN_ANNOUNCEMENT_LIST: 'admin-announcement-list',
   ADMIN_ANNOUNCEMENT: 'admin-announcement',
-  ADMIN_ALL_CLASSES: 'admin-all-classes',
+  ADMIN_CLASS_LIST: 'admin-class-list',
   ADMIN_ALL_FAQS: 'admin-all-faqs',
   ADMIN_FAQ: 'admin-faq',
   ADMIN_ALL_USERS: 'admin-all-users',

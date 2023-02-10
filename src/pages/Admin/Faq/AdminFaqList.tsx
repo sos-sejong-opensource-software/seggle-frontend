@@ -11,8 +11,10 @@ export function AdminFaqList() {
     <>
       <div className="flex flex-row justify-between">
         <Heading as="h3" className="pageTitle">
-          {PAGE.ALL_FAQS}
-          <Button onClick={() => navigate(`${PATH.ADMIN}/${PATH.ADMIN_FAQS}/new`)}>글쓰기</Button>
+          {PAGE.ADMIN_FAQ_LIST}
+          <Button onClick={() => navigate(`${PATH.ADMIN}/${PATH.ADMIN_FAQ_LIST}/new`)}>
+            글쓰기
+          </Button>
         </Heading>
       </div>
       <Table column={column} data={data} />

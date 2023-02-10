@@ -13,8 +13,8 @@ export function AdminAnnouncementList() {
     <>
       <div className="flex flex-row justify-between">
         <Heading as="h3" className="pageTitle">
-          {PAGE.ALL_ANNOUNCEMENTS}
-          <Button onClick={() => navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENTS}/new`)}>
+          {PAGE.ANNOUNCEMENT_LIST}
+          <Button onClick={() => navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENT_LIST}/new`)}>
             글쓰기
           </Button>
         </Heading>

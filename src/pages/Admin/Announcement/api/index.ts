@@ -2,16 +2,16 @@ import { AxiosResponse } from 'axios';
 
 import { api } from '@/api';
 
-const API_URL = `/admin`;
+const API_URL = `/admin/announcements`;
 
 const getAnnouncements = (
   keyword: string
 ): Promise<AxiosResponse<AdminAnnouncementListResponse>> => {
-  return api.get(`${API_URL}/announcements?keyword=${keyword}`);
+  return api.get(`${API_URL}?keyword=${keyword}`);
 };
 
 const deleteAnnouncement = (announcementId: string) => {
-  return api.delete(`${API_URL}/announcements/${announcementId}`);
+  return api.delete(`${API_URL}/${announcementId}`);
 };
 
 const editAnnouncementSwitch = ({
@@ -21,21 +21,21 @@ const editAnnouncementSwitch = ({
   announcementId: string;
   payload: EditAnnouncementSwitchRequest;
 }) => {
-  return api.put(`${API_URL}/announcements/${announcementId}/check/`, payload);
+  return api.put(`${API_URL}/${announcementId}/check/`, payload);
 };
 
 const createAnnouncement = (payload: CreateEditAnnouncementRequest) => {
-  return api.post(`${API_URL}/announcements/`, payload);
+  return api.post(`${API_URL}/`, payload);
 };
 
 const editAnnouncement = (announcementId: string, payload: CreateEditAnnouncementRequest) => {
-  return api.put(`${API_URL}/announcements/${announcementId}/`, payload);
+  return api.put(`${API_URL}/${announcementId}/`, payload);
 };
 
 const getAnnouncementById = (
   announcementId: string
 ): Promise<AxiosResponse<AdminAnnouncementResponse>> => {
-  return api.get(`${API_URL}/announcements/${announcementId}/`);
+  return api.get(`${API_URL}/${announcementId}/`);
 };
 
 export {

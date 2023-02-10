@@ -78,17 +78,17 @@ export default function App() {
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
             <Route path={PATH.FAQ} element={<Faq />} />
             <Route path={PATH.ADMIN} element={<Admin />}>
-              <Route path={PATH.ADMIN_ALL_PROBLEMS} element={<AdminAllProblems />} />
-              <Route path={PATH.ADMIN_ALL_CLASSES} element={<AdminAllClasses />} />
+              <Route path={PATH.ADMIN_PROBLEM_LIST} element={<AdminAllProblems />} />
+              <Route path={PATH.ADMIN_CLASS_LIST} element={<AdminAllClasses />} />
 
-              <Route path={PATH.ADMIN_ANNOUNCEMENTS_NEW} element={<AdminNewAnnouncement />} />
-              <Route path={PATH.ADMIN_ANNOUNCEMENTS_EDIT} element={<AdminEditAnnouncement />} />
-              <Route path={PATH.ADMIN_ANNOUNCEMENTS} element={<AdminAnnouncementList />} />
+              <Route path={PATH.ADMIN_ANNOUNCEMENT_NEW} element={<AdminNewAnnouncement />} />
+              <Route path={PATH.ADMIN_ANNOUNCEMENT_EDIT} element={<AdminEditAnnouncement />} />
+              <Route path={PATH.ADMIN_ANNOUNCEMENT_LIST} element={<AdminAnnouncementList />} />
 
-              <Route path={PATH.ADMIN_FAQS_NEW} element={<AdminNewFaq />} />
-              <Route path={PATH.ADMIN_FAQS_EDIT} element={<AdminEditFaq />} />
-              <Route path={PATH.ADMIN_FAQS} element={<AdminFaqList />} />
-              <Route path={PATH.ADMIN_USER_MANAGEMENT} element={<AdminUserList />} />
+              <Route path={PATH.ADMIN_FAQ_NEW} element={<AdminNewFaq />} />
+              <Route path={PATH.ADMIN_FAQ_EDIT} element={<AdminEditFaq />} />
+              <Route path={PATH.ADMIN_FAQ_LIST} element={<AdminFaqList />} />
+              <Route path={PATH.ADMIN_USER_LIST} element={<AdminUserList />} />
             </Route>
 
             <Route path="*" element={<div>Not Found</div>} />

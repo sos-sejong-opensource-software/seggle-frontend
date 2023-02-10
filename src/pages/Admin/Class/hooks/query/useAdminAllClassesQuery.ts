@@ -15,7 +15,7 @@ export const useAdminAllClassesQuery = (
   >
 ) => {
   return useSuspenseQuery(
-    [QUERY_KEYS.ADMIN_ALL_CLASSES, keyword],
+    [QUERY_KEYS.ADMIN_CLASS_LIST, keyword],
     async ({ queryKey: [, keyword] }) => {
       const { data } = await getClasses(keyword);
       return data;

@@ -27,7 +27,7 @@ export const useAdminAllProblemsTable = (keyword: string) => {
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
     id: number | string
   ) => {
-    navigate(`${PATH.ADMIN_ALL_PROBLEMS}/${id}`);
+    navigate(`${PATH.ADMIN_PROBLEM_LIST}/${id}`);
   };
 
   const column = [

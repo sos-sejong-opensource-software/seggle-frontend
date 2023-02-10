@@ -12,7 +12,7 @@ export function AdminUserList() {
     <>
       <div className="flex flex-row justify-between">
         <Heading as="h3" className="pageTitle">
-          {PAGE.ALL_USERS}
+          {PAGE.ADMIN_USER_LIST}
         </Heading>
         <div className="py-10 w-1/3">
           <Input

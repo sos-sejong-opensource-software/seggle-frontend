@@ -97,7 +97,7 @@ export const useAdminAnnouncementsTable = (keyword: string) => {
         edit: (
           <Button
             onClick={() => {
-              navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENTS}/${id}/edit`);
+              navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENT_LIST}/${id}/edit`);
             }}
           >
             편집

@@ -20,7 +20,7 @@ export const useEditAnnouncementMutation = (
     onSuccess: async () => {
       await queryClient.invalidateQueries(QUERY_KEYS.ADMIN_ANNOUNCEMENT);
       alert('수정되었습니다.');
-      navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENTS}`);
+      navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENT_LIST}`);
     },
   });
 };
