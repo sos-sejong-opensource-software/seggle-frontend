@@ -1,11 +1,11 @@
 import { Input, Table } from '@/components';
 import { useSearch } from '@/hooks/useSearch';
 
-import { useClassProblemListTable } from './hooks';
+import { useAllProblemListTable } from './hooks';
 
 export function ClassProblemList() {
   const { keyword, onChange } = useSearch();
-  const { column, data, handleRowClick } = useClassProblemListTable(keyword);
+  const { column, data, handleRowClick } = useAllProblemListTable(keyword);
 
   return (
     <>

@@ -6,10 +6,10 @@ import { formatTime } from '@/utils/time';
 import {
   useEditProblemPublicMutation,
   useDeleteProblemMutation,
-  useProblemListQuery,
+  useAllProblemListQuery,
 } from './query';
 
-export const useClassProblemListTable = (keyword: string) => {
+export const useAllProblemListTable = (keyword: string) => {
   const navigate = useNavigate();
 
   const column = [
@@ -40,7 +40,7 @@ export const useClassProblemListTable = (keyword: string) => {
 
   const {
     data: { results },
-  } = useProblemListQuery({ keyword });
+  } = useAllProblemListQuery({ keyword });
   const data = results
     .sort(({ created_time: prev }, { created_time: next }) => +new Date(next) - +new Date(prev))
     .map((problem) => {

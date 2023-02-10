@@ -4,7 +4,7 @@ import { Button } from '@/components';
 import { formatTime } from '@/utils/time';
 
 import { useClassContestProblemListQuery } from './query';
-import { useDeleteProblemMutation } from '../../Problem/hooks';
+import { useDeleteProblemMutation } from '../../AllProblems/hooks';
 
 export const useContestProblemListTable = (classId: string, contestId: string) => {
   const navigate = useNavigate();

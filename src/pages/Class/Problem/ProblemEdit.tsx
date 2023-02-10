@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
+
 import { ProblemForm } from './components';
-import { useEditProblemMutation, useProblemQuery } from './hooks';
+import { useEditProblemMutation } from './hooks';
+import { useProblemQuery } from '../AllProblems/hooks';
 
 export function ProblemEdit() {
   const { problemId } = useParams() as { problemId: string };
