@@ -57,7 +57,7 @@ export const useClassProblemListTable = (keyword: string) => {
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
     id: number | string
   ) => {
-    navigate(`../${id}`);
+    navigate(`${id}`);
   };
 
   return {

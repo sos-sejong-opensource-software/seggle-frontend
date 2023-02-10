@@ -21,8 +21,10 @@ export const SUB_PATH = {
   LEADERBOARD: 'leaderboard',
   SUBMISSON: 'submission',
 
-  PROBLEM: ':problemId',
+  PROBLEM: 'all-problems/:problemId',
   PROBLEM_CREATE: ':contestId/create',
+  PROBLEM_EDIT_LIST: ':contestId/edit',
+  PROBLEM_EDIT: ':contestId/edit/:problemId',
   ALL_PROBLEMS: 'all-problems',
   ALL_CLASSES: 'all-classes',
   ANNOUNCEMENTS: 'announcements',
@@ -33,6 +35,7 @@ export const SUB_PATH = {
   CONTEST: 'contest',
   CONTEST_DETAIL: ':contestId',
   CONTEST_PROBLEM: ':contestId/:contestProblemId',
+  CONTEST_PROBLEM_EDIT: ':contestId/:problemId/edit',
   CONTEST_LIST_EDIT: 'edit',
 };
 
