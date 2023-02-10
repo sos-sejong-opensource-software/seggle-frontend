@@ -15,9 +15,40 @@ type ProblemRequest = {
   title: string;
   class_id: number;
   description: string;
-  data: 파일;
+  data: Blob;
   data_description: string;
   evaluation: string;
   public: boolean;
-  solution: 파일;
+  solution: Blob;
+};
+
+type ContestProblem = {
+  id: number;
+  contest_id: number;
+  problem_id: number;
+  title: string;
+  description: string;
+  data_description: string;
+  start_time: string;
+  end_time: string;
+  evaluation: string;
+  problem_data: string;
+};
+
+type ContestProblemRequest = { classId: string; contestId: string; contestProblemId: string };
+
+type ContestProblemSubmission = {
+  id: nubmer;
+  username: string;
+  score: number;
+  status: number;
+  on_leaderboard: boolean;
+  created_time: string;
+}[];
+
+type ContestProblemSubmissionResponse = ApiResponse<ContestProblemSubmission>;
+
+type ContestProblemSubmissionRequest = {
+  csv: Blob;
+  ipynb: Blob;
 };
