@@ -88,3 +88,13 @@ type CreateEditFaqRequest = {
   answer: string;
   visible: boolean;
 };
+
+type AdminFaqResponse = {
+  question: string;
+  answer: string;
+  visible: boolean;
+  id: number;
+  created_user: string;
+  created_time: string;
+  last_modified: string;
+};
