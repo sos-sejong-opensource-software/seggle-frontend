@@ -2,6 +2,10 @@ import { api, fileApi } from '@/api';
 
 const API_URL = `/problems`;
 
+const getProblemList = ({ keyword }: { keyword: string }) => {
+  return api.get(`${API_URL}?keyword=${keyword}`);
+};
+
 const getProblem = (problemId: string) => {
   return api.get(`${API_URL}/${problemId}`);
 };
@@ -12,6 +16,14 @@ const createProblem = (payload: FormData) => {
 
 const editProblem = (problemId: string, payload: FormData) => {
   return fileApi.put(`${API_URL}/${problemId}/`, payload);
+};
+
+const editProblemPublic = (problemId: string) => {
+  return api.post(`${API_URL}/${problemId}/check/`);
+};
+
+const deleteProblem = (problemId: string) => {
+  return api.delete(`${API_URL}/${problemId}`);
 };
 
 const getContestProblem = ({ classId, contestId, contestProblemId }: ContestProblemRequest) => {
@@ -48,9 +60,12 @@ const createContestProblemSumbissionCheck = ({
 };
 
 export {
+  getProblemList,
   getProblem,
   createProblem,
   editProblem,
+  editProblemPublic,
+  deleteProblem,
   getContestProblem,
   getContestProblemSubmission,
   createContestProblemSubmission,

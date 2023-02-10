@@ -4,8 +4,6 @@ import { api } from '@/api';
 
 const API_URL = `/class`;
 
-/** ClassList */
-
 const getClassList = (): Promise<AxiosResponse<ClassListResponse>> => {
   return api.get(`/users${API_URL}/`);
 };
@@ -13,8 +11,6 @@ const getClassList = (): Promise<AxiosResponse<ClassListResponse>> => {
 const editClassList = (payload: ClassListIdRequest) => {
   return api.patch(`/users${API_URL}/`, payload);
 };
-
-/** Class */
 
 const getClass = (classId: string): Promise<AxiosResponse<ClassResponse>> => {
   return api.get(`${API_URL}/${classId}/`);
@@ -32,102 +28,4 @@ const deleteClass = (classId: string) => {
   return api.delete(`${API_URL}/${classId}`);
 };
 
-/** 전체 문제 목록 */
-
-const getProblemList = ({ keyword }: { keyword: string }) => {
-  return api.get(`/problems?keyword=${keyword}`);
-};
-
-/** 수강생 및 TA 관리 */
-
-const getClassStudentList = (classId: string) => {
-  return api.get(`${API_URL}/${classId}/std/`);
-};
-
-const getClassTaList = (classId: string) => {
-  return api.get(`${API_URL}/${classId}/ta/`);
-};
-
-const createClassStudentList = ({
-  classId,
-  payload,
-}: {
-  classId: string;
-  payload: ClassStudentRequest;
-}) => {
-  return api.post(`${API_URL}/${classId}/std/`, payload);
-};
-
-const createClassTaList = ({
-  classId,
-  payload,
-}: {
-  classId: string;
-  payload: ClassStudentRequest;
-}) => {
-  return api.post(`${API_URL}/${classId}/ta/`, payload);
-};
-
-/** 과제 및 시험 */
-
-const getContestList = (classId: string) => {
-  return api.get(`${API_URL}/${classId}/contests`);
-};
-
-const getContestProblemList = (classId: string, contestId: string) => {
-  return api.get(`${API_URL}/${classId}/contests/${contestId}`);
-};
-
-const createContest = ({ classId, payload }: { classId: string; payload: ContestRequest }) => {
-  return api.post(`${API_URL}/${classId}/contests/`, payload);
-};
-
-const editContestVisible = (classId: string, contestId: string) => {
-  return api.patch(`${API_URL}/${classId}/contests/${contestId}/check/`);
-};
-
-const deleteContest = (classId: string, contestId: string) => {
-  return api.delete(`${API_URL}/${classId}/contests/${contestId}/`);
-};
-
-const editContest = ({
-  classId,
-  contestId,
-  payload,
-}: {
-  classId: string;
-  contestId: string;
-  payload: ContestRequest;
-}) => {
-  return api.patch(`${API_URL}/${classId}/contests/${contestId}/`, payload);
-};
-
-const editProblemPublic = (problemId: string) => {
-  return api.post(`/problems/${problemId}/check/`);
-};
-
-const deleteProblem = (problemId: string) => {
-  return api.delete(`/problems/${problemId}`);
-};
-
-export {
-  getClassList,
-  editClassList,
-  getClass,
-  createClass,
-  editClass,
-  deleteClass,
-  getProblemList,
-  editProblemPublic,
-  getClassStudentList,
-  getClassTaList,
-  createClassStudentList,
-  createClassTaList,
-  getContestList,
-  getContestProblemList,
-  createContest,
-  editContestVisible,
-  deleteContest,
-  editContest,
-  deleteProblem,
-};
+export { getClassList, editClassList, getClass, createClass, editClass, deleteClass };

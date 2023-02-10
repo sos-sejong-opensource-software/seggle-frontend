@@ -32,6 +32,7 @@ import {
   AdminNewFaq,
   AdminEditFaq,
   AdminUserList,
+  ClassListEdit,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
@@ -49,6 +50,7 @@ export default function App() {
             <Route path={PATH.REGISTER} element={<Register />} />
             <Route path={PATH.RESET_PASSWORD} element={<ResetPassword />} />
             <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
+
             <Route path={`${PATH.CLASS_DETAIL}/*`} element={<Class />}>
               <Route path={SUB_PATH.ALL_PROBLEMS} element={<ClassProblemList />} />
               <Route path={SUB_PATH.STUDENT_MANAGEMENT} element={<ClassStudentManagement />} />
@@ -73,7 +75,9 @@ export default function App() {
                 <Route path={SUB_PATH.SUBMISSON} element={<ProblemSubmission />} />
               </Route>
             </Route>
-            <Route path={PATH.CLASS_LIST} element={<ClassList />}></Route>
+            <Route path={PATH.CLASS_LIST} element={<ClassList />} />
+            <Route path={PATH.CLASS_LIST_EDIT} element={<ClassListEdit />} />
+
             <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
             <Route path={PATH.FAQ} element={<Faq />} />
