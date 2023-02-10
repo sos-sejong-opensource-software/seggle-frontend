@@ -8,3 +8,6 @@ export * from './useAdminAllProblemsQuery';
 export * from './useCreateAnnouncementMutation';
 export * from './useEditAnnouncementMutation';
 export * from './useAdminAnnouncementQuery';
+export * from './useDeleteFaqMutation';
+export * from './useEditFaqVisibleMutation';
+export * from './useAdminFaqListQuery';

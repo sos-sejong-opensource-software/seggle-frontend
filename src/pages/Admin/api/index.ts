@@ -61,6 +61,18 @@ const getAnnouncementById = (
   return api.get(`${API_URL}/announcements/${announcementId}/`);
 };
 
+const deleteFaq = (faqId: string) => {
+  return api.delete(`${API_URL}/faqs/${faqId}`);
+};
+
+const editFaqVisible = ({ faqId, payload }: { faqId: string; payload: { visible: boolean } }) => {
+  return api.put(`${API_URL}/faqs/${faqId}/check/`, payload);
+};
+
+const getFaqs = (keyword: string): Promise<AxiosResponse<AdminFaqListResponse>> => {
+  return api.get(`${API_URL}/faqs?keyword=${keyword}`);
+};
+
 export {
   getUser,
   editUserPrivilege,
@@ -73,4 +85,7 @@ export {
   createAnnouncement,
   editAnnouncement,
   getAnnouncementById,
+  deleteFaq,
+  editFaqVisible,
+  getFaqs,
 };

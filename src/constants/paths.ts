@@ -77,4 +77,7 @@ export const PAGE: { [key: string]: string } = {
   ALL_CLASSES: '전체 수업 목록',
   NEW_ANNOUNCEMENT: '공지사항 생성',
   EDIT_ANNOUNCEMENT: '공지사항 수정',
+  ALL_FAQS: '전체 FAQ 목록',
+  NEW_FAQ: 'FAQ 생성',
+  EDIT_FAQ: 'FAQ 수정',
 };

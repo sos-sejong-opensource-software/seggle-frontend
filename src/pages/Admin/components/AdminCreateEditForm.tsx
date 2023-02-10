@@ -57,12 +57,20 @@ export function AdminCreateEditForm({ mode, data, onMutate }: AdminCreateEditFor
       <div className="flex gap-4">
         <div className="flex gap-2">
           <Label>{LABEL.VISIBLE}</Label>
-          <Switch enabled={visible} name="visible" />
+          <Switch
+            key={`${mode}_${title}_visible_${String(visible)}`}
+            enabled={visible}
+            name="visible"
+          />
         </div>
         {mode === 'announcement' && (
           <div className="flex gap-2">
             <Label>중요</Label>
-            <Switch enabled={important} name="important" />
+            <Switch
+              key={`${mode}_${title}_important_${String(important)}`}
+              enabled={important}
+              name="important"
+            />
           </div>
         )}
       </div>

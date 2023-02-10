@@ -67,3 +67,18 @@ type AdminAnnouncementResponse = {
   created_time: string;
   last_modified: string;
 };
+
+type AdminFaqs = {
+  id: number;
+  question: string;
+  created_time: string;
+  last_modified: string;
+  visible: boolean;
+};
+
+type AdminFaqListResponse = {
+  count: number;
+  next: number | null;
+  previous: number | nulle;
+  results: AdminFaqs[];
+};
