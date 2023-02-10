@@ -16,7 +16,7 @@ export const useUserCompetitionListQuery = (
   >
 ) => {
   return useSuspenseQuery(
-    [QUERY_KEYS.USER, username],
+    [QUERY_KEYS.USER_COMPETITIONS, username],
     async ({ queryKey: [, username] }) => {
       const { data } = await getUserCompetitionList(username);
       return data;
