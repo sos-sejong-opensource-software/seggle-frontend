@@ -1,17 +1,30 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { UseMutateFunction } from 'react-query';
+import { AxiosResponse, AxiosError } from 'axios';
 
 import { Button, Heading, Label, Input, Select, Switch, Editor } from '@/components';
 import { METRICS } from '@/constants';
 
-import { useCreateProblemMutation } from './hooks';
+type ProblemFormProps<T extends React.ElementType> = Component<T> & {
+  data?: ProblemRequest;
+  mutate: UseMutateFunction<AxiosResponse<any, any>, AxiosError<unknown, any>, FormData, unknown>;
+};
 
-export function ProblemForm() {
-  const [description, setDescription] = useState('');
-  const [dataDescription, setDataDescription] = useState('');
+export function ProblemForm({ data, mutate }: ProblemFormProps<'form'>) {
+  const {
+    title,
+    description: _description,
+    evaluation,
+    public: _public,
+    data_description,
+    data: dataFile,
+    solution,
+  } = data ?? {};
+  const [description, setDescription] = useState(_description ?? '');
+  const [dataDescription, setDataDescription] = useState(data_description ?? '');
 
   const { classId } = useParams() as { classId: string };
-  const { mutate: createProblem } = useCreateProblemMutation();
 
   const options = METRICS.map((metric) => ({ value: metric }));
 
@@ -32,20 +45,20 @@ export function ProblemForm() {
     formData.append('data_description', dataDescription);
     payloadKey.forEach((key, index) => formData.append(key, formValue[index]));
 
-    createProblem(formData);
+    mutate(formData);
   };
 
   return (
     <form onSubmit={handleFormSubmit} className="flex flex-col gap-2">
-      <Heading as="h3">문제 생성</Heading>
-      <Input required placeholder="문제 이름을 입력하세요." name="title" />
+      <Heading as="h3">{data ? '문제 편집' : '문제 생성'}</Heading>
+      <Input required placeholder="문제 이름을 입력하세요." name="title" defaultValue={title} />
       <div>
         <Heading as="h4">문제 설명</Heading>
         <Editor value={description} onChange={(value) => setDescription(value)} />
         <Label>평가 지표</Label>
-        <Select required options={options} name="evaluation" />
+        <Select required options={options} name="evaluation" defaultValue={evaluation} />
         <Label>전체 공개</Label>
-        <Switch enabled={true} name="public" />
+        <Switch enabled={_public ?? true} name="public" />
       </div>
       <div>
         <Heading as="h4">데이터</Heading>

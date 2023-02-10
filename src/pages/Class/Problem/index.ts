@@ -1,4 +1,5 @@
-export * from './ProblemForm';
+export * from './ProblemCreate';
+export * from './ProblemEdit';
 
 export * from './AllProblemDetail';
 export * from './ContestProblemDetail';
