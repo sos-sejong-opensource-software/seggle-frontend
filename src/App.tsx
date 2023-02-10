@@ -25,7 +25,8 @@ import {
   ProblemData,
   ProblemLeaderBoard,
   ProblemSubmission,
-  ProblemForm,
+  ProblemCreate,
+  ProblemEdit,
   ClassEditContestList,
   AdminFaqList,
   AdminNewFaq,
@@ -59,7 +60,10 @@ export default function App() {
                   <Route path={SUB_PATH.LEADERBOARD} element={<ProblemLeaderBoard />} />
                   <Route path={SUB_PATH.SUBMISSON} element={<ProblemSubmission />} />
                 </Route>
-                <Route path={SUB_PATH.PROBLEM_CREATE} element={<ProblemForm />}></Route>
+                <Route path={SUB_PATH.PROBLEM_CREATE} element={<ProblemCreate />} />
+                <Route path={SUB_PATH.PROBLEM_EDIT_LIST} element={<ClassProblemList />} />
+                <Route path={SUB_PATH.PROBLEM_EDIT} element={<ProblemEdit />} />
+                <Route path={SUB_PATH.CONTEST_PROBLEM_EDIT} element={<ProblemEdit />} />
               </Route>
               <Route path={SUB_PATH.PROBLEM} element={<AllProblemDetail />}>
                 <Route path={SUB_PATH.DESCRIPTION} element={<ProblemDescription />} />

@@ -10,6 +10,10 @@ const createProblem = (payload: FormData) => {
   return fileApi.post(`${API_URL}/`, payload);
 };
 
+const editProblem = (problemId: string, payload: FormData) => {
+  return fileApi.put(`${API_URL}/${problemId}/`, payload);
+};
+
 const getContestProblem = ({ classId, contestId, contestProblemId }: ContestProblemRequest) => {
   return api.get(`/class/${classId}/contests/${contestId}/${contestProblemId}`);
 };
@@ -46,6 +50,7 @@ const createContestProblemSumbissionCheck = ({
 export {
   getProblem,
   createProblem,
+  editProblem,
   getContestProblem,
   getContestProblemSubmission,
   createContestProblemSubmission,

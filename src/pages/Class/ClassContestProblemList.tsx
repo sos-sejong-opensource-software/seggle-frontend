@@ -1,10 +1,13 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 import { Button, Heading, Table } from '@/components';
+
 import { useContestProblemListTable, useClassContestListQuery } from './hooks';
+import { ContestProblemCreateModal } from './components';
 
 export function ClassContestProblemList() {
-  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
   const { classId, contestId } = useParams() as { classId: string; contestId: string };
   const {
     data: { results },
@@ -14,7 +17,7 @@ export function ClassContestProblemList() {
   const tableProps = useContestProblemListTable(classId, contestId);
 
   const handleCreateButtonClick = () => {
-    navigate('create');
+    setShowModal(true);
   };
 
   return (
@@ -24,6 +27,7 @@ export function ClassContestProblemList() {
         <Button onClick={handleCreateButtonClick}>문제 생성</Button>
       </header>
       <Table {...tableProps} />
+      <ContestProblemCreateModal showModal={showModal} setShowModal={setShowModal} />
     </>
   );
 }
