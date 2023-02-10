@@ -55,3 +55,10 @@ type UserCompetitionList = {
 }[];
 
 type UserCompetitionListResponse = ApiResponse<UserCompetitionList>;
+
+type UserContributions = {
+  data: string;
+  count: number;
+}[];
+
+type UserContributionsResponse = ApiResponse<UserContributions>;

@@ -21,4 +21,8 @@ const getUserCompetitionList = (username: string): Promise<AxiosResponse> => {
   return api.get(`${API_URL}/${username}/competitions`);
 };
 
-export { loginUser, registerUser, resetPassword, getUserCompetitionList };
+const getUserContributions = (username: string): Promise<AxiosResponse> => {
+  return api.get(`${API_URL}/${username}/contributions`);
+};
+
+export { loginUser, registerUser, resetPassword, getUserCompetitionList, getUserContributions };

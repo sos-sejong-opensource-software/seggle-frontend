@@ -2,9 +2,14 @@ import { Heading, LinkButton, Table } from '@/components';
 import { PATH, PAGE } from '@/constants';
 
 import { useUserCompetitionListTable } from './hooks';
+import { useUserContributionsQuery } from './hooks/query';
 
 export function UserHome() {
   const tableProps = useUserCompetitionListTable();
+  /*  FIXME: username 변경 */
+  const {
+    data: { results },
+  } = useUserContributionsQuery('seggle');
   return (
     <>
       <header className="flex items-center gap-2">
