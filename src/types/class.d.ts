@@ -47,3 +47,35 @@ type ClassStudentListResponse = ApiResponse<ClassStudentList>;
 type ClassStudentRequest = {
   username: string[];
 };
+
+type ContestList = {
+  id: number;
+  class_id: number;
+  name: string;
+  is_exam: boolean;
+  visible: boolean;
+  start_time: string;
+  end_time: string;
+}[];
+
+type ContestListResponse = ApiResponse<ContestList>;
+
+type ContestProblemList = {
+  id: number;
+  contest_id: number;
+  problem_id: number;
+  title: string;
+  start_time: string;
+  end_time: string;
+  order: number;
+}[];
+
+type ContestProblemListResponse = ApiResponse<ContestProblemList>;
+
+type ContestRequest = {
+  name: string;
+  start_time: string;
+  end_time: string;
+  is_exam: boolean;
+  visible: boolean;
+};

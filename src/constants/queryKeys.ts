@@ -10,4 +10,5 @@ export const QUERY_KEYS = {
   CLASS_PROBLEM: 'class-problem',
   CLASS_STUDENT: 'class-student',
   CLASS_TA: 'class-ta',
+  CLASS_CONTEST: 'class-contest',
 };

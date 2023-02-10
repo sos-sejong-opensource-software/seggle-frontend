@@ -21,13 +21,18 @@ export const SUB_PATH = {
   LEADERBOARD: 'leaderboard',
   SUBMISSON: 'submission',
 
+  PROBLEM: ':problemId',
+  PROBLEM_CREATE: 'create',
   ALL_PROBLEMS: 'all-problems',
   ALL_CLASSES: 'all-classes',
   ANNOUNCEMENTS: 'announcements',
   FAQS: 'faqs',
   USER_MANAGEMENT: 'user-management',
+
   STUDENT_MANAGEMENT: 'student-management',
   CONTEST: 'contest',
+  CONTEST_DETAIL: ':contestId',
+  CONTEST_LIST_EDIT: 'edit',
 };
 
 export const PATH: { [key: string]: string } = {
@@ -44,7 +49,7 @@ export const PATH: { [key: string]: string } = {
 
   CLASS_LIST: `${BASE_PATH.CLASS}`,
   CLASS_LIST_EDIT: `${BASE_PATH.CLASS}/edit-class`,
-  CLASS_DETAIL: `${BASE_PATH.CLASS}/:id`,
+  CLASS_DETAIL: `${BASE_PATH.CLASS}/:classId`,
   CLASS_FORM: `${BASE_PATH.CLASS}/form`,
 
   ADMIN_ALL_PROBLEMS: `${SUB_PATH.ALL_PROBLEMS}`,

@@ -10,7 +10,7 @@ import {
 import { ClassStudentForm } from './components';
 
 export function ClassStudentManagement() {
-  const { id: classId } = useParams() as { id: string };
+  const { classId } = useParams() as { classId: string };
 
   const {
     data: { results: studentList },

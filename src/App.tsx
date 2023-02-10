@@ -8,15 +8,26 @@ import {
   Register,
   Faq,
   Admin,
+  AdminAnnouncementList,
+  AdminAllClasses,
+  AdminAllProblems,
   ClassList,
   Class,
   ClassProblemList,
-  AdminAnnouncementList,
+  ClassContest,
+  ClassContestProblemList,
   ClassStudentManagement,
   AdminAllClasses,
   AdminAllProblems,
   AdminNewAnnouncement,
   AdminEditAnnouncement,
+  AllProblemDetail,
+  ProblemDescription,
+  ProblemData,
+  ProblemLeaderBoard,
+  ProblemSubmission,
+  ProblemForm,
+  ClassEditContestList,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
@@ -34,11 +45,22 @@ export default function App() {
             <Route path={PATH.REGISTER} element={<Register />} />
             <Route path={PATH.RESET_PASSWORD} element={<ResetPassword />} />
             <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
-            <Route path={PATH.CLASS_LIST} element={<ClassList />} />
-            <Route path={PATH.CLASS_DETAIL} element={<Class />}>
+            <Route path={`${PATH.CLASS_DETAIL}/*`} element={<Class />}>
               <Route path={SUB_PATH.ALL_PROBLEMS} element={<ClassProblemList />} />
               <Route path={SUB_PATH.STUDENT_MANAGEMENT} element={<ClassStudentManagement />} />
+              <Route path={SUB_PATH.CONTEST} element={<ClassContest />}>
+                <Route path={SUB_PATH.CONTEST_LIST_EDIT} element={<ClassEditContestList />} />
+                <Route path={SUB_PATH.CONTEST_DETAIL} element={<ClassContestProblemList />} />
+              </Route>
+              <Route path={SUB_PATH.PROBLEM} element={<AllProblemDetail />}>
+                <Route path={SUB_PATH.DESCRIPTION} element={<ProblemDescription />} />
+                <Route path={SUB_PATH.DATA} element={<ProblemData />} />
+                <Route path={SUB_PATH.LEADERBOARD} element={<ProblemLeaderBoard />} />
+                <Route path={SUB_PATH.SUBMISSON} element={<ProblemSubmission />} />
+              </Route>
+              <Route path={SUB_PATH.PROBLEM_CREATE} element={<ProblemForm />}></Route>
             </Route>
+            <Route path={PATH.CLASS_LIST} element={<ClassList />}></Route>
             <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
             <Route path={PATH.FAQ} element={<Faq />} />

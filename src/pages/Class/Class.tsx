@@ -6,10 +6,10 @@ import { PAGE, SUB_PATH } from '@/constants';
 import { useClassQuery } from './hooks';
 
 export function Class() {
-  const { id } = useParams();
+  const { classId } = useParams();
   const {
     data: { name },
-  } = useClassQuery(id as string);
+  } = useClassQuery(classId as string);
 
   const menuList = [
     { name: PAGE.CLASS_ALL_PROBLEMS, to: SUB_PATH.ALL_PROBLEMS },
