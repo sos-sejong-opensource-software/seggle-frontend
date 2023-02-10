@@ -1,16 +1,17 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import { Heading, Table } from '@/components';
 
-import { useProposal } from './hooks'
+import { useProposal } from './hooks';
 
 export function Board() {
-
   const ProposalTableData = useProposal();
 
   const [currentPage, setCurrentPage] = useState(1);
   const lastPage = 20;
-  
+
   const column = [
     { Header: '#', accessor: 'id' },
     { Header: '제목', accessor: 'title' },
@@ -18,11 +19,17 @@ export function Board() {
     { Header: '작성일', accessor: 'created_time' },
   ];
 
+  const movePage = useNavigate();
+
+  function goBoardDetail(id: number | string) {
+    movePage(`/board/${id}`);
+  }
+
   const handleRowClick = (
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
     id: number | string
   ) => {
-    console.log(id);
+    goBoardDetail(id);
   };
 
   return (
