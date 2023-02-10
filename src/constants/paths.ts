@@ -82,4 +82,5 @@ export const PAGE: { [key: string]: string } = {
   ALL_FAQS: '전체 FAQ 목록',
   NEW_FAQ: 'FAQ 생성',
   EDIT_FAQ: 'FAQ 수정',
+  ALL_USERS: '전체 사용자 목록',
 };

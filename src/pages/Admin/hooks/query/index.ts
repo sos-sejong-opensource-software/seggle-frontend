@@ -14,3 +14,5 @@ export * from './useAdminFaqListQuery';
 export * from './useCreateFaqMutation';
 export * from './useEditFaqMutation';
 export * from './useAdminFaqQuery';
+export * from './useDeleteUserMutation';
+export * from './useAdminUserListQuery';

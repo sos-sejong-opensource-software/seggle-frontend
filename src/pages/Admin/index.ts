@@ -7,3 +7,4 @@ export * from './AdminEditAnnouncement';
 export * from './AdminFaqList';
 export * from './AdminNewFaq';
 export * from './AdminEditFaq';
+export * from './AdminUserList';
