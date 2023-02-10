@@ -27,7 +27,7 @@ import {
   ProblemSubmission,
   ProblemCreate,
   ProblemEdit,
-  ClassEditContestList,
+  ClassContestListEdit,
   AdminFaqList,
   AdminNewFaq,
   AdminEditFaq,
@@ -55,7 +55,7 @@ export default function App() {
               <Route path={SUB_PATH.ALL_PROBLEMS} element={<ClassProblemList />} />
               <Route path={SUB_PATH.STUDENT_MANAGEMENT} element={<ClassStudentManagement />} />
               <Route path={SUB_PATH.CONTEST} element={<ClassContest />}>
-                <Route path={SUB_PATH.CONTEST_LIST_EDIT} element={<ClassEditContestList />} />
+                <Route path={SUB_PATH.CONTEST_LIST_EDIT} element={<ClassContestListEdit />} />
                 <Route path={SUB_PATH.CONTEST_DETAIL} element={<ClassContestProblemList />} />
                 <Route path={SUB_PATH.CONTEST_PROBLEM} element={<ContestProblemDetail />}>
                   <Route path={SUB_PATH.DESCRIPTION} element={<ProblemDescription />} />

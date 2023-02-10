@@ -11,7 +11,7 @@ import {
 
 import { ContestEditModal } from './components';
 
-export function ClassEditContestList() {
+export function ClassContestListEdit() {
   const { classId } = useParams() as { classId: string };
 
   const [showModal, setShowModal] = useState(false);
