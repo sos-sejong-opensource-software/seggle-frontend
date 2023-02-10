@@ -62,37 +62,46 @@ export const useAdminAnnouncementsTable = (keyword: string) => {
   const data = results
     .sort(({ id: prev }, { id: next }) => next - prev)
     .map((_announcement) => {
-      const { id, title } = _announcement;
+      const { id, title, visible, important } = _announcement;
       const created_time = formatTime(_announcement.created_time);
       const last_modified = formatTime(_announcement.last_modified);
+
       return {
         ..._announcement,
         created_time,
         last_modified,
         visible: (
           <Switch
-            enabled={_announcement.visible}
+            key={`${id}_visible_${String(visible)}`}
+            enabled={visible}
             onClick={() => {
               handleSwitchButtonClick({
                 id,
-                visible: !_announcement.visible,
+                visible: !visible,
               });
             }}
           />
         ),
         important: (
           <Switch
-            enabled={_announcement.important}
+            key={`${id}_important_${String(important)}`}
+            enabled={important}
             onClick={() => {
               handleSwitchButtonClick({
                 id,
-                important: !_announcement.important,
+                important: !important,
               });
             }}
           />
         ),
         edit: (
-          <Button onClick={() => navigate(`${PATH.ADMIN_ANNOUNCEMENTS}/${id}/edit`)}>편집</Button>
+          <Button
+            onClick={() => {
+              navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENTS}/${id}/edit`);
+            }}
+          >
+            편집
+          </Button>
         ),
         delete: <Button onClick={(e) => handleDeleteButtonClick({ id, title, e })}>삭제</Button>,
       };

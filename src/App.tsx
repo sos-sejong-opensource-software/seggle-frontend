@@ -17,6 +17,10 @@ import {
   ClassContest,
   ClassContestProblemList,
   ClassStudentManagement,
+  AdminAllClasses,
+  AdminAllProblems,
+  AdminNewAnnouncement,
+  AdminEditAnnouncement,
   AllProblemDetail,
   ContestProblemDetail,
   ProblemDescription,
@@ -24,6 +28,7 @@ import {
   ProblemLeaderBoard,
   ProblemSubmission,
   ProblemForm,
+  ClassEditContestList,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
@@ -45,6 +50,7 @@ export default function App() {
               <Route path={SUB_PATH.ALL_PROBLEMS} element={<ClassProblemList />} />
               <Route path={SUB_PATH.STUDENT_MANAGEMENT} element={<ClassStudentManagement />} />
               <Route path={SUB_PATH.CONTEST} element={<ClassContest />}>
+                <Route path={SUB_PATH.CONTEST_LIST_EDIT} element={<ClassEditContestList />} />
                 <Route path={SUB_PATH.CONTEST_DETAIL} element={<ClassContestProblemList />} />
                 <Route path={SUB_PATH.CONTEST_PROBLEM} element={<ContestProblemDetail />}>
                   <Route path={SUB_PATH.DESCRIPTION} element={<ProblemDescription />} />
@@ -68,7 +74,11 @@ export default function App() {
             <Route path={PATH.ADMIN} element={<Admin />}>
               <Route path={PATH.ADMIN_ALL_PROBLEMS} element={<AdminAllProblems />} />
               <Route path={PATH.ADMIN_ALL_CLASSES} element={<AdminAllClasses />} />
+
+              <Route path={PATH.ADMIN_ANNOUNCEMENTS_NEW} element={<AdminNewAnnouncement />} />
+              <Route path={PATH.ADMIN_ANNOUNCEMENTS_EDIT} element={<AdminEditAnnouncement />} />
               <Route path={PATH.ADMIN_ANNOUNCEMENTS} element={<AdminAnnouncementList />} />
+
               <Route path={PATH.ADMIN_FAQS} element={<div>FAQs</div>} />
               <Route path={PATH.ADMIN_USER_MANAGEMENT} element={<div>UserManagement</div>} />
             </Route>

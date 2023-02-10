@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Switch } from '@/components';
 import { formatTime } from '@/utils/time';
 
-import { useProblemListQuery } from './query';
+import {
+  useEditProblemPublicMutation,
+  useDeleteProblemMutation,
+  useProblemListQuery,
+} from './query';
 
 export const useClassProblemListTable = (keyword: string) => {
   const navigate = useNavigate();
@@ -17,18 +21,35 @@ export const useClassProblemListTable = (keyword: string) => {
     { Header: '삭제', accessor: 'delete' },
   ];
 
+  const { mutate: editProblemPublic } = useEditProblemPublicMutation();
+
+  const handleEditButtonClick = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+    e.stopPropagation();
+
+    editProblemPublic(`${id}`);
+  };
+
+  const { mutate: deleteProblem } = useDeleteProblemMutation();
+
+  const handleDeleteButtonClick = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+    e.stopPropagation();
+
+    const isConfirmed = confirm(`삭제하시겠습니까?`);
+    if (isConfirmed) deleteProblem(`${id}`);
+  };
+
   const {
     data: { results },
   } = useProblemListQuery({ keyword });
   const data = results
     .sort(({ created_time: prev }, { created_time: next }) => +new Date(next) - +new Date(prev))
     .map((problem) => {
-      const { created_time: createdTime, public: isPublic } = problem;
+      const { id, created_time: createdTime, public: isPublic } = problem;
       return {
         ...problem,
         created_time: formatTime(createdTime),
-        public: <Switch enabled={isPublic} />,
-        delete: <Button>삭제</Button>,
+        public: <Switch enabled={isPublic} onClick={(e) => handleEditButtonClick(e, id)} />,
+        delete: <Button onClick={(e) => handleDeleteButtonClick(e, id)}>삭제</Button>,
       };
     });
 

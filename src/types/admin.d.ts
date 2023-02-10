@@ -49,3 +49,21 @@ type AdminAllClassesResponse = {
   previous: number | nulle;
   results: AdminAllClasses[];
 };
+
+type CreateEditAnnouncementRequest = {
+  title: string;
+  context: string;
+  important: boolean;
+  visible: boolean;
+};
+
+type AdminAnnouncementResponse = {
+  title: string;
+  context: string;
+  important: boolean;
+  visible: boolean;
+  id: number;
+  created_user: string;
+  created_time: string;
+  last_modified: string;
+};
