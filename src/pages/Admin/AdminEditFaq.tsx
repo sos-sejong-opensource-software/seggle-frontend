@@ -24,7 +24,7 @@ export function AdminEditFaq() {
   return (
     <div className="container">
       <Heading as="h3" className="pageTitle">
-        {PAGE.EDIT_Faq}
+        {PAGE.EDIT_FAQ}
       </Heading>
       <AdminCreateEditForm mode="faq" data={data} onFaqMutate={onFaqMutate} />
     </div>
