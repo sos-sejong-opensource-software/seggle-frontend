@@ -23,6 +23,7 @@ import {
   ProblemLeaderBoard,
   ProblemSubmission,
   ProblemForm,
+  ClassEditContestList,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
@@ -44,6 +45,7 @@ export default function App() {
               <Route path={SUB_PATH.ALL_PROBLEMS} element={<ClassProblemList />} />
               <Route path={SUB_PATH.STUDENT_MANAGEMENT} element={<ClassStudentManagement />} />
               <Route path={SUB_PATH.CONTEST} element={<ClassContest />}>
+                <Route path={SUB_PATH.CONTEST_LIST_EDIT} element={<ClassEditContestList />} />
                 <Route path={SUB_PATH.CONTEST_DETAIL} element={<ClassContestProblemList />} />
               </Route>
               <Route path={SUB_PATH.PROBLEM} element={<AllProblemDetail />}>

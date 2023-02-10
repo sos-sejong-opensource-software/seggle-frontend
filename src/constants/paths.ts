@@ -32,6 +32,7 @@ export const SUB_PATH = {
   STUDENT_MANAGEMENT: 'student-management',
   CONTEST: 'contest',
   CONTEST_DETAIL: ':contestId',
+  CONTEST_LIST_EDIT: 'edit',
 };
 
 export const PATH: { [key: string]: string } = {
