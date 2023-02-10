@@ -1,11 +1,13 @@
 import { Button } from '@/components';
-import React from 'react';
+import React, { useState } from 'react';
 import { useAdminUserListQuery, useDeleteUserMutation } from './query';
 import { formatTime } from '@/utils/time';
 import { PRIVILEGE } from '@/constants';
 
 export const useAdminUserTable = (keyword: string) => {
   const { mutate: deleteFaq } = useDeleteUserMutation();
+  const [showModal, setShowModal] = useState(false);
+  const [username, setUserName] = useState('');
 
   const handleDeleteButtonClick = ({
     username,
@@ -17,6 +19,11 @@ export const useAdminUserTable = (keyword: string) => {
     e.stopPropagation();
     const isConfirmed = confirm(`${username}을 삭제하시겠습니까?`);
     if (isConfirmed) deleteFaq(username);
+  };
+
+  const handleEditButtonClick = (username: string) => {
+    setShowModal(true);
+    setUserName(username);
   };
 
   const column = [
@@ -43,18 +50,18 @@ export const useAdminUserTable = (keyword: string) => {
       ..._user,
       date_joined,
       privilege,
-      edit: (
-        <Button
-          onClick={() => {
-            console.log('edit');
-          }}
-        >
-          편집
-        </Button>
-      ),
+      edit: <Button onClick={() => handleEditButtonClick(username)}>편집</Button>,
       delete: <Button onClick={(e) => handleDeleteButtonClick({ username, e })}>삭제</Button>,
     };
   });
 
-  return { column, data };
+  return {
+    column,
+    data,
+    modalProps: {
+      username,
+      showModal,
+      setShowModal,
+    },
+  };
 };

@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { PRIVILEGE } from '@/constants';
 import { getPrivilegeNumber } from '@/utils/getPrivilegeNumber';
 
 export const useSelectUserPrivilege = (initialPrivilege: PrivilegeNumber) => {
   const [selectedPrivilege, setSelectedPrivilege] = useState(initialPrivilege);
+
+  useEffect(() => setSelectedPrivilege(initialPrivilege), [initialPrivilege]);
 
   const handleSelectChange = ({ target: { value } }: { target: HTMLSelectElement }) => {
     const selectedValue = getPrivilegeNumber(value as PrivilegeString);

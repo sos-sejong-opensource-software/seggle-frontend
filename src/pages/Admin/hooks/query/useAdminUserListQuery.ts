@@ -16,7 +16,7 @@ export const useAdminUserListQuery = (
   >
 ) => {
   return useSuspenseQuery(
-    [QUERY_KEYS.ADMIN_FAQ, keyword],
+    [QUERY_KEYS.ADMIN_ALL_USERS, keyword],
     async ({ queryKey: [, keyword] }) => {
       const { data } = await getUsers(keyword);
       return data;

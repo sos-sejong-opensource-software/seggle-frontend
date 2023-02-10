@@ -1,11 +1,12 @@
 import { Heading, Input, Table } from '@/components';
 import { PAGE } from '@/constants';
 import { useSearch } from '@/hooks/useSearch';
+import { UserEditModal } from './components';
 import { useAdminUserTable } from './hooks';
 
 export function AdminUserList() {
   const { keyword, onChange } = useSearch();
-  const { column, data } = useAdminUserTable(keyword);
+  const { column, data, modalProps } = useAdminUserTable(keyword);
 
   return (
     <>
@@ -23,6 +24,7 @@ export function AdminUserList() {
         </div>
       </div>
       <Table column={column} data={data} />
+      {modalProps.showModal && <UserEditModal {...modalProps} />}
     </>
   );
 }
