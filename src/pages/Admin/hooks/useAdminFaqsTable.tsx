@@ -9,7 +9,7 @@ import { Switch } from '@/components/atom/Switch';
 export const useAdminFaqsTable = (keyword: string) => {
   const navigate = useNavigate();
   const { mutate: deleteFaq } = useDeleteFaqMutation();
-  const { mutate: editFaqSwitch } = useEditFaqVisibleMutation();
+  const { mutate: editFaqVisible } = useEditFaqVisibleMutation();
 
   const handleDeleteButtonClick = ({
     id,
@@ -25,8 +25,9 @@ export const useAdminFaqsTable = (keyword: string) => {
     if (isConfirmed) deleteFaq(`${id}`);
   };
 
-  const handleSwitchButtonClick = ({ id, visible }: { id: number; visible: boolean }) => {
-    editFaqSwitch({ faqId: String(id), payload: { visible } });
+  const handleSwitchButtonClick = (id: number) => {
+    const payload = { id };
+    editFaqVisible(payload);
   };
 
   const column = [
@@ -59,7 +60,7 @@ export const useAdminFaqsTable = (keyword: string) => {
             key={`${id}_visible_${String(visible)}`}
             enabled={visible}
             onClick={() => {
-              handleSwitchButtonClick({ id, visible });
+              handleSwitchButtonClick(id);
             }}
           />
         ),

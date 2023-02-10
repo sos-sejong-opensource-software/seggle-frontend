@@ -4,8 +4,7 @@ import { useMutation, UseMutationOptions, useQueryClient } from 'react-query';
 import { editFaqVisible } from '../../api';
 
 type useEditFaqVisibleProps = {
-  faqId: string;
-  payload: { visible: boolean };
+  id: number;
 };
 
 export const useEditFaqVisibleMutation = (
@@ -13,7 +12,7 @@ export const useEditFaqVisibleMutation = (
 ) => {
   const queryClient = useQueryClient();
 
-  return useMutation(({ faqId, payload }) => editFaqVisible({ faqId, payload }), {
+  return useMutation((payload) => editFaqVisible(payload), {
     ...options,
     onSuccess: async () => {
       await queryClient.invalidateQueries(QUERY_KEYS.ADMIN_ALL_FAQS);
