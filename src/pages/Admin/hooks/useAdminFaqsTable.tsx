@@ -6,7 +6,7 @@ import { useAdminFaqListQuery, useDeleteFaqMutation, useEditFaqVisibleMutation }
 import { formatTime } from '@/utils/time';
 import { Switch } from '@/components/atom/Switch';
 
-export const useAdminFaqsTable = (keyword: string) => {
+export const useAdminFaqsTable = () => {
   const navigate = useNavigate();
   const { mutate: deleteFaq } = useDeleteFaqMutation();
   const { mutate: editFaqVisible } = useEditFaqVisibleMutation();
@@ -42,7 +42,7 @@ export const useAdminFaqsTable = (keyword: string) => {
 
   const {
     data: { results },
-  } = useAdminFaqListQuery(keyword);
+  } = useAdminFaqListQuery();
 
   const data = results
     .sort(({ id: prev }, { id: next }) => next - prev)

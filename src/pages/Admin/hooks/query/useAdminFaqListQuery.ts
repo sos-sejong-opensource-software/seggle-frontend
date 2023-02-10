@@ -7,18 +7,12 @@ import { useSuspenseQuery } from '@/hooks/useSuspenseQuery';
 import { getFaqs } from '../../api';
 
 export const useAdminFaqListQuery = (
-  keyword: string,
-  options?: UseQueryOptions<
-    AdminFaqListResponse,
-    AxiosError,
-    AdminFaqListResponse,
-    [string, string]
-  >
+  options?: UseQueryOptions<AdminFaqListResponse, AxiosError, AdminFaqListResponse, string>
 ) => {
   return useSuspenseQuery(
-    [QUERY_KEYS.ADMIN_ALL_FAQS, keyword],
-    async ({ queryKey: [, keyword] }) => {
-      const { data } = await getFaqs(keyword);
+    QUERY_KEYS.ADMIN_ALL_FAQS,
+    async () => {
+      const { data } = await getFaqs();
       return data;
     },
     {

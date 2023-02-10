@@ -69,8 +69,8 @@ const editFaqVisible = (payload: { id: number }) => {
   return api.post(`${API_URL}/faqs/check/`, payload);
 };
 
-const getFaqs = (keyword: string): Promise<AxiosResponse<AdminFaqListResponse>> => {
-  return api.get(`${API_URL}/faqs?keyword=${keyword}`);
+const getFaqs = (): Promise<AxiosResponse<AdminFaqListResponse>> => {
+  return api.get(`${API_URL}/faqs`);
 };
 
 const createFaq = (payload: CreateEditFaqRequest) => {
