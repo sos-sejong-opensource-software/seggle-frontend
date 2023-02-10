@@ -59,6 +59,8 @@ export const PATH: { [key: string]: string } = {
   ADMIN_ANNOUNCEMENTS_NEW: `${BASE_PATH.ADMIN}/${SUB_PATH.ANNOUNCEMENTS}/new`,
   ADMIN_ANNOUNCEMENTS_EDIT: `${BASE_PATH.ADMIN}/${SUB_PATH.ANNOUNCEMENTS}/:id/edit`,
   ADMIN_FAQS: `${SUB_PATH.FAQS}`,
+  ADMIN_FAQS_NEW: `${BASE_PATH.ADMIN}/${SUB_PATH.FAQS}/new`,
+  ADMIN_FAQS_EDIT: `${BASE_PATH.ADMIN}/${SUB_PATH.FAQS}/:id/edit`,
   ADMIN_USER_MANAGEMENT: `${SUB_PATH.USER_MANAGEMENT}`,
 };
 
@@ -77,4 +79,7 @@ export const PAGE: { [key: string]: string } = {
   ALL_CLASSES: '전체 수업 목록',
   NEW_ANNOUNCEMENT: '공지사항 생성',
   EDIT_ANNOUNCEMENT: '공지사항 수정',
+  ALL_FAQS: '전체 FAQ 목록',
+  NEW_FAQ: 'FAQ 생성',
+  EDIT_FAQ: 'FAQ 수정',
 };

@@ -4,6 +4,8 @@ export const QUERY_KEYS = {
   ADMIN_ALL_ANNOUNCEMENTS: 'admin-all-announcements',
   ADMIN_ANNOUNCEMENT: 'admin-announcement',
   ADMIN_ALL_CLASSES: 'admin-all-classes',
+  ADMIN_ALL_FAQS: 'admin-all-faqs',
+  ADMIN_FAQ: 'admin-faq',
   FAQ: 'faq',
   ANNOUNCEMENT: 'announcement',
   CLASS: 'class',

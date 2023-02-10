@@ -8,7 +8,7 @@ export function AdminEditAnnouncement() {
   const { id: announcementId } = useParams() as { id: string };
   const { mutate: editAnnouncement } = useEditAnnouncementMutation();
 
-  const onMutate = (data: CreateEditAnnouncementRequest) => {
+  const onAnnouncementMutate = (data: CreateEditAnnouncementRequest) => {
     editAnnouncement({ announcementId, payload: data });
   };
 
@@ -19,7 +19,11 @@ export function AdminEditAnnouncement() {
       <Heading as="h3" className="pageTitle">
         {PAGE.EDIT_ANNOUNCEMENT}
       </Heading>
-      <AdminCreateEditForm mode="announcement" data={data} onMutate={onMutate} />
+      <AdminCreateEditForm
+        mode="announcement"
+        data={data}
+        onAnnouncementMutate={onAnnouncementMutate}
+      />
     </div>
   );
 }
