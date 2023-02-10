@@ -47,6 +47,11 @@ const getContestProblemSubmission = ({
   return api.get(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/submissions`);
 };
 
+/** FIXME: contest problem API로 변경 */
+const createContestProblem = (payload: FormData) => {
+  return fileApi.post(`/problems/`, payload);
+};
+
 const createContestProblemSubmission = ({
   classId,
   contestId,
@@ -76,6 +81,7 @@ export {
   getContestProblemList,
   getContestProblem,
   getContestProblemSubmission,
+  createContestProblem,
   createContestProblemSubmission,
   createContestProblemSumbissionCheck,
 };

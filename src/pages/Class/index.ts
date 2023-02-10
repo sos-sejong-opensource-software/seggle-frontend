@@ -6,4 +6,5 @@ export * from './AllProblems';
 export * from './StudentManagement';
 export * from './Contest';
 
-export * from './Problem';
+export { ProblemData } from './components';
+export { ProblemDescription } from './components';

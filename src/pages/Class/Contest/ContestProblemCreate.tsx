@@ -1,7 +1,7 @@
-import { ProblemForm } from './components';
-import { useCreateProblemMutation } from './hooks';
+import { ProblemForm } from '@/pages/Class/components';
+import { useCreateContestProblemMutation } from './hooks';
 
-export function ProblemCreate() {
-  const { mutate } = useCreateProblemMutation();
+export function ContestProblemCreate() {
+  const { mutate } = useCreateContestProblemMutation();
   return <ProblemForm mutate={mutate} />;
 }
