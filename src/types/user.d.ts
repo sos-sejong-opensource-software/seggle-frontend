@@ -43,3 +43,15 @@ type ResetPasswordRequest = {
   new_password: string;
   new_password2: string;
 };
+
+type UserCompetitionList = {
+  id: number;
+  problem_id: number;
+  title: string;
+  start_time: string;
+  end_time: string;
+  rank: number;
+  user_total: number;
+}[];
+
+type UserCompetitionListResponse = ApiResponse<UserCompetitionList>;

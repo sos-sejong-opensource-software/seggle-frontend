@@ -17,4 +17,8 @@ const resetPassword = (payload: ResetPasswordRequest): Promise<AxiosResponse> =>
   return api.patch(`${API_URL}/{username}/`, payload);
 };
 
-export { loginUser, registerUser, resetPassword };
+const getUserCompetitionList = (username: string): Promise<AxiosResponse> => {
+  return api.get(`${API_URL}/${username}/competitions`);
+};
+
+export { loginUser, registerUser, resetPassword, getUserCompetitionList };

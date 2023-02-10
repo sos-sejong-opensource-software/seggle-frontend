@@ -1,4 +1,5 @@
 export const QUERY_KEYS = {
+  USER: 'user',
   ADMIN_USER_EDIT: 'admin-user-edit',
   ADMIN_ALL_PROBLEMS: 'admin-all-problems',
   ADMIN_ALL_ANNOUNCEMENTS: 'admin-all-announcements',
