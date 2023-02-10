@@ -5,12 +5,12 @@ import { QUERY_KEYS } from '@/constants';
 import { useSuspenseQuery } from '@/hooks/useSuspenseQuery';
 import { getProblems } from '../../api';
 
-export const useAdminAllProblemsQuery = (
+export const useAdminProblemListQuery = (
   keyword: string,
   options?: UseQueryOptions<
-    AdminAllProblemsResponse,
+    AdminProblemListResponse,
     AxiosError,
-    AdminAllProblemsResponse,
+    AdminProblemListResponse,
     [string, string]
   >
 ) => {

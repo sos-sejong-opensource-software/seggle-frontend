@@ -1,17 +1,17 @@
 import { Heading, Input, Table } from '@/components';
 import { PAGE } from '@/constants/paths';
-import { useAdminAllProblemsTable } from './hooks';
 import { useSearch } from '@/hooks/useSearch';
+import { useAdminClassListTable } from './hooks';
 
-export function AdminAllProblems() {
+export function AdminClassList() {
   const { keyword, onChange } = useSearch();
-  const { column, data, handleRowClick } = useAdminAllProblemsTable(keyword);
+  const { column, data, handleRowClick } = useAdminClassListTable(keyword);
 
   return (
     <>
       <div className="flex flex-row justify-between">
         <Heading as="h3" className="pageTitle">
-          {PAGE.ADMIN_PROBLEM_LIST}
+          {PAGE.ADMIN_CLASS_LIST}
         </Heading>
         <div className="py-10 w-1/3">
           <Input

@@ -1,1 +1,1 @@
-export * from './useAdminAllClassesQuery';
+export * from './useAdminClassListQuery';

@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { PATH } from '@/constants/paths';
 import React from 'react';
-import { useAdminAllClassesQuery } from '../hooks/query';
+import { useAdminClassListQuery } from './query';
 
-export const useAdminAllClassesTable = (keyword: string) => {
+export const useAdminClassListTable = (keyword: string) => {
   const navigate = useNavigate();
 
   const handleRowClick = (
@@ -23,7 +23,7 @@ export const useAdminAllClassesTable = (keyword: string) => {
 
   const {
     data: { results },
-  } = useAdminAllClassesQuery(keyword);
+  } = useAdminClassListQuery(keyword);
 
   const data = results;
 

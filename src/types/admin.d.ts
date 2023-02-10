@@ -1,4 +1,4 @@
-type AdminAllProblems = {
+type AdminProblemList = {
   id: number;
   title: string;
   created_time: string;
@@ -7,7 +7,7 @@ type AdminAllProblems = {
   class_id: number;
 };
 
-type AdminAllClasses = {
+type AdminClassList = {
   id: number;
   name: string;
   year: number;
@@ -15,14 +15,14 @@ type AdminAllClasses = {
   created_user: string;
 };
 
-type AdminAllProblemsResponse = {
+type AdminProblemListResponse = {
   count: number;
   next: number | null;
   previous: number | nulle;
-  results: AdminAllProblems[];
+  results: AdminProblemList[];
 };
 
-type AdminAnnouncements = {
+type AdminAnnouncement = {
   id: number;
   title: string;
   created_time: string;
@@ -35,7 +35,7 @@ type AdminAnnouncementListResponse = {
   count: number;
   next: number | null;
   previous: number | nulle;
-  results: AdminAnnouncements[];
+  results: AdminAnnouncement[];
 };
 
 type EditAnnouncementSwitchRequest = {
@@ -43,11 +43,11 @@ type EditAnnouncementSwitchRequest = {
   visible?: boolean;
 };
 
-type AdminAllClassesResponse = {
+type AdminClassListResponse = {
   count: number;
   next: number | null;
   previous: number | nulle;
-  results: AdminAllClasses[];
+  results: AdminClassList[];
 };
 
 type CreateEditAnnouncementRequest = {
@@ -68,7 +68,7 @@ type AdminAnnouncementResponse = {
   last_modified: string;
 };
 
-type AdminFaqs = {
+type AdminFaq = {
   id: number;
   question: string;
   created_time: string;
@@ -80,7 +80,7 @@ type AdminFaqListResponse = {
   count: number;
   next: number | null;
   previous: number | nulle;
-  results: AdminFaqs[];
+  results: AdminFaq[];
 };
 
 type CreateEditFaqRequest = {
@@ -99,7 +99,7 @@ type AdminFaqResponse = {
   last_modified: string;
 };
 
-type AdminUsers = {
+type AdminUser = {
   id: number;
   email: string;
   username: string;
@@ -113,5 +113,5 @@ type AdminUserListResponse = {
   count: number;
   next: number | null;
   previous: number | nulle;
-  results: AdminUsers[];
+  results: AdminUser[];
 };

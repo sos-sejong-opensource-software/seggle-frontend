@@ -5,12 +5,12 @@ import { QUERY_KEYS } from '@/constants';
 import { useSuspenseQuery } from '@/hooks/useSuspenseQuery';
 import { getClasses } from '../../api';
 
-export const useAdminAllClassesQuery = (
+export const useAdminClassListQuery = (
   keyword: string,
   options?: UseQueryOptions<
-    AdminAllClassesResponse,
+    AdminClassListResponse,
     AxiosError,
-    AdminAllClassesResponse,
+    AdminClassListResponse,
     [string, string]
   >
 ) => {

@@ -1,1 +1,1 @@
-export * from './useAdminAllProblemsTable';
+export * from './useAdminProblemListTable';

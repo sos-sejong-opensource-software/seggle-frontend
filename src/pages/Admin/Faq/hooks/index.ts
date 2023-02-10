@@ -1,1 +1,1 @@
-export * from './useAdminFaqsTable';
+export * from './useAdminFaqListTable';

@@ -1,2 +1,2 @@
-export * from './useAdminAllProblemsQuery';
+export * from './useAdminProblemListQuery';
 export * from './useDeleteProblemMutation';

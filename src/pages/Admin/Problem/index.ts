@@ -1,1 +1,1 @@
-export * from './AdminAllProblems';
+export * from './AdminProblemList';

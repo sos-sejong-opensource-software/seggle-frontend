@@ -4,7 +4,7 @@ import { api } from '@/api';
 
 const API_URL = `/admin/problems`;
 
-const getProblems = (keyword: string): Promise<AxiosResponse<AdminAllProblemsResponse>> => {
+const getProblems = (keyword: string): Promise<AxiosResponse<AdminProblemListResponse>> => {
   return api.get(`${API_URL}?keyword=${keyword}`);
 };
 

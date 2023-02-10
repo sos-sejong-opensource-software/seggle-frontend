@@ -2,15 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components';
 import { PATH } from '@/constants/paths';
 import React from 'react';
-import {
-  useAdminFaqListQuery,
-  useDeleteFaqMutation,
-  useEditFaqVisibleMutation,
-} from '../hooks/query';
+import { useAdminFaqListQuery, useDeleteFaqMutation, useEditFaqVisibleMutation } from './query';
 import { formatTime } from '@/utils/time';
 import { Switch } from '@/components/atom/Switch';
 
-export const useAdminFaqsTable = () => {
+export const useAdminFaqListTable = () => {
   const navigate = useNavigate();
   const { mutate: deleteFaq } = useDeleteFaqMutation();
   const { mutate: editFaqVisible } = useEditFaqVisibleMutation();

@@ -9,8 +9,8 @@ import {
   Faq,
   Admin,
   AdminAnnouncementList,
-  AdminAllClasses,
-  AdminAllProblems,
+  AdminClassList,
+  AdminProblemList,
   ClassList,
   Class,
   ClassProblemList,
@@ -78,8 +78,8 @@ export default function App() {
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
             <Route path={PATH.FAQ} element={<Faq />} />
             <Route path={PATH.ADMIN} element={<Admin />}>
-              <Route path={PATH.ADMIN_PROBLEM_LIST} element={<AdminAllProblems />} />
-              <Route path={PATH.ADMIN_CLASS_LIST} element={<AdminAllClasses />} />
+              <Route path={PATH.ADMIN_PROBLEM_LIST} element={<AdminProblemList />} />
+              <Route path={PATH.ADMIN_CLASS_LIST} element={<AdminClassList />} />
 
               <Route path={PATH.ADMIN_ANNOUNCEMENT_NEW} element={<AdminNewAnnouncement />} />
               <Route path={PATH.ADMIN_ANNOUNCEMENT_EDIT} element={<AdminEditAnnouncement />} />

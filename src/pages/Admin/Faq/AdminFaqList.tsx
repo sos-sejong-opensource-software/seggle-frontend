@@ -1,11 +1,11 @@
 import { Button, Heading, Table } from '@/components';
 import { PAGE, PATH } from '@/constants/paths';
 import { useNavigate } from 'react-router-dom';
-import { useAdminFaqsTable } from './hooks';
+import { useAdminFaqListTable } from './hooks';
 
 export function AdminFaqList() {
   const navigate = useNavigate();
-  const { column, data } = useAdminFaqsTable();
+  const { column, data } = useAdminFaqListTable();
 
   return (
     <>
