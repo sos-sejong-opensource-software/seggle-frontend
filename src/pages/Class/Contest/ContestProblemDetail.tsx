@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 
 import { SUB_PATH } from '@/constants';
 
-import { Problem } from './components';
+import { Problem } from '../Problem/components';
 import { useContestProblemQuery } from './hooks';
 
 export function ContestProblemDetail() {
