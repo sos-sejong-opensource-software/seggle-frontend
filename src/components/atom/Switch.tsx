@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 type SwitchProps<T extends React.ElementType> = Component<T> & {
   enabled: boolean;
+  name?: string;
 };
 
-export function Switch({ enabled, onClick, className }: SwitchProps<'button'>) {
+export function Switch({ enabled, onClick, className, name }: SwitchProps<'button'>) {
+  const [isEnabled, setIsEnabled] = useState(enabled);
+
+  if (onClick === undefined) {
+    onClick = () => {
+      setIsEnabled((prev) => !prev);
+    };
+  }
+
   return (
     <div className={className}>
       <label className="inline-flex relative items-center cursor-pointer">
-        <input type="checkbox" className="sr-only peer" checked={enabled} readOnly />
+        <input type="checkbox" className="sr-only peer" checked={isEnabled} name={name} readOnly />
         <button
           type="button"
           onClick={onClick}
