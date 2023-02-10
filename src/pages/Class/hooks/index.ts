@@ -6,3 +6,4 @@ export * from './useModalBody';
 export * from './useClassProblemListTable';
 export * from './useStudentForm';
 export * from './useContestProblemListTable';
+export * from './useContestModalBody';

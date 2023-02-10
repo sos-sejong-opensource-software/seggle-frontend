@@ -71,3 +71,11 @@ type ContestProblemList = {
 }[];
 
 type ContestProblemListResponse = ApiResponse<ContestProblemList>;
+
+type ContestRequest = {
+  name: string;
+  start_time: string;
+  end_time: string;
+  is_exam: boolean;
+  visible: boolean;
+};
