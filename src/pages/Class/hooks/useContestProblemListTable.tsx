@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components';
 
-import { useClassContestProblemListQuery } from './query';
+import { useClassContestProblemListQuery, useDeleteProblemMutation } from './query';
 import { formatTime } from '@/utils/time';
 
 export const useContestProblemListTable = (classId: string, contestId: string) => {
@@ -16,21 +16,39 @@ export const useContestProblemListTable = (classId: string, contestId: string) =
     { Header: '삭제', accessor: 'delete' },
   ];
 
+  const handleEditButtonClick = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+    e.stopPropagation();
+    navigate(`${id}/edit`);
+  };
+
+  const { mutate: deleteProblem } = useDeleteProblemMutation();
+  const handleDeleteButtonClick = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    id: number,
+    title: string
+  ) => {
+    e.stopPropagation();
+    const isConfirmed = confirm(`${title}을 삭제하시겠습니까?`);
+    if (isConfirmed) deleteProblem(`${id}`);
+  };
+
   const {
     data: { results },
   } = useClassContestProblemListQuery(classId, contestId);
-  const data = results.map((problem) => ({
-    ...problem,
-    endTime: formatTime(problem.end_time),
-    edit: <Button>편집</Button>,
-    delete: <Button>삭제</Button>,
-  }));
+  const data = results.map((problem) => {
+    const { problem_id, title, end_time } = problem;
+    return {
+      ...problem,
+      endTime: formatTime(end_time),
+      edit: <Button onClick={(e) => handleEditButtonClick(e, problem_id)}>편집</Button>,
+      delete: <Button onClick={(e) => handleDeleteButtonClick(e, problem_id, title)}>삭제</Button>,
+    };
+  });
 
   const handleRowClick = (
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
     id: number | string
   ) => {
-    /** FIXME: 해당 문제 상세 페이지로 이동하게 수정 */
     navigate(`${id}`);
   };
 
