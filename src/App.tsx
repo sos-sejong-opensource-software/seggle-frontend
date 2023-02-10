@@ -28,6 +28,7 @@ import {
   ProblemForm,
   ClassEditContestList,
   AdminFaqList,
+  AdminNewFaq,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
@@ -78,6 +79,7 @@ export default function App() {
               <Route path={PATH.ADMIN_ANNOUNCEMENTS_EDIT} element={<AdminEditAnnouncement />} />
               <Route path={PATH.ADMIN_ANNOUNCEMENTS} element={<AdminAnnouncementList />} />
 
+              <Route path={PATH.ADMIN_FAQS_NEW} element={<AdminNewFaq />} />
               <Route path={PATH.ADMIN_FAQS} element={<AdminFaqList />} />
               <Route path={PATH.ADMIN_USER_MANAGEMENT} element={<div>UserManagement</div>} />
             </Route>

@@ -82,3 +82,9 @@ type AdminFaqListResponse = {
   previous: number | nulle;
   results: AdminFaqs[];
 };
+
+type CreateEditFaqRequest = {
+  question: string;
+  answer: string;
+  visible: boolean;
+};

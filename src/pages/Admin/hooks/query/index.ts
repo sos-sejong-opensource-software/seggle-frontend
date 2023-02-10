@@ -11,3 +11,4 @@ export * from './useAdminAnnouncementQuery';
 export * from './useDeleteFaqMutation';
 export * from './useEditFaqVisibleMutation';
 export * from './useAdminFaqListQuery';
+export * from './useCreateFaqMutation';

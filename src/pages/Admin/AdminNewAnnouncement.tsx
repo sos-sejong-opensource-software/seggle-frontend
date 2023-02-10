@@ -6,7 +6,7 @@ import { useCreateAnnouncementMutation } from './hooks/query';
 export function AdminNewAnnouncement() {
   const { mutate: createAnnouncement } = useCreateAnnouncementMutation();
 
-  const onMutate = (data: CreateEditAnnouncementRequest) => {
+  const onAnnouncementMutate = (data: CreateEditAnnouncementRequest) => {
     createAnnouncement(data);
   };
 
@@ -15,7 +15,7 @@ export function AdminNewAnnouncement() {
       <Heading as="h3" className="pageTitle">
         {PAGE.NEW_ANNOUNCEMENT}
       </Heading>
-      <AdminCreateEditForm mode="announcement" onMutate={onMutate} />
+      <AdminCreateEditForm mode="announcement" onAnnouncementMutate={onAnnouncementMutate} />
     </div>
   );
 }

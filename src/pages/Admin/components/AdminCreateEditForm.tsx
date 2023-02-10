@@ -13,10 +13,16 @@ type AdminCreateEditFormProps = {
     visible: boolean;
     important?: boolean;
   };
-  onMutate: (data: CreateEditAnnouncementRequest) => void;
+  onAnnouncementMutate?: (data: CreateEditAnnouncementRequest) => void;
+  onFaqMutate?: (data: CreateEditFaqRequest) => void;
 };
 
-export function AdminCreateEditForm({ mode, data, onMutate }: AdminCreateEditFormProps) {
+export function AdminCreateEditForm({
+  mode,
+  data,
+  onFaqMutate,
+  onAnnouncementMutate,
+}: AdminCreateEditFormProps) {
   const LABEL = mode === 'announcement' ? ANNOUNCEMENT_LABEL : FAQ_LABEL;
   const navigate = useNavigate();
   const [title, _context, visible, important] = data
@@ -35,7 +41,15 @@ export function AdminCreateEditForm({ mode, data, onMutate }: AdminCreateEditFor
         visible: Boolean(formData.get('visible')) ?? false,
         important: Boolean(formData.get('important')) ?? false,
       };
-      onMutate(data);
+      if (onAnnouncementMutate !== undefined) onAnnouncementMutate(data);
+    }
+    if (mode === 'faq') {
+      const data = {
+        question: String(formData.get('title')) ?? '',
+        answer: context,
+        visible: Boolean(formData.get('visible')) ?? false,
+      };
+      if (onFaqMutate !== undefined) onFaqMutate(data);
     }
   };
 
