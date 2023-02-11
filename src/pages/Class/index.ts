@@ -1,10 +1,10 @@
 export * from './ClassList';
 export * from './ClassListEdit';
 export * from './Class';
-export * from './ClassProblemList';
-export * from './ClassContest';
-export * from './ClassContestProblemList';
-export * from './ClassStudentManagement';
-export * from './ClassEditContestList';
 
-export * from './Problem';
+export * from './AllProblems';
+export * from './StudentManagement';
+export * from './Contest';
+
+export { ProblemData } from './components';
+export { ProblemDescription } from './components';

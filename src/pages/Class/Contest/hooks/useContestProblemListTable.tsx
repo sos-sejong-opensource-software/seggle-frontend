@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components';
-
-import { useClassContestProblemListQuery, useDeleteProblemMutation } from './query';
 import { formatTime } from '@/utils/time';
+
+import { useClassContestProblemListQuery } from './query';
+import { useDeleteProblemMutation } from '../../AllProblems/hooks';
 
 export const useContestProblemListTable = (classId: string, contestId: string) => {
   const navigate = useNavigate();
