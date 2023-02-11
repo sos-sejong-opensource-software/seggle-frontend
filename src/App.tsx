@@ -33,6 +33,7 @@ import {
   AdminEditFaq,
   AdminUserList,
   ClassListEdit,
+  AdminProblemDetail,
 } from '@/pages';
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
@@ -83,6 +84,10 @@ export default function App() {
             <Route path={PATH.FAQ} element={<Faq />} />
             <Route path={PATH.ADMIN} element={<Admin />}>
               <Route path={PATH.ADMIN_PROBLEM_LIST} element={<AdminProblemList />} />
+              <Route path={PATH.ADMIN_PROBLEM_DETAIL} element={<AdminProblemDetail />}>
+                <Route path={SUB_PATH.DESCRIPTION} element={<ProblemDescription />} />
+                <Route path={SUB_PATH.DATA} element={<ProblemData />} />
+              </Route>
               <Route path={PATH.ADMIN_CLASS_LIST} element={<AdminClassList />} />
 
               <Route path={PATH.ADMIN_ANNOUNCEMENT_NEW} element={<AdminNewAnnouncement />} />
