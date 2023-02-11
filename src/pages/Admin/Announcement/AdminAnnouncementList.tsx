@@ -1,13 +1,16 @@
 import { Button, Heading, Input, Table } from '@/components';
+import Pagination from '@/components/Pagination';
 import { PAGE, PATH } from '@/constants/paths';
 import { useSearch } from '@/hooks/useSearch';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminAnnouncementsTable } from './hooks';
 
 export function AdminAnnouncementList() {
   const navigate = useNavigate();
   const { keyword, onChange } = useSearch();
-  const { column, data } = useAdminAnnouncementsTable(keyword);
+  const [currentPage, setCurrentPage] = useState(1);
+  const { column, data, page } = useAdminAnnouncementsTable(keyword, currentPage);
 
   return (
     <>
@@ -28,6 +31,7 @@ export function AdminAnnouncementList() {
         </div>
       </div>
       <Table column={column} data={data} />
+      <Pagination setCurrentPage={setCurrentPage} {...page} />
     </>
   );
 }

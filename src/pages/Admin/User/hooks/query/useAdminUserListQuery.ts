@@ -7,17 +7,18 @@ import { getUsers } from '../../api';
 
 export const useAdminUserListQuery = (
   keyword: string,
+  currentPage: number,
   options?: UseQueryOptions<
     AdminUserListResponse,
     AxiosError,
     AdminUserListResponse,
-    [string, string]
+    [string, string, number]
   >
 ) => {
   return useSuspenseQuery(
-    [QUERY_KEYS.ADMIN_ALL_USERS, keyword],
-    async ({ queryKey: [, keyword] }) => {
-      const { data } = await getUsers(keyword);
+    [QUERY_KEYS.ADMIN_ALL_USERS, keyword, currentPage],
+    async ({ queryKey: [, keyword, currentPage] }) => {
+      const { data } = await getUsers(keyword, currentPage);
       return data;
     },
     {

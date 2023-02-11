@@ -19,8 +19,11 @@ const deleteUser = (username: string) => {
   return api.delete(`${API_URL}/${username}`);
 };
 
-const getUsers = (keyword: string): Promise<AxiosResponse<AdminUserListResponse>> => {
-  return api.get(`${API_URL}?keyword=${keyword}`);
+const getUsers = (
+  keyword: string,
+  currentPage: number
+): Promise<AxiosResponse<AdminUserListResponse>> => {
+  return api.get(`${API_URL}?keyword=${keyword}&page=${currentPage}`);
 };
 
 export { getUser, editUserPrivilege, deleteUser, getUsers };
