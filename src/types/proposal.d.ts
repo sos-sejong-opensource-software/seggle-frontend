@@ -12,6 +12,8 @@ type ProposalResponse = {
   results: ProposalResult;
 };
 
+type ProposalDetailRequest = { proposalId: string };
+
 type ProposalDetailResponse = {
   id: number;
   title: string;
