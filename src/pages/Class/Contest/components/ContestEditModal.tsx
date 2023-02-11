@@ -19,14 +19,16 @@ export function ContestEditModal({
 }: ContestEditmModal<'div'>) {
   const { classId } = useParams() as { classId: string };
 
-  const { renderBody, isExam, visible } = useContestModalBody(data);
+  const { renderBody } = useContestModalBody(data);
 
   const { mutate: editContest } = useEditContestMutation();
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
     e.preventDefault();
 
-    const [name, startTime, endTime] = Object.values(e.target).map(({ value }) => value);
+    const [name, startTime, endTime, isExam, visible] = Object.values(e.target)
+      .filter(({ nodeName }) => nodeName === 'INPUT')
+      .map(({ name, value, checked }) => (name === 'switch' ? checked : value));
 
     editContest({
       classId,

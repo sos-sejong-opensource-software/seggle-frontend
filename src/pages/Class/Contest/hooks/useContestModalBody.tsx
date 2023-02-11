@@ -7,17 +7,9 @@ export const useContestModalBody = (data?: ContestRequest) => {
     name,
     start_time: startTime,
     end_time: endTime,
-    is_exam: _isExam,
-    visible: _visible,
+    is_exam: isExam,
+    visible: visible,
   } = data ?? {};
-
-  const [isExam, setIsExam] = useState(!!_isExam);
-  const [visible, setVisible] = useState(!!_visible);
-
-  useEffect(() => {
-    setIsExam(!!_isExam);
-    setVisible(!!_visible);
-  }, [_isExam, _visible]);
 
   const contents = [
     {
@@ -42,12 +34,12 @@ export const useContestModalBody = (data?: ContestRequest) => {
     {
       id: 'isExam',
       label: '시험 모드',
-      element: <Switch enabled={isExam} onClick={() => setIsExam(!isExam)} />,
+      element: <Switch enabled={!!isExam} name="switch" />,
     },
     {
       id: 'visible',
       label: '공개',
-      element: <Switch enabled={visible} onClick={() => setVisible(!visible)} />,
+      element: <Switch enabled={!!visible} name="switch" />,
     },
   ];
 
@@ -62,7 +54,5 @@ export const useContestModalBody = (data?: ContestRequest) => {
 
   return {
     renderBody,
-    isExam,
-    visible,
   };
 };

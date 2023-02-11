@@ -48,7 +48,13 @@ export const useAllProblemListTable = (keyword: string) => {
       return {
         ...problem,
         created_time: formatTime(createdTime),
-        public: <Switch enabled={isPublic} onClick={(e) => handleEditButtonClick(e, id)} />,
+        public: (
+          <Switch
+            key={`${id}_public_${String(isPublic)}`}
+            enabled={isPublic}
+            onClick={(e) => handleEditButtonClick(e, id)}
+          />
+        ),
         delete: <Button onClick={(e) => handleDeleteButtonClick(e, id)}>삭제</Button>,
       };
     });
