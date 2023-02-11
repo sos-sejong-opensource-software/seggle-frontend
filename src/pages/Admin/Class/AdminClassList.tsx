@@ -1,0 +1,28 @@
+import { Heading, Input, Table } from '@/components';
+import { PAGE } from '@/constants/paths';
+import { useSearch } from '@/hooks/useSearch';
+import { useAdminClassListTable } from './hooks';
+
+export function AdminClassList() {
+  const { keyword, onChange } = useSearch();
+  const { column, data, handleRowClick } = useAdminClassListTable(keyword);
+
+  return (
+    <>
+      <div className="flex flex-row justify-between">
+        <Heading as="h3" className="pageTitle">
+          {PAGE.ADMIN_CLASS_LIST}
+        </Heading>
+        <div className="py-10 w-1/3">
+          <Input
+            type="search"
+            className="h-10 w-full"
+            placeholder="검색"
+            onChange={onChange}
+          ></Input>
+        </div>
+      </div>
+      <Table column={column} data={data} onRowClick={handleRowClick} />
+    </>
+  );
+}

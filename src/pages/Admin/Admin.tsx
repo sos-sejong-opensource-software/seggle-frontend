@@ -5,11 +5,11 @@ import { PATH } from '@/constants/paths';
 
 export function Admin() {
   const menuList = [
-    { name: '전체 문제', to: PATH.ADMIN_ALL_PROBLEMS },
-    { name: '전체 수업', to: PATH.ADMIN_ALL_CLASSES },
-    { name: '공지사항', to: PATH.ADMIN_ANNOUNCEMENTS },
-    { name: 'FAQ', to: PATH.ADMIN_FAQS },
-    { name: '사용자 관리', to: PATH.ADMIN_USER_MANAGEMENT },
+    { name: '전체 문제', to: PATH.ADMIN_PROBLEM_LIST },
+    { name: '전체 수업', to: PATH.ADMIN_CLASS_LIST },
+    { name: '공지사항', to: PATH.ADMIN_ANNOUNCEMENT_LIST },
+    { name: 'FAQ', to: PATH.ADMIN_FAQ_LIST },
+    { name: '사용자 관리', to: PATH.ADMIN_USER_LIST },
   ];
 
   return (

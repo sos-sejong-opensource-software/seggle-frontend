@@ -1,10 +1,7 @@
 export * from './Admin';
-export * from './AdminAllProblems';
-export * from './AdminAnnouncementList';
-export * from './AdminAllClasses';
-export * from './AdminNewAnnouncement';
-export * from './AdminEditAnnouncement';
-export * from './AdminFaqList';
-export * from './AdminNewFaq';
-export * from './AdminEditFaq';
-export * from './AdminUserList';
+
+export * from './Announcement';
+export * from './Class';
+export * from './Faq';
+export * from './Problem';
+export * from './User';
