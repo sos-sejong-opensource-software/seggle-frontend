@@ -10,7 +10,7 @@ export const useProposalQuery = (
   options?: UseQueryOptions<ProposalResponse, AxiosError, ProposalResponse, string>
 ) => {
   return useSuspenseQuery(
-    QUERY_KEYS.PROPOSAL,
+    QUERY_KEYS.BOARD,
     async () => {
       const { data } = await getProposal();
       return data;

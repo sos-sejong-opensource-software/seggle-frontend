@@ -1,6 +1,21 @@
 export const QUERY_KEYS = {
   ADMIN_USER_EDIT: 'admin-user-edit',
+  ADMIN_PROBLEM_LIST: 'admin-problem-list',
+  ADMIN_ANNOUNCEMENT_LIST: 'admin-announcement-list',
+  ADMIN_ANNOUNCEMENT: 'admin-announcement',
+  ADMIN_CLASS_LIST: 'admin-class-list',
+  ADMIN_ALL_FAQS: 'admin-all-faqs',
+  ADMIN_FAQ: 'admin-faq',
+  ADMIN_ALL_USERS: 'admin-all-users',
   FAQ: 'faq',
   ANNOUNCEMENT: 'announcement',
-  PROPOSAL: 'proposal'
+  BOARD: 'proposal',
+  BOARD_DETAIL: 'proposal-detail',
+  CLASS: 'class',
+  CLASS_PROBLEM: 'class-problem',
+  CLASS_STUDENT: 'class-student',
+  CLASS_TA: 'class-ta',
+  CLASS_CONTEST: 'class-contest',
+  CLASS_CONTEST_PROBLEM: 'class-contest-problem',
+  CLASS_CONTEST_PROBLEM_SUBMISSION: 'class-contest-problem-submission',
 };
