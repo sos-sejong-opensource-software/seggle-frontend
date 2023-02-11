@@ -8,8 +8,8 @@ const getProposal = (): Promise<AxiosResponse<ProposalResponse>> => {
   return api.get(`${API_URL}`);
 };
 
-const getProposalDetail = (proposalId: string): Promise<AxiosResponse<ProposalDetailResponse>> => {
-  return api.get(`${API_URL}/${proposalId}/`);
+const getProposalDetail = ({ proposalId }: ProposalDetailRequest) => {
+  return api.get(`${API_URL}/${proposalId}`);
 };
 
 const createProposal = (payload: CreateEditProposalRequest) => {

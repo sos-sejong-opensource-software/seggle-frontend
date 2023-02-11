@@ -8,7 +8,7 @@ import { getProposalDetail } from '../../api';
 
 export const useProposalDetailQuery = (
   params: ProposalDetailRequest,
-  options?: UseQueryOptions<ProposalDetailRequest, AxiosError, ProposalDetailRequest, string[]>
+  options?: UseQueryOptions<ProposalDetailResponse, AxiosError, ProposalDetailResponse, string[]>
 ) => {
   const { proposalId } = params;
   return useSuspenseQuery(
