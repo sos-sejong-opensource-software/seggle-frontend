@@ -16,6 +16,7 @@ export function BoardDetail() {
     <>
       <Button onClick={goBoardList}>목록</Button>
       <Article detail={data}></Article>
+      <Button>수정</Button>
       <Button>삭제</Button>
     </>
   );
