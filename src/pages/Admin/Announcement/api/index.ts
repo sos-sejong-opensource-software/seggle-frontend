@@ -5,9 +5,10 @@ import { api } from '@/api';
 const API_URL = `/admin/announcements`;
 
 const getAnnouncements = (
-  keyword: string
+  keyword: string,
+  currentPage: number
 ): Promise<AxiosResponse<AdminAnnouncementListResponse>> => {
-  return api.get(`${API_URL}?keyword=${keyword}`);
+  return api.get(`${API_URL}?keyword=${keyword}&page=${currentPage}`);
 };
 
 const deleteAnnouncement = (announcementId: string) => {

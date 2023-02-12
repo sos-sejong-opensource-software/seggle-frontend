@@ -10,7 +10,7 @@ import {
 import { formatTime } from '@/utils/time';
 import { Switch } from '@/components/atom/Switch';
 
-export const useAdminAnnouncementsTable = (keyword: string) => {
+export const useAdminAnnouncementsTable = (keyword: string, currentPage: number) => {
   const navigate = useNavigate();
   const { mutate: deleteAnnouncement } = useDeleteAnnouncementMutation();
   const { mutate: editAnnouncementSwitch } = useEditAnnouncementSwitchMutation();
@@ -56,56 +56,54 @@ export const useAdminAnnouncementsTable = (keyword: string) => {
   ];
 
   const {
-    data: { results },
-  } = useAdminAnnouncementListQuery(keyword);
+    data: { results, current_page, last_page },
+  } = useAdminAnnouncementListQuery(keyword, currentPage);
 
-  const data = results
-    .sort(({ id: prev }, { id: next }) => next - prev)
-    .map((_announcement) => {
-      const { id, title, visible, important } = _announcement;
-      const created_time = formatTime(_announcement.created_time);
-      const last_modified = formatTime(_announcement.last_modified);
+  const data = results.map((_announcement) => {
+    const { id, title, visible, important } = _announcement;
+    const created_time = formatTime(_announcement.created_time);
+    const last_modified = formatTime(_announcement.last_modified);
 
-      return {
-        ..._announcement,
-        created_time,
-        last_modified,
-        visible: (
-          <Switch
-            key={`${id}_visible_${String(visible)}`}
-            enabled={visible}
-            onClick={() => {
-              handleSwitchButtonClick({
-                id,
-                visible: !visible,
-              });
-            }}
-          />
-        ),
-        important: (
-          <Switch
-            key={`${id}_important_${String(important)}`}
-            enabled={important}
-            onClick={() => {
-              handleSwitchButtonClick({
-                id,
-                important: !important,
-              });
-            }}
-          />
-        ),
-        edit: (
-          <Button
-            onClick={() => {
-              navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENT_LIST}/${id}/edit`);
-            }}
-          >
-            편집
-          </Button>
-        ),
-        delete: <Button onClick={(e) => handleDeleteButtonClick({ id, title, e })}>삭제</Button>,
-      };
-    });
+    return {
+      ..._announcement,
+      created_time,
+      last_modified,
+      visible: (
+        <Switch
+          key={`${id}_visible_${String(visible)}`}
+          enabled={visible}
+          onClick={() => {
+            handleSwitchButtonClick({
+              id,
+              visible: !visible,
+            });
+          }}
+        />
+      ),
+      important: (
+        <Switch
+          key={`${id}_important_${String(important)}`}
+          enabled={important}
+          onClick={() => {
+            handleSwitchButtonClick({
+              id,
+              important: !important,
+            });
+          }}
+        />
+      ),
+      edit: (
+        <Button
+          onClick={() => {
+            navigate(`${PATH.ADMIN}/${PATH.ADMIN_ANNOUNCEMENT_LIST}/${id}/edit`);
+          }}
+        >
+          편집
+        </Button>
+      ),
+      delete: <Button onClick={(e) => handleDeleteButtonClick({ id, title, e })}>삭제</Button>,
+    };
+  });
 
-  return { column, data };
+  return { column, data, page: { currentPage: current_page, lastPage: last_page } };
 };

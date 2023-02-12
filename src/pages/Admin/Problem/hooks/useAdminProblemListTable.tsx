@@ -5,7 +5,7 @@ import { PATH } from '@/constants/paths';
 import React from 'react';
 import { useAdminProblemListQuery } from './query';
 
-export const useAdminProblemListTable = (keyword: string) => {
+export const useAdminProblemListTable = (keyword: string, currentPage: number) => {
   const navigate = useNavigate();
   const { mutate: deleteProblem } = useDeleteProblemMutation();
 
@@ -39,8 +39,8 @@ export const useAdminProblemListTable = (keyword: string) => {
   ];
 
   const {
-    data: { results },
-  } = useAdminProblemListQuery(keyword);
+    data: { results, current_page, last_page },
+  } = useAdminProblemListQuery(keyword, currentPage);
 
   const data = results.map((_problem) => {
     const { id, title } = _problem;
@@ -52,5 +52,5 @@ export const useAdminProblemListTable = (keyword: string) => {
     };
   });
 
-  return { column, data, handleRowClick };
+  return { column, data, handleRowClick, page: { currentPage: current_page, lastPage: last_page } };
 };

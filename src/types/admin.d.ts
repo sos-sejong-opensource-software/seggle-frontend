@@ -17,8 +17,8 @@ type AdminClassList = {
 
 type AdminProblemListResponse = {
   count: number;
-  next: number | null;
-  previous: number | nulle;
+  current_page: number;
+  last_page: number;
   results: AdminProblemList[];
 };
 
@@ -33,8 +33,8 @@ type AdminAnnouncement = {
 
 type AdminAnnouncementListResponse = {
   count: number;
-  next: number | null;
-  previous: number | nulle;
+  current_page: number;
+  last_page: number;
   results: AdminAnnouncement[];
 };
 
@@ -45,8 +45,8 @@ type EditAnnouncementSwitchRequest = {
 
 type AdminClassListResponse = {
   count: number;
-  next: number | null;
-  previous: number | nulle;
+  current_page: number;
+  last_page: number;
   results: AdminClassList[];
 };
 
@@ -78,8 +78,8 @@ type AdminFaq = {
 
 type AdminFaqListResponse = {
   count: number;
-  next: number | null;
-  previous: number | nulle;
+  current_page: number;
+  last_page: number;
   results: AdminFaq[];
 };
 
@@ -111,7 +111,7 @@ type AdminUser = {
 
 type AdminUserListResponse = {
   count: number;
-  next: number | null;
-  previous: number | nulle;
+  current_page: number;
+  last_page: number;
   results: AdminUser[];
 };

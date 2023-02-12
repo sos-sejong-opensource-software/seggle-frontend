@@ -4,7 +4,7 @@ import { useAdminUserListQuery, useDeleteUserMutation } from '../hooks/query';
 import { formatTime } from '@/utils/time';
 import { PRIVILEGE } from '@/constants';
 
-export const useAdminUserTable = (keyword: string) => {
+export const useAdminUserTable = (keyword: string, currentPage: number) => {
   const { mutate: deleteFaq } = useDeleteUserMutation();
   const [showModal, setShowModal] = useState(false);
   const [username, setUserName] = useState('');
@@ -38,8 +38,8 @@ export const useAdminUserTable = (keyword: string) => {
   ];
 
   const {
-    data: { results },
-  } = useAdminUserListQuery(keyword);
+    data: { results, current_page, last_page },
+  } = useAdminUserListQuery(keyword, currentPage);
 
   const data = results.map((_user) => {
     const { username } = _user;
@@ -63,5 +63,6 @@ export const useAdminUserTable = (keyword: string) => {
       showModal,
       setShowModal,
     },
+    page: { currentPage: current_page, lastPage: last_page },
   };
 };

@@ -4,8 +4,11 @@ import { api } from '@/api';
 
 const API_URL = `/admin/problems`;
 
-const getProblems = (keyword: string): Promise<AxiosResponse<AdminProblemListResponse>> => {
-  return api.get(`${API_URL}?keyword=${keyword}`);
+const getProblems = (
+  keyword: string,
+  currentPage: number
+): Promise<AxiosResponse<AdminProblemListResponse>> => {
+  return api.get(`${API_URL}?keyword=${keyword}&page=${currentPage}`);
 };
 
 const deleteProblem = (problemId: string) => {

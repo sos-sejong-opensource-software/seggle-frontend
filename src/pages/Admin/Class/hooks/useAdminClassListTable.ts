@@ -3,7 +3,7 @@ import { PATH } from '@/constants/paths';
 import React from 'react';
 import { useAdminClassListQuery } from './query';
 
-export const useAdminClassListTable = (keyword: string) => {
+export const useAdminClassListTable = (keyword: string, currentPage: number) => {
   const navigate = useNavigate();
 
   const handleRowClick = (
@@ -22,10 +22,10 @@ export const useAdminClassListTable = (keyword: string) => {
   ];
 
   const {
-    data: { results },
-  } = useAdminClassListQuery(keyword);
+    data: { results, current_page, last_page },
+  } = useAdminClassListQuery(keyword, currentPage);
 
   const data = results;
 
-  return { column, data, handleRowClick };
+  return { column, data, handleRowClick, page: { currentPage: current_page, lastPage: last_page } };
 };

@@ -2,10 +2,13 @@ import { Heading, Input, Table } from '@/components';
 import { PAGE } from '@/constants/paths';
 import { useAdminProblemListTable } from './hooks';
 import { useSearch } from '@/hooks/useSearch';
+import Pagination from '@/components/Pagination';
+import { useState } from 'react';
 
 export function AdminProblemList() {
   const { keyword, onChange } = useSearch();
-  const { column, data, handleRowClick } = useAdminProblemListTable(keyword);
+  const [currentPage, setCurrentPage] = useState(1);
+  const { column, data, handleRowClick, page } = useAdminProblemListTable(keyword, currentPage);
 
   return (
     <>
@@ -23,6 +26,7 @@ export function AdminProblemList() {
         </div>
       </div>
       <Table column={column} data={data} onRowClick={handleRowClick} />
+      <Pagination setCurrentPage={setCurrentPage} {...page} />
     </>
   );
 }
