@@ -6,3 +6,5 @@ export * from './ErrorMessage';
 export * from './Select';
 export * from './LinkButton';
 export * from './Textarea';
+export * from './Switch';
+export * from './Editor';

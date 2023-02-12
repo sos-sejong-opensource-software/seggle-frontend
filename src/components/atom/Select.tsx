@@ -1,7 +1,7 @@
 import { tw } from '@/utils/tailwindMerge';
 
 type SelectProps<T extends React.ElementType> = Component<T> & {
-  selected: string;
+  selected?: string;
   options: Array<{ value: string }>;
 };
 
