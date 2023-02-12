@@ -11,6 +11,7 @@ export const QUERY_KEYS = {
   ANNOUNCEMENT: 'announcement',
   PROPOSAL: 'proposal',
   PROPOSAL_DETAIL: 'proposal-detail',
+  PROPOSAL_EDIT: 'proposal-edit',
   CLASS: 'class',
   CLASS_PROBLEM: 'class-problem',
   CLASS_STUDENT: 'class-student',
