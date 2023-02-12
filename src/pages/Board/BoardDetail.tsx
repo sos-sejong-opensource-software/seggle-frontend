@@ -1,17 +1,22 @@
-import { Article } from '../../components/template/Article';
+import { useParams } from 'react-router-dom';
+
+import { Article } from '../../components/Article';
+import { Button } from '@/components';
+import { useProposalDetailQuery } from './hooks/query/useProposalDetailQuery';
 
 export function BoardDetail() {
-  const dummyData = {
-    id: 3,
-    title: '건의합니다222',
-    context: 'ㅁㄴㅁㅇ',
-    created_user: '123123',
-    created_time: '2023-01-18T23:44:25.571726',
+  const proposalId = useParams().id;
+  const { data } = useProposalDetailQuery(String(proposalId));
+
+  const goBoardList = () => {
+    history.back();
   };
 
   return (
     <>
-      <Article detail={dummyData}></Article>
+      <Button onClick={goBoardList}>목록</Button>
+      <Article detail={data}></Article>
+      <Button>삭제</Button>
     </>
   );
 }

@@ -8,6 +8,7 @@ type ProposalResult = {
 type ProposalDetail = {
   id: number;
   title: string;
+  context: string;
   created_user: string;
   created_time: string;
 };
