@@ -16,7 +16,7 @@ const createProposal = (payload: CreateEditProposalRequest) => {
   return api.post(`${API_URL}/`, payload);
 };
 
-const editProposal = (proposalId: string, payload: FormData) => {
+const editProposal = (proposalId: string, payload: CreateEditProposalRequest) => {
   return api.put(`${API_URL}/${proposalId}/`, payload);
 };
 
