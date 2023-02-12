@@ -15,4 +15,8 @@ const deleteProblem = (problemId: string) => {
   return api.delete(`/problems/${problemId}`);
 };
 
-export { getProblems, deleteProblem };
+const getProblemById = (problemId: string): Promise<AxiosResponse<Problem>> => {
+  return api.get(`/problems/${problemId}`);
+};
+
+export { getProblems, deleteProblem, getProblemById };

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components';
 import { useDeleteProblemMutation } from './query/useDeleteProblemMutation';
-import { PATH } from '@/constants/paths';
+import { BASE_PATH, SUB_PATH } from '@/constants/paths';
 import React from 'react';
 import { useAdminProblemListQuery } from './query';
 
@@ -27,7 +27,7 @@ export const useAdminProblemListTable = (keyword: string, currentPage: number) =
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
     id: number | string
   ) => {
-    navigate(`${PATH.ADMIN_PROBLEM_LIST}/${id}`);
+    navigate(`${BASE_PATH.ADMIN}/${SUB_PATH.ALL_PROBLEMS}/${id}`);
   };
 
   const column = [
