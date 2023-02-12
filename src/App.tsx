@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import { Login, Register, Faq } from '@/pages';
 import { Board } from './pages/Board/Board';
 import { BoardDetail } from './pages/Board/BoardDetail';
+import { NewBoard } from './pages/Board/NewBoard';
 import { MainHeader } from '@/components';
 import { PATH } from '@/constants';
 
@@ -24,6 +25,7 @@ export default function App() {
           <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
           <Route path={PATH.FAQ} element={<Faq />} />
           <Route path={PATH.BOARD_DETAIL} element={<BoardDetail />} />
+          <Route path={PATH.BOARD_CREATE} element={<NewBoard />} />
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>
       </Suspense>

@@ -1,8 +1,9 @@
+import { PATH } from '@/constants';
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import { Heading, Table } from '@/components';
+import { Button, Heading, Table } from '@/components';
 
 import { useProposal } from './hooks';
 
@@ -21,6 +22,9 @@ export function Board() {
 
   const movePage = useNavigate();
 
+  function goCreateProposal() {
+    movePage(`/board/create`);
+  }
   function goBoardDetail(id: number | string) {
     movePage(`/board/${id}`);
   }
@@ -35,6 +39,7 @@ export function Board() {
   return (
     <>
       <Heading>건의게시판</Heading>
+      <Button onClick={goCreateProposal}>글쓰기</Button>
       <Table column={column} data={ProposalTableData} onRowClick={handleRowClick} />
     </>
   );
