@@ -3,10 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 
-import { Login, Register, Faq } from '@/pages';
-import { Board } from './pages/Board/Board';
-import { BoardDetail } from './pages/Board/BoardDetail';
-import { NewBoard } from './pages/Board/NewBoard';
+import { Login, Register, Faq, Board, BoardDetail, NewBoard, BoardEdit } from '@/pages';
 import { MainHeader } from '@/components';
 import { PATH } from '@/constants';
 
@@ -26,6 +23,7 @@ export default function App() {
           <Route path={PATH.FAQ} element={<Faq />} />
           <Route path={PATH.BOARD_DETAIL} element={<BoardDetail />} />
           <Route path={PATH.BOARD_CREATE} element={<NewBoard />} />
+          <Route path={PATH.BOARD_EDIT} element={<BoardEdit />} />
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>
       </Suspense>
