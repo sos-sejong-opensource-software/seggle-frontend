@@ -8,5 +8,8 @@ export const useDeleteProposalMutation = (
 ) => {
   return useMutation((proposalId) => deleteProposal(proposalId), {
     ...options,
+    onSuccess: () => {
+      alert('삭제되었습니다.');
+    },
   });
 };
