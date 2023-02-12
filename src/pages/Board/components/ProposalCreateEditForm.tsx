@@ -16,6 +16,10 @@ export function ProposalCreateEditForm({ data, onProposalMutate }: ProposalCreat
   const [title, _context] = data ? [data.title, data.context] : ['', ''];
   const [context, setContext] = useState(_context);
 
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setContext(e.target.value);
+  };
+
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
@@ -35,7 +39,7 @@ export function ProposalCreateEditForm({ data, onProposalMutate }: ProposalCreat
       </>
       <>
         <Label>내용</Label>
-        <Textarea className="w-full" />
+        <Textarea className="w-full" value={context} onChange={onChange}></Textarea>
       </>
       <div className="flex float-right gap-2">
         <Button type="button" onClick={() => navigate(-1)}>
