@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import { ProposalCreateEditForm } from './components';
 import { useProposalDetailQuery, useEditProposalMutation } from './hooks/query';
 
-export function EditProposal() {
-  const { id: proposalId } = useParams() as { id: string };
-  const { mutate: editProposal } = useEditProposalMutation(proposalId);
+export function BoardEdit() {
+  const proposalId = String(useParams().id);
+  console.log(proposalId);
+  const { mutate: editProposal } = useEditProposalMutation();
 
   const onProposalMutate = (data: CreateEditProposalRequest) => {
     editProposal({ proposalId, payload: data });
