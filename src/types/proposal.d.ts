@@ -5,14 +5,19 @@ type ProposalResult = {
   created_user: string;
 }[];
 
+type ProposalDetail = {
+  id: number;
+  title: string;
+  created_user: string;
+  created_time: string;
+};
+
 type ProposalResponse = {
   count: number;
   next: string;
   previous: string;
   results: ProposalResult;
 };
-
-type ProposalDetailRequest = { proposalId: string };
 
 type ProposalDetailResponse = {
   id: number;
