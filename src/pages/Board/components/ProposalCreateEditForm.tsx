@@ -1,4 +1,5 @@
 import { Button, Input, Label } from '@/components';
+import { Textarea } from '@/components/atom/Textarea';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -34,6 +35,7 @@ export function ProposalCreateEditForm({ data, onProposalMutate }: ProposalCreat
       </>
       <>
         <Label>내용</Label>
+        <Textarea className="w-full" />
       </>
       <div className="flex float-right gap-2">
         <Button type="button" onClick={() => navigate(-1)}>
