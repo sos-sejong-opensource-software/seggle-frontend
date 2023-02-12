@@ -12,7 +12,11 @@ export function Board() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const lastPage = 20;
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 4881925cd39717243771c8785f21b62fd7969d64
   const column = [
     { Header: '#', accessor: 'id' },
     { Header: '제목', accessor: 'title' },
