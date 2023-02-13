@@ -1,4 +1,4 @@
-import { useQuery, UseQueryOptions } from 'react-query';
+import { UseQueryOptions } from 'react-query';
 import { AxiosError } from 'axios';
 
 import { useSuspenseQuery } from '@/hooks/useSuspenseQuery';
@@ -7,12 +7,13 @@ import { QUERY_KEYS } from '@/constants';
 import { getProposal } from '../../api';
 
 export const useProposalQuery = (
-  options?: UseQueryOptions<ProposalResponse, AxiosError, ProposalResponse, string>
+  currentPage: number,
+  options?: UseQueryOptions<ProposalResponse, AxiosError, ProposalResponse, [string, number]>
 ) => {
   return useSuspenseQuery(
-    QUERY_KEYS.PROPOSAL,
-    async () => {
-      const { data } = await getProposal();
+    [QUERY_KEYS.PROPOSAL, currentPage],
+    async ({ queryKey: [, currentPage] }) => {
+      const { data } = await getProposal(currentPage);
       return data;
     },
     {

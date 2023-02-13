@@ -15,8 +15,8 @@ type ProposalDetail = {
 
 type ProposalResponse = {
   count: number;
-  next: string;
-  previous: string;
+  current_page: number;
+  last_page: number;
   results: ProposalResult;
 };
 
