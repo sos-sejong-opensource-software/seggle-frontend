@@ -31,7 +31,7 @@ export function Announcement() {
 
   return (
     <>
-      <Heading>건의게시판</Heading>
+      <Heading>공지사항</Heading>
       <Table column={column} data={AnnouncementTableData} onRowClick={handleRowClick} />
     </>
   );
