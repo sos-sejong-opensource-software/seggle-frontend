@@ -9,7 +9,7 @@ import {
   useAllProblemListQuery,
 } from './query';
 
-export const useAllProblemListTable = (keyword: string) => {
+export const useAllProblemListTable = (keyword: string, currentPage: number) => {
   const navigate = useNavigate();
 
   const column = [
@@ -39,8 +39,8 @@ export const useAllProblemListTable = (keyword: string) => {
   };
 
   const {
-    data: { results },
-  } = useAllProblemListQuery({ keyword });
+    data: { results, current_page, last_page },
+  } = useAllProblemListQuery({ keyword, currentPage });
   const data = results
     .sort(({ created_time: prev }, { created_time: next }) => +new Date(next) - +new Date(prev))
     .map((problem) => {
@@ -64,5 +64,6 @@ export const useAllProblemListTable = (keyword: string) => {
     column,
     data,
     handleRowClick,
+    page: { currentPage: current_page, lastPage: last_page },
   };
 };

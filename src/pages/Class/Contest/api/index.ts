@@ -38,13 +38,16 @@ const getContestProblem = ({ classId, contestId, contestProblemId }: ContestProb
   return api.get(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}`);
 };
 
-/** FIXME: 페이지네이션, username */
+/** FIXME: username */
 const getContestProblemSubmission = ({
   classId,
   contestId,
   contestProblemId,
+  currentPage,
 }: ContestProblemRequest) => {
-  return api.get(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/submissions`);
+  return api.get(
+    `${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/submissions?page=${currentPage}`
+  );
 };
 
 /** FIXME: contest problem API로 변경 */
