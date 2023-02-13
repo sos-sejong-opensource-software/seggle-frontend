@@ -5,7 +5,7 @@ import { useAnnouncement } from './hooks';
 
 export function Announcement() {
   const AnnouncementTableData = useAnnouncement();
-
+  
   //const [currentPage, setCurrentPage] = useState(1);
   //const lastPage = 20;
 
