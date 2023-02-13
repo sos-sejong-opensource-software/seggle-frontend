@@ -12,7 +12,6 @@ export const useAnnouncementQuery = (
     QUERY_KEYS.ANNOUNCEMENT,
     async () => {
       const { data } = await getAnnouncement();
-      console.log("hi 공지" + data);
       return data;
     },
     {
