@@ -7,6 +7,7 @@ import { Login, Register, Faq } from '@/pages';
 import { Announcement } from './pages/Announcement';
 import { MainHeader } from '@/components';
 import { PATH } from '@/constants';
+import { AnnouncementDetail } from './pages/Announcement/AnnouncementDetail';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path={PATH.CLASS_LIST} element={<div>ClassList</div>} />
           <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
           <Route path={PATH.ANNOUNCEMENT_LIST} element={<Announcement />} />
+          <Route path={PATH.ANNOUNCEMENT_DETAIL} element={<AnnouncementDetail />} />
           <Route path={PATH.FAQ} element={<Faq />} />
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>

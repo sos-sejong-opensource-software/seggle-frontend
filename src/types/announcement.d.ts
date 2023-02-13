@@ -10,6 +10,7 @@ type AnnouncementResult = {
 type AnnouncementDetail = {
   id: number;
   title: string;
+  context: string;
   created_time: string;
   created_user: string;
   last_modified: string;
