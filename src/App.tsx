@@ -7,6 +7,10 @@ import {
   Login,
   Register,
   Faq,
+  Board,
+  BoardDetail,
+  NewBoard,
+  BoardEdit,
   Admin,
   AdminAnnouncementList,
   AdminClassList,
@@ -35,6 +39,7 @@ import {
   ClassListEdit,
   AdminProblemDetail,
 } from '@/pages';
+
 import { MainHeader } from '@/components';
 import ResetPassword from './pages/User/ResetPassword';
 import { PATH, SUB_PATH } from '@/constants';
@@ -79,7 +84,10 @@ export default function App() {
             <Route path={PATH.CLASS_LIST} element={<ClassList />} />
             <Route path={PATH.CLASS_LIST_EDIT} element={<ClassListEdit />} />
 
-            <Route path={PATH.BOARD_LIST} element={<div>BoardList</div>} />
+            <Route path={PATH.BOARD_LIST} element={<Board />} />
+            <Route path={PATH.BOARD_DETAIL} element={<BoardDetail />} />
+            <Route path={PATH.BOARD_CREATE} element={<NewBoard />} />
+            <Route path={PATH.BOARD_EDIT} element={<BoardEdit />} />
             <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
             <Route path={PATH.FAQ} element={<Faq />} />
             <Route path={PATH.ADMIN} element={<Admin />}>

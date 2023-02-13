@@ -1,10 +1,3 @@
-type AnnouncementResponse = {
-    count: number;
-    next?: number | null;
-    previous?: number | null;    
-    results?: AnnouncementResult | [];
-  };
-  
 type AnnouncementResult = {
     id: number;
     title: string;
@@ -13,6 +6,14 @@ type AnnouncementResult = {
     visible: boolean;
     important: boolean;
 }[];
+
+type AnnouncementResponse = {
+    count: number;
+    next: string | null;
+    previous: string | null;    
+    results: AnnouncementResult;
+  };
+  
   /**
    *     
    * 

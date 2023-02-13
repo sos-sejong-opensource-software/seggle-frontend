@@ -61,3 +61,20 @@ function Tbody({ column, data, onRowClick }: TableProps<'table'>) {
     </tbody>
   );
 }
+/*
+      {Object.entries(data).map(([key, value]) => (
+        <tr
+          key={key}
+          className="border-b border-primary-100 table-row"
+          onClick={(e) => onRowClick(e, value['id'])}
+        >
+          {column.map(({ accessor }) => {
+            return (
+              <td className="py-3" key={accessor}>
+                {value[accessor as keyof typeof value]}
+              </td>
+            );
+          })} 
+        </tr>
+      ))}
+*/
