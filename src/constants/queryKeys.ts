@@ -9,6 +9,7 @@ export const QUERY_KEYS = {
   ADMIN_ALL_USERS: 'admin-all-users',
   FAQ: 'faq',
   ANNOUNCEMENT: 'announcement',
+  ANNOUNCEMENT_DETAIL: 'announcement-detail',
   PROPOSAL: 'proposal',
   PROPOSAL_DETAIL: 'proposal-detail',
   PROPOSAL_EDIT: 'proposal-edit',

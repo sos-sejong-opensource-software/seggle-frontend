@@ -1,58 +1,38 @@
-import { useState } from 'react';
-
 import { Heading, Table } from '@/components';
+import { useNavigate } from 'react-router-dom';
 
-import { useAnnouncement } from './hooks'
+import { useAnnouncement } from './hooks';
 
 export function Announcement() {
-
-  const announcementTableData = useAnnouncement();
-  const [currentPage, setCurrentPage] = useState(1);
-  const lastPage = 20;
+  const AnnouncementTableData = useAnnouncement();
   
-  const data = {
-    "count": 2,
-    "next": null,
-    "previous": null,
-    "results": [
-        {
-            "id" : 1,
-						"title" : "세글 이용 공지",
-						"created_time" : "2013-01-29T12:34:56.000000Z",
-						"last_modified": "2013-01-29T12:34:56.000000Z",
-						"important" : true,
-						"visible": true
-        },
-        {
-            "id" : 2,
-						"title" : "세글 이용 공지2",
-						"created_time" : "2013-01-29T12:34:56.000000Z",
-						"last_modified": "2013-01-29T12:34:56.000000Z",
-						"important" : true,
-						"visible": true
-        },
-        ]
-    }
+  //const [currentPage, setCurrentPage] = useState(1);
+  //const lastPage = 20;
 
   const column = [
     { Header: '#', accessor: 'id' },
     { Header: '제목', accessor: 'title' },
+    { Header: '작성자', accessor: 'created_user' },
     { Header: '작성일', accessor: 'created_time' },
   ];
+
+  const movePage = useNavigate();
+
+  function goAnnouncementDetail(id: number | string) {
+    movePage(`/announcement/${id}`);
+  }
 
   const handleRowClick = (
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
     id: number | string
   ) => {
-    console.log(id);
+    goAnnouncementDetail(id);
   };
 
   return (
     <>
       <Heading>공지사항</Heading>
-      <Table column={column} data={data.results} onRowClick={handleRowClick} />
+      <Table column={column} data={AnnouncementTableData} onRowClick={handleRowClick} />
     </>
   );
 }
-//<h1 className="text-3xl text-blue-400 px-3 py-3">Table</h1>
-//<Table column={column} data={data} onRowClick={handleRowClick} />

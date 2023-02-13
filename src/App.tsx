@@ -3,6 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 
+import { Announcement } from './pages/Announcement';
+import { AnnouncementDetail } from './pages/Announcement/AnnouncementDetail';
+
 import {
   Login,
   Register,
@@ -88,7 +91,8 @@ export default function App() {
             <Route path={PATH.BOARD_DETAIL} element={<BoardDetail />} />
             <Route path={PATH.BOARD_CREATE} element={<NewBoard />} />
             <Route path={PATH.BOARD_EDIT} element={<BoardEdit />} />
-            <Route path={PATH.ANNOUNCEMENT_LIST} element={<div>AnnouncementList</div>} />
+            <Route path={PATH.ANNOUNCEMENT_LIST} element={<Announcement />} />
+            <Route path={PATH.ANNOUNCEMENT_DETAIL} element={<AnnouncementDetail />} />
             <Route path={PATH.FAQ} element={<Faq />} />
             <Route path={PATH.ADMIN} element={<Admin />}>
               <Route path={PATH.ADMIN_PROBLEM_LIST} element={<AdminProblemList />} />
