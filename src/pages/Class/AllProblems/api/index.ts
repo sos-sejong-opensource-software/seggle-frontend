@@ -2,8 +2,8 @@ import { api, fileApi } from '@/api';
 
 const API_URL = `/problems`;
 
-const getAllProblemList = ({ keyword }: { keyword: string }) => {
-  return api.get(`${API_URL}?keyword=${keyword}`);
+const getAllProblemList = ({ keyword, currentPage }: { keyword: string; currentPage: number }) => {
+  return api.get(`${API_URL}?keyword=${keyword}&page=${currentPage}`);
 };
 
 const getProblem = (problemId: string) => {

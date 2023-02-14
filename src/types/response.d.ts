@@ -1,6 +1,6 @@
 type ApiResponse<T> = {
   count: number;
-  next: number | null;
-  previous: number | null;
+  last_page: number;
+  current_page: number;
   results: T;
 };
