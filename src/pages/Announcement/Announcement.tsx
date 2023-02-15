@@ -1,13 +1,13 @@
 import { Heading, Table } from '@/components';
+import Pagination from '@/components/Pagination';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useAnnouncement } from './hooks';
 
 export function Announcement() {
-  const AnnouncementTableData = useAnnouncement();
-  
-  //const [currentPage, setCurrentPage] = useState(1);
-  //const lastPage = 20;
+  const [currentPage, setCurrentPage] = useState(1);
+  const { data, page } = useAnnouncement(currentPage);
 
   const column = [
     { Header: '#', accessor: 'id' },
@@ -32,7 +32,8 @@ export function Announcement() {
   return (
     <>
       <Heading>공지사항</Heading>
-      <Table column={column} data={AnnouncementTableData} onRowClick={handleRowClick} />
+      <Table column={column} data={data} onRowClick={handleRowClick} />
+      <Pagination setCurrentPage={setCurrentPage} {...page} />
     </>
   );
 }

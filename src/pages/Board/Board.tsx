@@ -1,4 +1,3 @@
-import { PATH } from '@/constants';
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
@@ -6,12 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Heading, Table } from '@/components';
 
 import { useProposal } from './hooks';
+import Pagination from '@/components/Pagination';
 
 export function Board() {
-  const ProposalTableData = useProposal();
-
   const [currentPage, setCurrentPage] = useState(1);
-  const lastPage = 20;
+  const { data, page } = useProposal(currentPage);
 
   const column = [
     { Header: '#', accessor: 'id' },
@@ -40,7 +38,8 @@ export function Board() {
     <>
       <Heading>건의게시판</Heading>
       <Button onClick={goCreateProposal}>글쓰기</Button>
-      <Table column={column} data={ProposalTableData} onRowClick={handleRowClick} />
+      <Table column={column} data={data} onRowClick={handleRowClick} />
+      <Pagination setCurrentPage={setCurrentPage} {...page} />
     </>
   );
 }

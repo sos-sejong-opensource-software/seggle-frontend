@@ -4,8 +4,8 @@ import { api } from '@/api';
 
 const API_URL = '/announcements';
 
-const getAnnouncement = (): Promise<AxiosResponse<AnnouncementResponse>> => {
-  return api.get(`${API_URL}`);
+const getAnnouncement = (currentPage: number): Promise<AxiosResponse<AnnouncementResponse>> => {
+  return api.get(`${API_URL}?page=${currentPage}`);
 };
 
 const getAnnouncementDetail = (announcementId: string) => {

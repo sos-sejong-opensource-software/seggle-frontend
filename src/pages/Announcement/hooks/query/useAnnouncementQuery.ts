@@ -7,12 +7,18 @@ import { QUERY_KEYS } from '@/constants';
 import { getAnnouncement } from '../../api';
 
 export const useAnnouncementQuery = (
-  options?: UseQueryOptions<AnnouncementResponse, AxiosError, AnnouncementResponse, string>
+  currentPage: number,
+  options?: UseQueryOptions<
+    AnnouncementResponse,
+    AxiosError,
+    AnnouncementResponse,
+    [string, number]
+  >
 ) => {
   return useSuspenseQuery(
-    QUERY_KEYS.ANNOUNCEMENT,
-    async () => {
-      const { data } = await getAnnouncement();
+    [QUERY_KEYS.ANNOUNCEMENT, currentPage],
+    async ({ queryKey: [, currentPage] }) => {
+      const { data } = await getAnnouncement(currentPage);
       return data;
     },
     {
