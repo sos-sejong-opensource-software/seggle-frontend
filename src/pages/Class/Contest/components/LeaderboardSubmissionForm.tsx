@@ -4,6 +4,8 @@ import { Heading, Table, Button } from '@/components';
 import { formatTime } from '@/utils/time';
 
 import { useContestProblemSubmissionQuery } from '../hooks';
+import Pagination from '@/components/Pagination';
+import { useState } from 'react';
 
 type FileSubmissionFormProps<T extends React.ElementType> = Component<T>;
 
@@ -13,6 +15,7 @@ export function LeaderboardSubmissionForm({ ...props }: FileSubmissionFormProps<
     contestId: string;
     contestProblemId: string;
   };
+  const [currentPage, setCurrentPage] = useState(1);
 
   const column = [
     { Header: 'check', accessor: 'check' },
@@ -24,15 +27,20 @@ export function LeaderboardSubmissionForm({ ...props }: FileSubmissionFormProps<
   ];
 
   const {
-    data: { results },
-  } = useContestProblemSubmissionQuery({ classId, contestId, contestProblemId });
+    data: { results, current_page, last_page },
+  } = useContestProblemSubmissionQuery({
+    classId,
+    contestId,
+    contestProblemId,
+    currentPage,
+  });
 
   const data = results
     .sort(({ score: prev }, { score: next }) => next - prev)
     .sort(({ created_time: prev }, { created_time: next }) => +new Date(prev) - +new Date(next))
     .map((submission) => ({
       ...submission,
-      check: <input type="checkbox" id={submission.id} />,
+      check: <input type="checkbox" id={String(submission.id)} />,
       submissionDate: formatTime(submission.created_time),
     }));
 
@@ -41,6 +49,7 @@ export function LeaderboardSubmissionForm({ ...props }: FileSubmissionFormProps<
       <Heading as="h4">제출 내역</Heading>
       <p>선택한 제출 내역이 리더보드에 표시됩니다.</p>
       <Table column={column} data={data} />
+      <Pagination setCurrentPage={setCurrentPage} currentPage={current_page} lastPage={last_page} />
       <Button>제출</Button>
     </form>
   );

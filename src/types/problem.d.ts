@@ -35,10 +35,15 @@ type ContestProblem = {
   problem_data: string;
 };
 
-type ContestProblemRequest = { classId: string; contestId: string; contestProblemId: string };
+type ContestProblemRequest = {
+  classId: string;
+  contestId: string;
+  contestProblemId: string;
+  currentPage?: number | nulle;
+};
 
 type ContestProblemSubmission = {
-  id: nubmer;
+  id: number;
   username: string;
   score: number;
   status: number;

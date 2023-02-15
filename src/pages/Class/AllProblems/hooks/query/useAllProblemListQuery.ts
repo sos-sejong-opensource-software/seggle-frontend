@@ -7,13 +7,18 @@ import { QUERY_KEYS } from '@/constants';
 import { getAllProblemList } from '../../api';
 
 export const useAllProblemListQuery = (
-  { keyword }: { keyword: string },
-  options?: UseQueryOptions<ProblemListResponse, AxiosError, ProblemListResponse, [string, string]>
+  { keyword, currentPage }: { keyword: string; currentPage: number },
+  options?: UseQueryOptions<
+    ProblemListResponse,
+    AxiosError,
+    ProblemListResponse,
+    [string, string, number]
+  >
 ) => {
   return useSuspenseQuery(
-    [QUERY_KEYS.CLASS_PROBLEM, keyword],
-    async ({ queryKey: [, keyword] }) => {
-      const { data } = await getAllProblemList({ keyword });
+    [QUERY_KEYS.CLASS_PROBLEM, keyword, currentPage],
+    async ({ queryKey: [, keyword, currentPage] }) => {
+      const { data } = await getAllProblemList({ keyword, currentPage });
       return data;
     },
     {

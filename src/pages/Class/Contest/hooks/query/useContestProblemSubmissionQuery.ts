@@ -12,12 +12,18 @@ export const useContestProblemSubmissionQuery = (
     ContestProblemSubmissionResponse,
     AxiosError,
     ContestProblemSubmissionResponse,
-    string[]
+    [string, string, string, string, number]
   >
 ) => {
-  const { classId, contestId, contestProblemId } = params;
+  const { classId, contestId, contestProblemId, currentPage } = params;
   return useSuspenseQuery(
-    [QUERY_KEYS.CLASS_CONTEST_PROBLEM_SUBMISSION, classId, contestId, contestProblemId],
+    [
+      QUERY_KEYS.CLASS_CONTEST_PROBLEM_SUBMISSION,
+      classId,
+      contestId,
+      contestProblemId,
+      currentPage,
+    ],
     async () => {
       const { data } = await getContestProblemSubmission(params);
       return data;
