@@ -18,3 +18,8 @@ export const RESETPASSWORD_ERROR: { [key: string]: string } = {
   NEWPASSWORDCHECK: '비밀번호와 일치하지 않습니다.',
   RESET_PASSWORD_FAILED: '비밀번호 변경에 실패하였습니다.',
 };
+
+export const FINDPASSWORD_ERROR: { [key: string]: string } = {
+  CURRENTEMAIL: '이메일 형식이 올바르지 않습니다.',
+  FIND_PASSWORD_FAILED: '비밀번호 찾기에 실패하였습니다.',
+};
