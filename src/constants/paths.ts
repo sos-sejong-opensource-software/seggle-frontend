@@ -4,6 +4,7 @@ export const BASE_PATH: { [key: string]: string } = {
   LOGIN: '/login',
   REGISTER: '/register',
   RESET_PASSWORD: '/reset-password',
+  RESIGN: '/resign',
 
   COMPETITION: '/competition',
   CLASS: '/class',
@@ -74,6 +75,7 @@ export const PAGE: { [key: string]: string } = {
   LOGIN: '로그인',
   REGISTER: '회원가입',
   RESET_PASSWORD: '비밀번호 재설정',
+  RESIGN: '회원탈퇴',
 
   CLASS_LIST: '수업 및 시험',
   CLASS_ALL_PROBLEMS: '전체 문제 목록',
