@@ -17,4 +17,14 @@ const resetPassword = (payload: ResetPasswordRequest): Promise<AxiosResponse> =>
   return api.patch(`${API_URL}/{username}/`, payload);
 };
 
-export { loginUser, registerUser, resetPassword };
+const findPassword = (payload: FindPasswordRequest): Promise<AxiosResponse> => {
+  // Todo: 전역 username 가져오도록 변경하기
+  return api.patch(`${API_URL}/{username}/`, payload);
+};
+
+const resignUser = (): Promise<AxiosResponse> => {
+  // Todo: 전역 username 가져오도록 변경하기
+  return api.delete(`${API_URL}/{username}/`);
+};
+
+export { loginUser, registerUser, resetPassword, findPassword, resignUser };
