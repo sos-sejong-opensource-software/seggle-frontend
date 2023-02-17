@@ -21,7 +21,7 @@ export default function FindPassword() {
 
   return (
     <div className="container max-w-md mx-auto">
-      <Heading className="text-2xl font-bold">비밀번호 변경</Heading>
+      <Heading className="text-2xl font-bold">비밀번호 찾기</Heading>
       <FindPasswordForm inputList={inputList} onSubmit={handleFormSubmit} />
       {isError && (
         <ErrorMessage className="mt-4">{FINDPASSWORD_ERROR.FIND_PASSWORD_FAILED}</ErrorMessage>
