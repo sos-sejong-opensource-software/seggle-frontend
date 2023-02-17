@@ -8,7 +8,7 @@ import { useMutation, UseMutationOptions } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { resignUser } from '../../api';
 
-export const useResignUserMutation = (
+export const useResignMutation = (
   options?: UseMutationOptions<AxiosResponse, AxiosError, ResignUserRequest>
 ) => {
   const { setIsLogin } = useContext(AuthContext);
