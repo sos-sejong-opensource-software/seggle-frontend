@@ -9,6 +9,7 @@ import { AnnouncementDetail } from './pages/Announcement/AnnouncementDetail';
 import {
   Login,
   Register,
+  Resign,
   Faq,
   Board,
   BoardDetail,
@@ -57,6 +58,7 @@ export default function App() {
             <Route path={PATH.HOME} element={<Home />} />
             <Route path={PATH.LOGIN} element={<Login />} />
             <Route path={PATH.REGISTER} element={<Register />} />
+            <Route path={PATH.REGISTER} element={<Resign />} />
             <Route path={PATH.RESET_PASSWORD} element={<ResetPassword />} />
             <Route path={PATH.COMPETITION_LIST} element={<div>CompetitionList</div>} />
 
