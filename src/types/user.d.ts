@@ -47,3 +47,7 @@ type ResetPasswordRequest = {
 type FindPasswordRequest = {
   email: string;
 };
+
+type ResignUserRequest = {
+  current_password: string;
+};
