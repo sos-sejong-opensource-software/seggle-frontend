@@ -19,7 +19,7 @@ const resetPassword = (payload: ResetPasswordRequest): Promise<AxiosResponse> =>
 
 const findPassword = (payload: FindPasswordRequest): Promise<AxiosResponse> => {
   // Todo: 전역 username 가져오도록 변경하기
-  return api.patch(`${API_URL}/{username}/`, payload);
+  return api.post(`${API_URL}/apply_reset_password`, payload);
 };
 
 const resignUser = (): Promise<AxiosResponse> => {
