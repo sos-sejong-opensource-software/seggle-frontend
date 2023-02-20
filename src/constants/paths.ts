@@ -4,6 +4,7 @@ export const BASE_PATH: { [key: string]: string } = {
   LOGIN: '/login',
   REGISTER: '/register',
   RESET_PASSWORD: '/reset-password',
+  FIND_PASSWORD: '/find-password',
 
   COMPETITION: '/competition',
   CLASS: '/class',
