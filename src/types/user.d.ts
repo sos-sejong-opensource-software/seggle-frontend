@@ -13,8 +13,7 @@ type PrivilegeNumber = 0 | 1 | 2;
 type PrivilegeString = '학생' | '교수' | '관리자';
 
 type LoginResponse = {
-  access: string;
-  refresh: string;
+  username: string;
 };
 
 type RegisterRequest = {

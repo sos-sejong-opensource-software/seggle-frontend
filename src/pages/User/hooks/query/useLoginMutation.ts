@@ -1,26 +1,22 @@
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, UseMutationOptions } from 'react-query';
 import { AxiosError, AxiosResponse } from 'axios';
 
-import { AuthContext } from '@/contexts';
-import { STORAGE, PATH } from '@/constants';
+import { PATH } from '@/constants';
 
 import { loginUser } from '../../api';
+import { useUsername } from '@/hooks/useUsername';
 
 export const useLoginMutation = (
   options?: UseMutationOptions<AxiosResponse<LoginResponse>, AxiosError, User>
 ) => {
-  const { setIsLogin } = useContext(AuthContext);
+  const { setUsername } = useUsername();
   const navigate = useNavigate();
 
   return useMutation((user) => loginUser(user), {
     ...options,
-    onSuccess: ({ data: { refresh } }) => {
-      localStorage.setItem(STORAGE.REFRESH_TOKEN, refresh);
-
-      setIsLogin(true);
-
+    onSuccess: ({ data: { username } }) => {
+      setUsername(username);
       navigate(PATH.HOME);
     },
   });
