@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios';
 
 import { api } from '@/api';
 
-const API_URL = `/users/`;
+const API_URL = `/users`;
 
 const loginUser = (payload: User): Promise<AxiosResponse<LoginResponse>> => {
   return api.post(`${API_URL}/login/`, payload);
@@ -13,7 +13,7 @@ const logoutUser = (): Promise<AxiosResponse> => {
 };
 
 const registerUser = (payload: RegisterRequest): Promise<AxiosResponse> => {
-  return api.post(`${API_URL}`, payload);
+  return api.post(`${API_URL}/`, payload);
 };
 
 const resetPassword = (payload: ResetPasswordRequest): Promise<AxiosResponse> => {
@@ -21,4 +21,8 @@ const resetPassword = (payload: ResetPasswordRequest): Promise<AxiosResponse> =>
   return api.patch(`${API_URL}/{username}/`, payload);
 };
 
-export { loginUser, logoutUser, registerUser, resetPassword };
+const getUser = (username: string): Promise<AxiosResponse<UserResponse>> => {
+  return api.get(`${API_URL}/${username}/`);
+};
+
+export { loginUser, logoutUser, registerUser, resetPassword, getUser };

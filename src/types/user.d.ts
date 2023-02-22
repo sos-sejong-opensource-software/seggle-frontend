@@ -42,3 +42,8 @@ type ResetPasswordRequest = {
   new_password: string;
   new_password2: string;
 };
+
+type UserResponse = Omit<AdminUserResponse, 'date_joined'> & {
+  classes: Array<{ class_id: number; privilege: number }>;
+  competition: Array<{ competition_id: number; privilege: number }>;
+};
