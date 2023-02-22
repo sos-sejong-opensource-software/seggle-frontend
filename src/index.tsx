@@ -3,8 +3,6 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { AuthProvider } from '@/contexts';
-
 import App from './App';
 import './style/index.css';
 import { AxiosError, AxiosResponse } from 'axios';
@@ -44,9 +42,7 @@ createRoot(root).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
+        <App />
       </BrowserRouter>
     </QueryClientProvider>
   </StrictMode>
