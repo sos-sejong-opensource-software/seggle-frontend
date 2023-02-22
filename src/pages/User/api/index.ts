@@ -8,6 +8,10 @@ const loginUser = (payload: User): Promise<AxiosResponse<LoginResponse>> => {
   return api.post(`${API_URL}/login/`, payload);
 };
 
+const logoutUser = (): Promise<AxiosResponse> => {
+  return api.post(`${API_URL}/logout/`);
+};
+
 const registerUser = (payload: RegisterRequest): Promise<AxiosResponse> => {
   return api.post(`${API_URL}`, payload);
 };
@@ -17,4 +21,4 @@ const resetPassword = (payload: ResetPasswordRequest): Promise<AxiosResponse> =>
   return api.patch(`${API_URL}/{username}/`, payload);
 };
 
-export { loginUser, registerUser, resetPassword };
+export { loginUser, logoutUser, registerUser, resetPassword };
