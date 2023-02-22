@@ -21,4 +21,5 @@ export const QUERY_KEYS = {
   CLASS_CONTEST_PROBLEM: 'class-contest-problem',
   CLASS_CONTEST_PROBLEM_SUBMISSION: 'class-contest-problem-submission',
   PROBLEM_DETAIL: 'problem-detail',
+  USER: 'user',
 };

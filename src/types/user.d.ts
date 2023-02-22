@@ -13,8 +13,7 @@ type PrivilegeNumber = 0 | 1 | 2;
 type PrivilegeString = '학생' | '교수' | '관리자';
 
 type LoginResponse = {
-  access: string;
-  refresh: string;
+  username: string;
 };
 
 type RegisterRequest = {
@@ -42,4 +41,9 @@ type ResetPasswordRequest = {
   current_password: string;
   new_password: string;
   new_password2: string;
+};
+
+type UserResponse = Omit<AdminUserResponse, 'date_joined'> & {
+  classes: Array<{ class_id: number; privilege: number }>;
+  competition: Array<{ competition_id: number; privilege: number }>;
 };

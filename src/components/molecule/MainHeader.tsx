@@ -1,10 +1,15 @@
 import { useState } from 'react';
 
-import { Header, LinkButton } from '@/components';
+import { Button, Header, LinkButton } from '@/components';
 import { PATH } from '@/constants';
+import { useLogoutMutation } from '@/pages/User/hooks/query';
+import { useUsername } from '@/hooks/useUsername';
 
 export function MainHeader() {
   const [showMenu, setShowMenu] = useState(false);
+
+  const { username } = useUsername();
+  const { mutate: logout } = useLogoutMutation();
 
   const handleButtonClick = () => {
     setShowMenu((state) => !state);
@@ -33,12 +38,25 @@ export function MainHeader() {
         />
         <ul>
           <li className="flex gap-2">
-            <LinkButton to={PATH.LOGIN} className="text-sm sm:text-base">
-              로그인
-            </LinkButton>
-            <LinkButton to={PATH.REGISTER} className="text-sm sm:text-base">
-              회원가입
-            </LinkButton>
+            {username ? (
+              <>
+                <LinkButton to={PATH.USER_HOME} className="text-sm sm:text-base">
+                  {username}
+                </LinkButton>
+                <Button onClick={() => logout()} className="text-sm sm:text-base">
+                  로그아웃
+                </Button>
+              </>
+            ) : (
+              <>
+                <LinkButton to={PATH.LOGIN} className="text-sm sm:text-base">
+                  로그인
+                </LinkButton>
+                <LinkButton to={PATH.REGISTER} className="text-sm sm:text-base">
+                  회원가입
+                </LinkButton>
+              </>
+            )}
           </li>
         </ul>
       </nav>

@@ -4,19 +4,18 @@ import { AxiosError, AxiosResponse } from 'axios';
 
 import { PATH } from '@/constants';
 
-import { loginUser } from '../../api';
+import { logoutUser } from '../../api';
 import { useUsername } from '@/hooks/useUsername';
 
-export const useLoginMutation = (
-  options?: UseMutationOptions<AxiosResponse<LoginResponse>, AxiosError, User>
-) => {
-  const { setUsername } = useUsername();
+export const useLogoutMutation = (options?: UseMutationOptions<AxiosResponse, AxiosError>) => {
+  const { removeUsername } = useUsername();
   const navigate = useNavigate();
 
-  return useMutation((user) => loginUser(user), {
+  return useMutation(logoutUser, {
     ...options,
-    onSuccess: ({ data: { username } }) => {
-      setUsername(username);
+    onSuccess: () => {
+      removeUsername();
+
       navigate(PATH.HOME);
     },
   });
