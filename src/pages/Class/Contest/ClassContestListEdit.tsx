@@ -47,7 +47,13 @@ export function ClassContestListEdit() {
     const { id, name, visible } = contest;
     return {
       ...contest,
-      visible: <Switch enabled={visible} onClick={() => handleSwitchButtonClick(id)} />,
+      visible: (
+        <Switch
+          key={`${id}_visible_${String(visible)}`}
+          enabled={visible}
+          onClick={() => handleSwitchButtonClick(id)}
+        />
+      ),
       edit: <Button onClick={() => handleEditButtonClick(id)}>편집</Button>,
       delete: <Button onClick={() => handleDeleteButtonClick(id, name)}>삭제</Button>,
     };
