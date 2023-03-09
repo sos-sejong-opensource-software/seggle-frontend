@@ -64,6 +64,20 @@ const createContestProblem = ({
   return fileApi.post(`${API_URL}/${classId}/contests/${contestId}/`, payload);
 };
 
+const editContestProblem = ({
+  classId,
+  contestId,
+  contestProblemId,
+  payload,
+}: {
+  classId: string;
+  contestId: string;
+  contestProblemId: string;
+  payload: FormData;
+}) => {
+  return fileApi.put(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/`, payload);
+};
+
 const createContestProblemSubmission = ({
   classId,
   contestId,
@@ -94,6 +108,7 @@ export {
   getContestProblem,
   getContestProblemSubmission,
   createContestProblem,
+  editContestProblem,
   createContestProblemSubmission,
   createContestProblemSumbissionCheck,
 };

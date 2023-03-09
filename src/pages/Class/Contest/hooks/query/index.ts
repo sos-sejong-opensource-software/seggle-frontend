@@ -10,3 +10,4 @@ export * from './useContestProblemSubmissionQuery';
 export * from './useCreateContestProblemSubmissionMutation';
 export * from './useCreateContestProblemSubmissionCheckMutation';
 export * from './useCreateContestProblemMutation';
+export * from './useEditContestProblemMutation';
