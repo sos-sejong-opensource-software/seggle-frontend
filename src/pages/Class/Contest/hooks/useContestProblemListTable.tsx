@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components';
 import { formatTime } from '@/utils/time';
 
-import { useClassContestProblemListQuery } from './query';
-import { useDeleteProblemMutation } from '../../AllProblems/hooks';
+import { useClassContestProblemListQuery, useDeleteContestProblemMutation } from './query';
 
 export const useContestProblemListTable = (classId: string, contestId: string) => {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ export const useContestProblemListTable = (classId: string, contestId: string) =
     navigate(`${id}/edit`);
   };
 
-  const { mutate: deleteProblem } = useDeleteProblemMutation();
+  const { mutate: deleteContestProblem } = useDeleteContestProblemMutation();
   const handleDeleteButtonClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     id: number,
@@ -30,7 +29,7 @@ export const useContestProblemListTable = (classId: string, contestId: string) =
   ) => {
     e.stopPropagation();
     const isConfirmed = confirm(`${title}을 삭제하시겠습니까?`);
-    if (isConfirmed) deleteProblem(`${id}`);
+    if (isConfirmed) deleteContestProblem({ classId, contestId, contestProblemId: `${id}` });
   };
 
   const {
