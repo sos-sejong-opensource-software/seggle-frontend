@@ -7,7 +7,7 @@ import { QUERY_KEYS } from '@/constants';
 import { getContestProblemSubmission } from '../../api';
 
 export const useContestProblemSubmissionQuery = (
-  params: ContestProblemRequest,
+  params: ContestProblemRequest & { username?: string },
   options?: UseQueryOptions<
     ContestProblemSubmissionResponse,
     AxiosError,
@@ -22,7 +22,7 @@ export const useContestProblemSubmissionQuery = (
       classId,
       contestId,
       contestProblemId,
-      currentPage,
+      currentPage ?? 1,
     ],
     async () => {
       const { data } = await getContestProblemSubmission(params);
