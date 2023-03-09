@@ -52,9 +52,16 @@ const getContestProblemSubmission = ({
   );
 };
 
-/** FIXME: contest problem API로 변경 */
-const createContestProblem = (payload: FormData) => {
-  return fileApi.post(`/problems/`, payload);
+const createContestProblem = ({
+  classId,
+  contestId,
+  payload,
+}: {
+  classId: string;
+  contestId: string;
+  payload: FormData;
+}) => {
+  return fileApi.post(`${API_URL}/${classId}/contests/${contestId}/`, payload);
 };
 
 const createContestProblemSubmission = ({
