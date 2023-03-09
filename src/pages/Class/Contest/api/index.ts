@@ -78,6 +78,18 @@ const editContestProblem = ({
   return fileApi.put(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/`, payload);
 };
 
+const deleteContestProblem = ({
+  classId,
+  contestId,
+  contestProblemId,
+}: {
+  classId: string;
+  contestId: string;
+  contestProblemId: string;
+}) => {
+  return api.delete(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/`);
+};
+
 const createContestProblemSubmission = ({
   classId,
   contestId,
@@ -109,6 +121,7 @@ export {
   getContestProblemSubmission,
   createContestProblem,
   editContestProblem,
+  deleteContestProblem,
   createContestProblemSubmission,
   createContestProblemSumbissionCheck,
 };
