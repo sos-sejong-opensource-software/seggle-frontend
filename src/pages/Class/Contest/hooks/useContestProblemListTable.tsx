@@ -37,12 +37,12 @@ export const useContestProblemListTable = (classId: string, contestId: string) =
     data: { results },
   } = useClassContestProblemListQuery(classId, contestId);
   const data = results.map((problem) => {
-    const { problem_id, title, end_time } = problem;
+    const { id, title, end_time } = problem;
     return {
       ...problem,
       endTime: formatTime(end_time),
-      edit: <Button onClick={(e) => handleEditButtonClick(e, problem_id)}>편집</Button>,
-      delete: <Button onClick={(e) => handleDeleteButtonClick(e, problem_id, title)}>삭제</Button>,
+      edit: <Button onClick={(e) => handleEditButtonClick(e, id)}>편집</Button>,
+      delete: <Button onClick={(e) => handleDeleteButtonClick(e, id, title)}>삭제</Button>,
     };
   });
 

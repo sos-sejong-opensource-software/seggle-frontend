@@ -2,13 +2,17 @@ import { useParams } from 'react-router-dom';
 
 import { ProblemForm } from '@/pages/Class/components';
 
-import { useEditProblemMutation, useProblemQuery } from './hooks';
+import { useEditContestProblemMutation, useContestProblemQuery } from './hooks';
 
-export function ProblemEdit() {
-  const { problemId } = useParams() as { problemId: string };
-  /** FIXME: 파일이 존재하는 쿼리로 변경 + contest problem API 추가 */
-  const { data } = useProblemQuery(problemId);
-  const { mutate } = useEditProblemMutation(problemId);
+export function ContestProblemEdit() {
+  const { classId, contestId, contestProblemId } = useParams() as {
+    classId: string;
+    contestId: string;
+    contestProblemId: string;
+  };
+
+  const { data } = useContestProblemQuery({ classId, contestId, contestProblemId });
+  const { mutate } = useEditContestProblemMutation(classId, contestId, contestProblemId);
 
   return <ProblemForm data={{ ...data, data: new Blob(), solution: new Blob() }} mutate={mutate} />;
 }
