@@ -1,11 +1,12 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Heading, Table, Button } from '@/components';
+import Pagination from '@/components/Pagination';
 import { formatTime } from '@/utils/time';
+import { useUsername } from '@/hooks/useUsername';
 
 import { useContestProblemSubmissionQuery } from '../hooks';
-import Pagination from '@/components/Pagination';
-import { useState } from 'react';
 
 type FileSubmissionFormProps<T extends React.ElementType> = Component<T>;
 
@@ -26,6 +27,7 @@ export function LeaderboardSubmissionForm({ ...props }: FileSubmissionFormProps<
     { Header: '제출 날짜', accessor: 'submissionDate' },
   ];
 
+  const { username } = useUsername();
   const {
     data: { results, current_page, last_page },
   } = useContestProblemSubmissionQuery({
@@ -33,6 +35,7 @@ export function LeaderboardSubmissionForm({ ...props }: FileSubmissionFormProps<
     contestId,
     contestProblemId,
     currentPage,
+    username: username ?? '',
   });
 
   const data = results

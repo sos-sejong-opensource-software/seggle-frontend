@@ -38,15 +38,17 @@ const getContestProblem = ({ classId, contestId, contestProblemId }: ContestProb
   return api.get(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}`);
 };
 
-/** FIXME: username */
 const getContestProblemSubmission = ({
   classId,
   contestId,
   contestProblemId,
   currentPage,
-}: ContestProblemRequest) => {
+  username,
+}: ContestProblemRequest & { username?: string }) => {
   return api.get(
-    `${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/submissions?page=${currentPage}`
+    `${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/submissions?page=${currentPage}${
+      username ? `&username=${username}` : ''
+    }`
   );
 };
 
