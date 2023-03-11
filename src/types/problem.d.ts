@@ -39,7 +39,7 @@ type ContestProblemRequest = {
   classId: string;
   contestId: string;
   contestProblemId: string;
-  currentPage?: number | nulle;
+  currentPage?: number;
 };
 
 type ContestProblemSubmission = {

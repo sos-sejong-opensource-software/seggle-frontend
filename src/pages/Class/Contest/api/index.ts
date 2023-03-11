@@ -38,21 +38,56 @@ const getContestProblem = ({ classId, contestId, contestProblemId }: ContestProb
   return api.get(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}`);
 };
 
-/** FIXME: username */
 const getContestProblemSubmission = ({
   classId,
   contestId,
   contestProblemId,
   currentPage,
-}: ContestProblemRequest) => {
+  username,
+}: ContestProblemRequest & { username?: string }) => {
   return api.get(
-    `${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/submissions?page=${currentPage}`
+    `${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/submissions?page=${currentPage}${
+      username ? `&username=${username}` : ''
+    }`
   );
 };
 
-/** FIXME: contest problem API로 변경 */
-const createContestProblem = (payload: FormData) => {
-  return fileApi.post(`/problems/`, payload);
+const createContestProblem = ({
+  classId,
+  contestId,
+  payload,
+}: {
+  classId: string;
+  contestId: string;
+  payload: FormData;
+}) => {
+  return fileApi.post(`${API_URL}/${classId}/contests/${contestId}/`, payload);
+};
+
+const editContestProblem = ({
+  classId,
+  contestId,
+  contestProblemId,
+  payload,
+}: {
+  classId: string;
+  contestId: string;
+  contestProblemId: string;
+  payload: FormData;
+}) => {
+  return fileApi.put(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/`, payload);
+};
+
+const deleteContestProblem = ({
+  classId,
+  contestId,
+  contestProblemId,
+}: {
+  classId: string;
+  contestId: string;
+  contestProblemId: string;
+}) => {
+  return api.delete(`${API_URL}/${classId}/contests/${contestId}/${contestProblemId}/`);
 };
 
 const createContestProblemSubmission = ({
@@ -85,6 +120,8 @@ export {
   getContestProblem,
   getContestProblemSubmission,
   createContestProblem,
+  editContestProblem,
+  deleteContestProblem,
   createContestProblemSubmission,
   createContestProblemSumbissionCheck,
 };

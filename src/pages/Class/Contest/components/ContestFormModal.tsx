@@ -11,14 +11,16 @@ type ContestFormModal<T extends React.ElementType> = Component<T> &
 export function ContestFormModal({ showModal, setShowModal }: ContestFormModal<'div'>) {
   const { classId } = useParams() as { classId: string };
 
-  const { renderBody, isExam, visible } = useContestModalBody();
+  const { renderBody } = useContestModalBody();
 
   const { mutate: createContest } = useCreateContestMutation();
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
     e.preventDefault();
 
-    const [name, startTime, endTime] = Object.values(e.target).map(({ value }) => value);
+    const [name, startTime, endTime, isExam, visible] = Object.values(e.target)
+      .filter(({ nodeName }) => nodeName === 'INPUT')
+      .map(({ name, value, checked }) => (name === 'switch' ? checked : value));
 
     createContest({
       classId,
